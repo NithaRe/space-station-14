@@ -1,6 +1,17 @@
 - type: soundCollection
   id: LobbyMusic
   files:
+    - /Audio/Lobby/01_The_Gamble.ogg # Orienta lobby music start
+    - /Audio/Lobby/02_Guilty_Pleasures.ogg
+    - /Audio/Lobby/03_Jazzcuzzi.ogg
+    - /Audio/Lobby/04_The_Walk.ogg
+    - /Audio/Lobby/05_Velvet_Bossa.ogg
+    - /Audio/Lobby/06_Colors.ogg
+    - /Audio/Lobby/07_Midnight_Jam.ogg
+    - /Audio/Lobby/08_Miles_Ahead.ogg
+    - /Audio/Lobby/09_Moody.ogg
+    - /Audio/Lobby/10_Flying_Away.ogg
+    - /Audio/Lobby/11_Take_It_Easy.ogg #Orienta lobby music end
     - /Audio/Lobby/thunderdome.ogg
     - /Audio/Lobby/absconditus.ogg
     - /Audio/Lobby/space_asshole.ogg
