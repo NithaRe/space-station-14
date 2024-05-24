@@ -1,11 +1,11 @@
 ﻿- type: construction
-  name: computer
+  name: компьютер
   id: Computer
   graph: Computer
   startNode: start
   targetNode: computer
   category: construction-category-machines
-  description: A frame used to construct anything with a computer circuitboard.
+  description: Каркас, используемый для сборки чего угодно с компьютерной печатной платой.
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   icon:
@@ -19,8 +19,8 @@
   # Orienta skills - end
 
 - type: construction
-  name: machine frame
-  description: A machine under construction. Needs more parts.
+  name: машинный каркас
+  description: Машина в процессе сборки. Нуждается в деталях.
   id: MachineFrame
   graph: Machine
   startNode: start
@@ -40,13 +40,13 @@
 
 # Switching
 - type: construction
-  name: two-way lever
+  name: двусторонний рычаг
   id: TwoWayLeverRecipe
   graph: LeverGraph
   startNode: start
   targetNode: LeverNode
   category: construction-category-machines
-  description: A lever to control machines. It has 3 modes.
+  description: Рычаг для управления машинами. Имеет три положения.
   objectType: Structure
   canBuildInImpassable: false
   icon:
@@ -61,13 +61,13 @@
   # Orienta skills - end
 
 - type: construction
-  name: light switch
+  name: выключатель
   id: LightSwitchRecipe
   graph: LightSwitchGraph
   startNode: start
   targetNode: LightSwitchNode
   category: construction-category-machines
-  description: A switch for toggling lights that are connected to the same apc.
+  description: Выключатель для ламп, подключенных к одной ЛКП.
   icon:
     sprite: Structures/Wallmounts/switch.rsi
     state: on
@@ -84,13 +84,13 @@
   # Orienta skills - end
 
 - type: construction
-  name: signal switch
+  name: переключатель
   id: SignalSwitchRecipe
   graph: SignalSwitchGraph
   startNode: start
   targetNode: SignalSwitchNode
   category: construction-category-machines
-  description: It's a switch for toggling power to things.
+  description: Переключает поступление электричества.
   icon:
     sprite: Structures/Wallmounts/switch.rsi
     state: on
@@ -107,13 +107,13 @@
   # Orienta skills - end
 
 - type: construction
-  name: signal button
+  name: кнопка
   id: SignalButtonRecipe
   graph: SignalButtonGraph
   startNode: start
   targetNode: SignalButtonNode
   category: construction-category-machines
-  description: It's a button for activating something.
+  description: Она что-то активирует.
   icon:
     sprite: Structures/Wallmounts/switch.rsi
     state: on
@@ -130,13 +130,13 @@
   # Orienta skills - end
 
 - type: construction
-  name: directional light switch
+  name: направленный выключатель
   id: LightSwitchDirectionalRecipe
   graph: LightSwitchDirectionalGraph
   startNode: start
   targetNode: LightSwitchDirectionalNode
   category: construction-category-machines
-  description: A switch for toggling lights that are connected to the same apc.
+  description: Выключатель для ламп, подключенных к одной ЛКП.
   icon:
     sprite: Structures/Wallmounts/switch.rsi
     state: on
@@ -153,13 +153,13 @@
   # Orienta skills - end
 
 - type: construction
-  name: directional signal switch
+  name: направленный переключатель
   id: SignalSwitchDirectionalRecipe
   graph: SignalSwitchDirectionalGraph
   startNode: start
   targetNode: SignalSwitchDirectionalNode
   category: construction-category-machines
-  description: It's a switch for toggling power to things.
+  description: Переключает поступление электричества.
   icon:
     sprite: Structures/Wallmounts/switch.rsi
     state: on
@@ -176,13 +176,13 @@
   # Orienta skills - end
 
 - type: construction
-  name: directional signal button
+  name: направленная кнопка
   id: SignalButtonDirectionalRecipe
   graph: SignalButtonDirectionalGraph
   startNode: start
   targetNode: SignalButtonDirectionalNode
   category: construction-category-machines
-  description: It's a button for activating something.
+  description: Она что-то активирует.
   icon:
     sprite: Structures/Wallmounts/switch.rsi
     state: on
