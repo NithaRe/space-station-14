@@ -4,9 +4,8 @@
   description: job-description-bartender
   playTimeTracker: JobBartender
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Civilian
-      time: 3600 #1 hrs # Corvax-RoleTime
+    - !type:OverallPlaytimeRequirement
+      time: 7200 #2 hrs # Stories-RoleTime
   startingGear: BartenderGear
   icon: "JobIconBartender"
   supervisors: job-supervisors-hop
@@ -17,6 +16,15 @@
   extendedAccess:
   - Kitchen
   - Hydroponics
+  # Stories skills - start
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: Skills
+        skills:
+          Guns: 0.5
+          Melee: 0.1
+  # Stories skills - end
 
 - type: startingGear
   id: BartenderGear

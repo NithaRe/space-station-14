@@ -3,9 +3,6 @@
   name: job-name-mime
   description: job-description-mime
   playTimeTracker: JobMime
-  requirements:
-  - !type:OverallPlaytimeRequirement
-      time: 90000 #25 hrs # Corvax-RoleTime
   startingGear: MimeGear
   icon: "JobIconMime"
   supervisors: job-supervisors-hop
@@ -17,6 +14,11 @@
     components:
     - type: MimePowers
     - type: FrenchAccent
+  # Stories skills - start
+    - type: Skills
+      skills:
+        Melee: 1.0
+  # Stories skills - end
 
 - type: startingGear
   id: MimeGear
