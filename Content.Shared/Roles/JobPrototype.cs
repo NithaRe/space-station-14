@@ -63,6 +63,9 @@ namespace Content.Shared.Roles
         [DataField("canBeAntag")]
         public bool CanBeAntag { get; private set; } = true;
 
+        [DataField("radioBold")]
+        public bool RadioIsBold { get; }
+
         /// <summary>
         ///     The "weight" or importance of this job. If this number is large, the job system will assign this job
         ///     before assigning other jobs.
