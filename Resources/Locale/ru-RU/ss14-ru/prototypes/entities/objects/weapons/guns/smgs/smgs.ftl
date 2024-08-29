@@ -12,5 +12,5 @@ ent-WeaponSubMachineGunVector = Вектор
     .desc = Превосходный тяжёлый пистолет-пулемёт. Использует патроны калибра .45 магнум.
     .suffix = Неактуален, используйте Дрозд
 ent-WeaponSubMachineGunWt550 = WT550
-    .desc = Отличный пистолет-пулемёт, производства NanoTrasen's Small Arms Division. Использует патроны калибра .35 авто.
+    .desc = Отличный пистолет-пулемёт, производства Orienta's Small Arms Division. Использует патроны калибра .35 авто.
     .suffix = Пистолет-пулемёт
