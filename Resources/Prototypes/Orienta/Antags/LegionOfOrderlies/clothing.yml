@@ -1,0 +1,111 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitLegionOfOrderlies
+  name: комбинезон химической защиты
+  description: Этот оранжевый костюм вряд ли спасет носителя от реагентов, попавших в лицо.
+  components:
+  - type: Sprite
+    sprite: Orienta/Antags/LegionOfOrderlies/Clothing/anti-chemicalsuit.rsi
+  - type: Clothing
+    sprite: Orienta/Antags/LegionOfOrderlies/Clothing/anti-chemicalsuit.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsLegionOfOrderlies
+  name: ботинки Легиона Санитаров
+  description: Удобные берцы с металлическими вставками, чтобы ДАВИТЬ АДЕПТОВ КОРПОРАЦИИ ОРИЕНТА.
+  components:
+  - type: Sprite
+    sprite: Orienta/Antags/LegionOfOrderlies/Clothing/boots.rsi
+  - type: Clothing
+    sprite: Orienta/Antags/LegionOfOrderlies/Clothing/boots.rsi
+  - type: Matchbox
+
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskGasLegionOfOrderlies
+  name: респиратор Легиона Санитаров
+  description: Обрубок противогаза, весьма удобный в использовании. Стоит ли менять фильтры?
+  components:
+  - type: Sprite
+    sprite: Orienta/Antags/LegionOfOrderlies/Clothing/respirator.rsi
+  - type: Clothing
+    sprite: Orienta/Antags/LegionOfOrderlies/Clothing/respirator.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesLegionOfOrderlies
+  name: кожанные перчатки Легиона Санитаров
+  description: Интересно, в них удобно стрелять?
+  components:
+  - type: Sprite
+    sprite: Orienta/Antags/LegionOfOrderlies/Clothing/gloves.rsi
+    state: icon
+  - type: Clothing
+    sprite: Orienta/Antags/LegionOfOrderlies/Clothing/gloves.rsi
+  - type: GloveHeatResistance
+    heatResistance: 1400
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-durathread
+    fiberColor: fibers-brown
+  - type: FingerprintMask
+  - type: StaminaDamageOnHit
+    damage: 30
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGogglesLegionOfOrderlies
+  name: гоглы Легиона Санитаров
+  description: Очки, защищающие непривыкшие к примесям мусора в воздухе глаза.
+  components:
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/science.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/science.rsi
+    - type: FlashImmunity
+    - type: EyeProtection
+    - type: SolutionScanner
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatUshankaLegionOfOrderlies
+  name: шапка-ушанка Легиона Санитаров
+  description: Науши закрывают незащищенную часть лица и заглушают крики задыхающихся людей.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/ushanka.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/ushanka.rsi
+  - type: TemperatureProtection
+    coefficient: 0.005
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.8
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterCoatLegionOfOrderlies
+  name: пальто Легиона Санитаров
+  description: Это пальто когда-то служило корпорации Ориента, но сейчас вызывает неописуемую смесь страха и ненависти.
+  components:
+  - type: Sprite
+    sprite: Backmen/Clothing/OuterClothing/Coats/ssspcoatbelov.rsi
+  - type: Clothing
+    sprite: Backmen/Clothing/OuterClothing/Coats/ssspcoatbelov.rsi
+  - type: TemperatureProtection
+    coefficient: 0.005
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Caustic: 0.9
+        Heat: 0.8

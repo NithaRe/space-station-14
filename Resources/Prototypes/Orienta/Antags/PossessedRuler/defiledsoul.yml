@@ -1,0 +1,98 @@
+- type: entity
+  id: MobDefiledSoul
+  name: оскверненная душа
+  description: Душа анимешника.
+  components:
+  - type: MindContainer
+  - type: InputMover
+  - type: MobMover
+  - type: Input
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1
+    baseSprintSpeed: 1
+  - type: Sprite
+    noRot: true
+    sprite: Orienta/Antags/PossessedRuler/defiledsoul.rsi
+    layers:
+    - state: idle
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MovementIgnoreGravity
+  - type: Damageable
+    damageContainer: Biological
+  - type: Examiner
+  - type: NoSlip
+  - type: Actions
+  - type: TTS # Corvax-TTS
+    voice: twitch
+  - type: Eye
+    drawFov: true
+    visMask:
+      - Normal
+  - type: ContentEye
+    maxZoom: 1.2, 1.2
+  - type: DoAfter
+  - type: Alerts
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: GhostRole
+    makeSentient: true
+    name: оскверненная душа
+    description: Душа анимешника.
+    rules: Подчиняйтесь приказам своего владельца!
+    raffle:
+      settings: default
+  - type: PointLight
+    color: "#ff0000"
+    radius: 2
+    softness: 1
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: Visibility
+    layer: 1
+  - type: Speech
+    speechVerb: Ghost
+  - type: CombatMode
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcFist
+    damage:
+      types:
+        Brute: 15
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: idle
+      Dead:
+        Base: dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      20: Dead
+  - type: StatusEffects
+    allowed:
+      - KnockedDown
+      - SlowedDown
+      - TemporaryBlindness
+      - Flashed
+  - type: AmbientSound
+    volume: -3
+    range: 4
+    sound:
+      path: /Audio/Ambience/spookyspace2.ogg
+  - type: DefiledSoul

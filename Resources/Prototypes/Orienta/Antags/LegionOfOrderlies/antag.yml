@@ -1,0 +1,114 @@
+### gameRule
+#
+##- type: entity
+##  id: LegionOfOrderlies
+##  parent: BaseGameRule
+##  noSpawn: true
+##  components:
+##  - type: NukeopsRule #todo
+#
+### antags
+#- type: antag
+#  id: OrderlyStormtrooper
+#  name: Санитар-штурмовик
+#  antagonist: true
+#  setPreference: true
+#  objective: Защитите остальных членов отряда Легиона Санитаров!
+#  requirements:
+#  - !type:DepartmentTimeRequirement
+#    department: Security
+#    time: 7200 # 2hrs
+#  - !type:OverallPlaytimeRequirement
+#    time: 18000 # 5hrs
+#
+#- type: antag
+#  id: OrderlyTech
+#  name: Санитар-техник
+#  antagonist: true
+#  setPreference: true
+#  objective: Уничтожьте станцию химическим или биологическим оружием!
+#  requirements:
+#  - !type:RoleTimeRequirement
+#    role: JobAtmosphericTechnician
+#    time: 7200 # 2hrs
+#  - !type:RoleTimeRequirement
+#    role: JobChemist
+#    time: 7200 # 2hrs
+#  - !type:OverallPlaytimeRequirement
+#    time: 18000 # 5hrs
+#
+#- type: antag
+#  id: OrderlyOfficer
+#  name: Санитар-офицер
+#  antagonist: true
+#  setPreference: true
+#  objective: Руководите отрядом Легиона Санитаров!
+#  requirements:
+#  - !type:RoleTimeRequirement
+#    role: JobAtmosphericTechnician
+#    time: 14400 # 4hrs
+#  - !type:RoleTimeRequirement
+#    role: JobChemist
+#    time: 14400 # 4hrs
+#  - !type:OverallPlaytimeRequirement
+#    time: 25200 # 7hrs
+#
+## starting gear
+- type: startingGear
+  id: OrderlyStormtrooperGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitLegionOfOrderlies
+#    back: ClothingBackpackDuffelSyndicateOperative
+    mask: ClothingMaskGasLegionOfOrderlies
+    eyes: ClothingEyesGogglesLegionOfOrderlies
+#    ears: ClothingHeadsetAltSyndicate
+    gloves: ClothingEyesGogglesLegionOfOrderlies
+    outerClothing: ClothingOuterWinterCoatLegionOfOrderlies
+    shoes: ClothingShoesBootsLegionOfOrderlies
+#    id: NukieAgentIDCard
+    pocket1: DoubleEmergencyOxygenTankFilled
+#    pocket2: BaseUplinkRadio40TC
+#    belt: ClothingBeltMilitaryWebbing
+  innerClothingSkirt: ClothingUniformJumpsuitLegionOfOrderlies
+#  satchel: ClothingBackpackDuffelSyndicateOperative
+#  duffelbag: ClothingBackpackDuffelSyndicateOperative
+
+- type: startingGear
+  id: OrderlyTechGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitLegionOfOrderlies
+#    back: ClothingBackpackDuffelSyndicateOperativeMedic
+    mask: ClothingMaskGasLegionOfOrderlies
+    eyes: ClothingEyesGogglesLegionOfOrderlies
+#    ears: ClothingHeadsetAltSyndicate
+    gloves: ClothingEyesGogglesLegionOfOrderlies
+    outerClothing: ClothingOuterWinterCoatLegionOfOrderlies #other tech
+    shoes: ClothingShoesBootsLegionOfOrderlies
+#    id: SyndiPDA
+    pocket1: DoubleEmergencyOxygenTankFilled
+#    pocket2: BaseUplinkRadio40TC
+#    belt: ClothingBeltMilitaryWebbingMedFilled
+  innerClothingSkirt: ClothingUniformJumpsuitLegionOfOrderlies
+#  satchel: ClothingBackpackDuffelSyndicateOperativeMedic
+#  duffelbag: ClothingBackpackDuffelSyndicateOperativeMedic
+
+- type: startingGear
+  id: OrderlyOfficerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitLegionOfOrderlies
+#    back: ClothingBackpackDuffelSyndicateOperative
+    mask: ClothingMaskGasLegionOfOrderlies
+    eyes: ClothingEyesGogglesLegionOfOrderlies
+#    ears: ClothingHeadsetAltSyndicate
+    gloves: ClothingEyesGogglesLegionOfOrderlies
+    outerClothing: ClothingOuterWinterCoatLegionOfOrderlies #for Officer
+    shoes: ClothingShoesBootsLegionOfOrderlies
+#    id: SyndiPDA
+    pocket1: DoubleEmergencyOxygenTankFilled
+#    pocket2: BaseUplinkRadio40TC
+#    belt: ClothingBeltMilitaryWebbing
+#  inhand:
+#    - NukeOpsDeclarationOfWar
+  innerClothingSkirt: ClothingUniformJumpsuitLegionOfOrderlies
+#  satchel: ClothingBackpackDuffelSyndicateOperative
+#  duffelbag: ClothingBackpackDuffelSyndicateOperative

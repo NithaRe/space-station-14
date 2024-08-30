@@ -1,0 +1,180 @@
+- type: entity
+  id: MobPossessedArmor
+  name: одержимые доспехи
+  description: Прислужники одержимого правителя
+  components:
+  - type: MindContainer
+  - type: InputMover
+  - type: MobMover
+  - type: Input
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: Sprite
+    noRot: true
+    sprite: Orienta/Antags/PossessedRuler/possessedarmor.rsi
+    layers:
+    - state: idle
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.32
+        density: 90
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: MovementIgnoreGravity
+  - type: Examiner
+  - type: NoSlip
+  - type: Actions
+  - type: TTS # Corvax-TTS
+    voice: twitch
+  - type: Eye
+    drawFov: true
+    visMask:
+      - Normal
+  - type: ContentEye
+    maxZoom: 1.2, 1.2
+  - type: DoAfter
+  - type: Alerts
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: PointLight
+    color: "#ff0000"
+    radius: 2
+    softness: 1
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: Visibility
+    layer: 1
+  - type: Speech
+    speechVerb: Ghost
+  - type: CombatMode
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcFist
+    damage:
+      types:
+        Brute: 4
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatRat # YADRO
+      amount: 1
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: idle
+      Dead:
+        Base: dead
+  - type: StatusEffects
+    allowed:
+      - KnockedDown
+      - SlowedDown
+      - TemporaryBlindness
+      - Flashed
+
+  - type: Puller
+  - type: Hands
+  - type: ComplexInteraction
+  - type: Body
+    prototype: Possessedarmor
+
+  - type: AmbientSound
+    volume: -3
+    range: 4
+    sound:
+      path: /Audio/Ambience/spookyspace2.ogg  # TODO: ПЕРЕДЕЛАТЬ В МОНО
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      90: 0.7
+      120: 0.5
+
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 400
+      behaviors:
+      - !type:GibBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 1500
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior { }
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: RadiationReceiver
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: Deathgasp
+  - type: LightningTarget
+    priority: 2
+    lightningExplode: false
+
+
+- type: body
+  id: Possessedarmor
+  name: "possessedArmor"
+  root: torso
+  slots:
+    torso:
+      part: TorsoHuman
+      connections:
+      - right_arm
+      - left_arm
+    right_arm:
+      part: RightArmHuman
+      connections:
+      - right_hand
+    left_arm:
+      part: LeftArmHuman
+      connections:
+      - left_hand
+    right_hand:
+      part: RightHandHuman
+    left_hand:
+      part: LeftHandHuman
+
+
+- type: entity
+  parent: BaseItem
+  id: ItemPossessingArmor
+  name: старые доспехи
+  description: Потрепанный комплект доспехов самурая, выглядит жутко.
+  components:
+  - type: Item
+    size: Large
+  - type: MindContainer
+
+  - type: Sprite
+    sprite: Orienta/Antags/PossessedRuler/possessedarmor.rsi
+    layers:
+    - state: item
+  - type: StaticPrice
+    price: 10000
+  - type: Possessed
+    entityPrototype: MobPossessedArmor

@@ -1,0 +1,171 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: WeaponSyringeGunBase
+  components:
+  - type: Sprite
+  - type: Item
+    size: 20
+
+- type: entity
+  parent: WeaponSyringeGunBase
+  id: WeaponSyringeGun
+  name: шприцемёт
+  description: Стреляя в службу безопастности у вас есть шанс словить передоз свинца в теле.
+  components:
+  - type: Sprite
+    sprite: Orienta/Antags/LegionOfOrderlies/syringegun.rsi
+    state: base
+  - type: Item
+    size: 20
+    sprite: Orienta/Antags/LegionOfOrderlies/syringegun.rsi
+    heldPrefix: syringegun
+  - type: Gun
+    fireRate: 0.5
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/click.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - SyringeGunAmmoTag
+    capacity: 1
+    soundInsert:
+      path: /Audio/Weapons/drawbow2.ogg
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+
+- type: Tag
+  id: SyringeGunAmmoTag
+
+- type: entity
+  parent: BaseItem
+  id: SyringeGunAmmo
+  name: шприц
+  description: Дистанционное лечение или смерть от передоза.
+  components:
+  - type: Item
+    size: 3
+  - type: Sprite
+    sprite: Orienta/Antags/LegionOfOrderlies/syringegunammo.rsi
+    layers:
+      - state: syringegunammo
+        map: ["enum.SolutionContainerLayers.Base"]
+  - type: Icon
+    sprite: Orienta/Antags/LegionOfOrderlies/syringegunammo.rsi
+    state: "syringegunammo"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    embedOnThrow: false
+  - type: ThrowingAngle
+    angle: 0
+  - type: Ammo
+    muzzleFlash: null
+  - type: Projectile
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    damage:
+      types:
+        Piercing: 2.5
+  - type: SolutionContainerManager
+    solutions:
+      syringe:
+        maxVol: 5
+  - type: RefillableSolution
+    solution: syringe
+  - type: InjectableSolution
+    solution: syringe
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 5
+    blockSlots: NONE
+  - type: SolutionTransfer
+    maxTransferAmount: 5
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    fillBaseName: solution
+  - type: Tag
+    tags:
+    - SyringeGunAmmoTag
+
+- type: entity
+  parent: SyringeGunAmmo
+  id: SyringeGunAmmoBlueSpace
+  name: блюспейс шприц
+  description: Дистанционное лечение или смерть от передоза стали ещё быстрее!
+  components:
+  - type: Sprite
+    sprite: Orienta/Antags/LegionOfOrderlies/syringegunammo.rsi
+    layers:
+      - state: syringegunammobluespace
+        map: ["enum.SolutionContainerLayers.Base"]
+  - type: Icon
+    sprite: Orienta/Antags/LegionOfOrderlies/syringegunammo.rsi
+    state: "syringegunammobluespace"
+  - type: SolutionContainerManager
+    solutions:
+      syringe:
+        maxVol: 10
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 10
+    blockSlots: NONE
+  - type: SolutionTransfer
+    maxTransferAmount: 10
+
+- type: entity
+  id: BoxSyringeGunAmmo
+  parent: BaseStorageItem
+  name: коробка шприцов
+  description: Хранит в себе специальные шприцы для шприцемёта.
+  components:
+  - type: Sprite
+    sprite: Orienta/Antags/LegionOfOrderlies/syringegunammobox.rsi
+    state: box
+  - type: Item
+    sprite: Orienta/Antags/LegionOfOrderlies/syringegunammobox.rsi
+    state: box
+    size: 30
+  - type: Storage
+    capacity: 30
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100
+  - type: StorageFill
+    contents:
+    - id: SyringeGunAmmo
+    - id: SyringeGunAmmo
+    - id: SyringeGunAmmo
+    - id: SyringeGunAmmo
+    - id: SyringeGunAmmo
+    - id: SyringeGunAmmo
+    - id: SyringeGunAmmo
+    - id: SyringeGunAmmo
+    - id: SyringeGunAmmo
+    - id: SyringeGunAmmo
+  - type: StaticPrice
+    price: 10

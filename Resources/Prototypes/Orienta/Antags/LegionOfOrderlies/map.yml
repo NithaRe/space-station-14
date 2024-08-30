@@ -1,0 +1,21 @@
+- type: gameMap
+  id: LegionOfOrderliesBase
+  mapName: 'LegionOfOrderliesBase'
+  mapPath: /Maps/Orienta/legion_of_orderlies_base.yml
+  minPlayers: 200
+  stations:
+    LegionOfOrderliesBase:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} LegionOfOrderliesBase {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_courser.yml
+        - type: StationJobs
+          overflowJobs:
+            - Passenger
+          availableJobs:
+            Captain: [ 0, 0 ]

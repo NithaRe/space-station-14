@@ -1,0 +1,61 @@
+
+- type: entity
+  id: SpawnPointLegionOfOrderlies
+  parent: MarkerBase
+  name: легион санитаров
+  components:
+  - type: SpawnPoint
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Orienta/Antags/LegionOfOrderlies/Clothing/ushanka.rsi
+      state: icon
+
+- type: entity
+  noSpawn: true
+  id: SpawnPointGhostOrderlyStormtrooper
+  name: точка спавна штурмовика легиона
+  suffix: legion
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    rules: Вы являетесь штурмовиком Легиона Санитаров, которому поручено уничтожить станцию химическим или биологическим оружием. Как антагонист, вы можете делать всё необходимое для выполнения цели.
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanOrderlyStormtrooper
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Orienta/Antags/LegionOfOrderlies/Clothing/ushanka.rsi
+        state: icon
+
+ ## human
+
+- type: entity
+  noSpawn: true
+  name: Санитар-штурмовик
+  parent: MobHuman
+  id: MobHumanOrderlyStormtrooper
+  components:
+    - type: NukeOperative #todo
+    - type: RandomHumanoidAppearance
+
+- type: entity
+  noSpawn: true
+  parent: MobHuman
+  id: MobHumanLoneOrderlyStormtrooper
+  name: Одинокий санитар-штурмовик
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+    - type: NukeOperative #todo
+    - type: Loadout
+      prototypes: [OrderlyStormtrooperGear]
+    - type: RandomMetadata
+      nameSegments:
+      - SyndicateNamesPrefix #todo
+      - SyndicateNamesNormal #todo
+    - type: NpcFactionMember
+      factions:
+      - Syndicate
+      - NanoTrasen
