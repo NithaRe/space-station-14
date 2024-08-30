@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Corvax.Interfaces.Client;
 using Content.Corvax.Interfaces.Shared;
@@ -14,7 +14,6 @@ public sealed class SponsorsManager : ISharedSponsorsManager
     public void Initialize()
     {
         _netMgr.RegisterNetMessage<MsgSponsorInfo>(OnUpdate);
-        _netMgr.RegisterNetMessage<Shared.Backmen.MsgWhitelist>(RxWhitelist); //backmen: whitelist
     }
 
     public List<string> GetClientPrototypes()
@@ -35,11 +34,6 @@ public sealed class SponsorsManager : ISharedSponsorsManager
     public void Cleanup()
     {
         Reset();
-    }
-
-    private void RxWhitelist(Shared.Backmen.MsgWhitelist message)
-    {
-        Whitelisted = message.Whitelisted;
     }
 
     private void OnUpdate(MsgSponsorInfo message)
