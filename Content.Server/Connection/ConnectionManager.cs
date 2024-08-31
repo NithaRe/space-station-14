@@ -1,5 +1,7 @@
 using System.Collections.Immutable;
 using System.Linq;
+using System.Text.Json.Nodes;
+using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Content.Corvax.Interfaces.Server;
@@ -16,6 +18,7 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
@@ -46,7 +49,7 @@ namespace Content.Server.Connection
     /// <summary>
     ///     Handles various duties like guest username assignment, bans, connection logs, etc...
     /// </summary>
-    public sealed class ConnectionManager : IConnectionManager
+    public sealed partial class ConnectionManager : IConnectionManager
     {
         [Dependency] private readonly IServerDbManager _dbManager = default!;
         [Dependency] private readonly IPlayerManager _plyMgr = default!;
@@ -55,14 +58,15 @@ namespace Content.Server.Connection
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly ILocalizationManager _loc = default!;
         [Dependency] private readonly ServerDbEntryManager _serverDbEntry = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly ILogManager _logManager = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
         private ISharedSponsorsManager? _sponsorsMgr; // Corvax-Sponsors
         private IServerVPNGuardManager? _vpnGuardMgr; // Corvax-VPNGuard
 
-        private readonly Dictionary<NetUserId, TimeSpan> _temporaryBypasses = [];
         private ISawmill _sawmill = default!;
+        private readonly Dictionary<NetUserId, TimeSpan> _temporaryBypasses = [];
 
         public void Initialize()
         {
@@ -297,22 +301,6 @@ namespace Content.Server.Connection
                 return (ConnectionDenyReason.Full, Loc.GetString("soft-player-cap-full"), null);
             }
 
-            if (_cfg.GetCVar(CCVars.WhitelistEnabled))
-            {
-                var min = _cfg.GetCVar(CCVars.WhitelistMinPlayers);
-                var max = _cfg.GetCVar(CCVars.WhitelistMaxPlayers);
-                var playerCountValid = _plyMgr.PlayerCount >= min && _plyMgr.PlayerCount < max;
-
-                if (playerCountValid && await _db.GetWhitelistStatusAsync(userId) == false
-                                     && adminData is null)
-                {
-                    var msg = Loc.GetString(_cfg.GetCVar(CCVars.WhitelistReason));
-                    // was the whitelist playercount changed?
-                    if (min > 0 || max < int.MaxValue)
-                        msg += "\n" + Loc.GetString("whitelist-playercount-invalid", ("min", min), ("max", max));
-                    return (ConnectionDenyReason.Whitelist, msg, null);
-                }
-            }
 
             return null;
         }
@@ -407,8 +395,11 @@ namespace Content.Server.Connection
         }
 
         // Corvax-Queue-Start: Make these conditions in one place, for checks in the connection and in the queue
+        [Dependency] private readonly IEntityManager _entityManager = default!;
         public async Task<bool> HavePrivilegedJoin(NetUserId userId)
         {
+            if (HasTemporaryBypass(userId))
+                return true;
             var adminBypass = _cfg.GetCVar(CCVars.AdminBypassMaxPlayers) && await _dbManager.GetAdminDataForAsync(userId) != null;
             var havePriorityJoin = _sponsorsMgr != null && _sponsorsMgr.HaveServerPriorityJoin(userId); // Corvax-Sponsors
             var wasInGame = EntitySystem.TryGet<GameTicker>(out var ticker) &&
@@ -419,5 +410,7 @@ namespace Content.Server.Connection
                    wasInGame;
         }
         // Corvax-Queue-End
+
     }
 }
+

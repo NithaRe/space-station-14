@@ -36,6 +36,11 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly MindSystem _minds = default!;
     [Dependency] private readonly PlayTimeTrackingManager _tracking = default!;
+
+    [Dependency]
+    private readonly Content.Corvax.Interfaces.Shared.ISharedSponsorsManager
+        _sponsorsManager = default!; // backmen: allRoles
+
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
 
@@ -203,6 +208,11 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             !_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
 
+        //start-backmen: allRoles
+        if (_sponsorsManager.IsServerAllRoles(player.UserId))
+            return true;
+        //end-backmen
+
         if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
         {
             Log.Error($"Unable to check playtimes {Environment.StackTrace}");
@@ -217,6 +227,11 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         var roles = new HashSet<ProtoId<JobPrototype>>();
         if (!_cfg.GetCVar(CCVars.GameRoleTimers))
             return roles;
+
+        //start-backmen: allRoles
+        if (_sponsorsManager.IsServerAllRoles(player.UserId))
+            return roles;
+        //end-backmen
 
         if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
         {
@@ -237,6 +252,11 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     {
         if (!_cfg.GetCVar(CCVars.GameRoleTimers))
             return;
+
+        //start-backmen: allRoles
+        if (_sponsorsManager.IsServerAllRoles(userId))
+            return;
+        //end-backmen
 
         var player = _playerManager.GetSessionById(userId);
         if (!_tracking.TryGetTrackerTimes(player, out var playTimes))

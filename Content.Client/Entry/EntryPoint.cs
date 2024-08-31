@@ -74,6 +74,13 @@ namespace Content.Client.Entry
         [Dependency] private readonly ContentReplayPlaybackManager _replayMan = default!;
         [Dependency] private readonly DebugMonitorManager _debugMonitorManager = default!;
 
+
+        // start-backmen: ioc
+        //[Dependency] private readonly Content.Corvax.Interfaces.Client.IClientSponsorsManager _sponsorsManager = default!; // Corvax-Sponsors
+        //[Dependency] private readonly Content.Corvax.Interfaces.Client.IClientJoinQueueManager _queueManager = default!; // Corvax-Queue
+        //[Dependency] private readonly Content.Corvax.Interfaces.Client.IClientDiscordAuthManager _discordAuthManager = default!; // Corvax-DiscordAuth
+        // end-backmen: ioc
+
         public override void Init()
         {
             ClientContentIoC.Register();
@@ -110,6 +117,7 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("lobbyBackground");
             _prototypeManager.RegisterIgnore("gamePreset");
             _prototypeManager.RegisterIgnore("noiseChannel");
+            _prototypeManager.RegisterIgnore("playerConnectionWhitelist");
             _prototypeManager.RegisterIgnore("spaceBiome");
             _prototypeManager.RegisterIgnore("worldgenConfig");
             _prototypeManager.RegisterIgnore("gameRule");
@@ -121,6 +129,14 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("alertLevels");
             _prototypeManager.RegisterIgnore("nukeopsRole");
             _prototypeManager.RegisterIgnore("stationGoal"); // Corvax-StationGoal
+
+            // Begin Backmen: our ignored prototypes.
+            _prototypeManager.RegisterIgnore("npcConversationTree");
+            _prototypeManager.RegisterIgnore("shipwreckDestination");
+            _prototypeManager.RegisterIgnore("shipwreckFaction");
+            _prototypeManager.RegisterIgnore("bkmloadout");
+            _prototypeManager.RegisterIgnore("specForceTeam");
+            // End Backmen.
             _prototypeManager.RegisterIgnore("ghostRoleRaffleDecider");
 
             _componentFactory.GenerateNetIds();
@@ -162,6 +178,13 @@ namespace Content.Client.Entry
             _userInterfaceManager.SetDefaultTheme("SS14DefaultTheme");
             _userInterfaceManager.SetActiveTheme(_configManager.GetCVar(CVars.InterfaceTheme));
             _documentParsingManager.Initialize();
+
+            // start-backmen: ioc
+            IoCManager.Resolve<Content.Corvax.Interfaces.Shared.ISharedSponsorsManager>().Initialize();
+            IoCManager.Resolve<Content.Corvax.Interfaces.Client.IClientJoinQueueManager>().Initialize();
+            IoCManager.Resolve<Content.Corvax.Interfaces.Client.IClientDiscordAuthManager>().Initialize();
+            IoCManager.Resolve<Content.Corvax.Interfaces.Shared.ISharedLoadoutsManager>().Initialize();
+            // end-backmen: ioc
 
             _baseClient.RunLevelChanged += (_, args) =>
             {
