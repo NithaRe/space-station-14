@@ -70,7 +70,10 @@
   - type: Reflect
   - type: IgnitionSource
     temperature: 700
-# Corvax-HiddenDesc-Start
+  - type: Tag
+    tags:
+    - Write
+  # Corvax-HiddenDesc-Start
   - type: HiddenDescription
     entries:
     - label: corvax-hidden-desc-EnergySword-syndicate
@@ -379,6 +382,9 @@
   - type: Reflect
     reflectProb: .75
     spread: 75
+  - type: Construction
+    graph: EnergyDoubleSwordGraph
+    node: double-bladed energy sword
   # Corvax-HiddenDesc-Start
   - type: HiddenDescription
     entries:
