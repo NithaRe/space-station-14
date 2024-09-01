@@ -13,5 +13,5 @@
 - type: ttsVoice
   id: Lua
   name: Луа
-  sex: Male
+  sex: Female
   speaker: lua
