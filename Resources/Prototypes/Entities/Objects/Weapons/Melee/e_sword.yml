@@ -70,6 +70,7 @@
   - type: Reflect
   - type: IgnitionSource
     temperature: 700
+# Corvax-HiddenDesc-Start
   - type: Tag
     tags:
     - Write
