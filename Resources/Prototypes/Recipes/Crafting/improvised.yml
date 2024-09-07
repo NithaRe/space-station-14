@@ -138,6 +138,19 @@
     state: icon
 
 - type: construction
+  name: double energy sword
+  id: double-bladed energy sword
+  graph: EnergyDoubleSwordGraph
+  startNode: start
+  targetNode: double-bladed energy sword
+  category: construction-category-weapons
+  objectType: Item
+  description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. This can be stored in pockets.
+  icon:
+    sprite: Objects/Weapons/Melee/e_sword_double.rsi
+    state: icon
+
+- type: construction
   name: improvised shotgun shell
   id: ShellShotgunImprovised
   graph: ImprovisedShotgunShellGraph

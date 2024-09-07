@@ -1,0 +1,21 @@
+- type: constructionGraph
+  id: EnergyDoubleSwordGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: double-bladed energy sword
+      steps:
+      - tag: Write 
+        icon:
+          sprite: Objects/Weapons/Melee/e_sword.rsi
+          state: icon
+        name: energy sword
+      - tag: Write 
+        icon:
+          sprite: Objects/Weapons/Melee/e_sword.rsi
+          state: icon
+        name: energy sword
+        doAfter: 10
+  - node: double-bladed energy sword
+    entity: EnergySwordDouble
