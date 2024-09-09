@@ -1,9 +1,0 @@
-- type: entity
-  parent: ClothingNeckBase
-  id: ClothingNeckWatermelonCloak
-  name: арбузный плащ
-  description: Съел бы...
-  components:
-    - type: Sprite
-      sprite: Orienta/watermeloncloak.rsi
-
