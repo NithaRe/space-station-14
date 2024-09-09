@@ -6,10 +6,10 @@
   description: Загадочная валюта вне человеческого понимания. Используется в Ориенталинке
   components:
   - type: Sprite
-    sprite: Orienta/Sponsors/Orientalink/orientik.rsi
+    sprite: _Orienta/Sponsors/Orientalink/orientik.rsi
     state: orientik
   - type: Item
-    sprite: Orienta/Sponsors/Orientalink/orientik.rsi
+    sprite: _Orienta/Sponsors/Orientalink/orientik.rsi
     size: Tiny
   - type: Stack
     count: 20
@@ -30,11 +30,11 @@
   suffix: 10ORNT
   components:
   - type: Sprite
-    sprite: Orienta/Sponsors/Orientalink/radio.rsi
+    sprite: _Orienta/Sponsors/Orientalink/radio.rsi
     layers:
     - state: old-radio
   - type: Item
-    sprite: Orienta/Sponsors/Orientalink/radio.rsi
+    sprite: _Orienta/Sponsors/Orientalink/radio.rsi
     heldPrefix: old-radio
   - type: UserInterface
     interfaces:
@@ -55,11 +55,11 @@
   suffix: 20ORNT
   components:
   - type: Sprite
-    sprite: Orienta/Sponsors/Orientalink/radio.rsi
+    sprite: _Orienta/Sponsors/Orientalink/radio.rsi
     layers:
     - state: old-radio
   - type: Item
-    sprite: Orienta/Sponsors/Orientalink/radio.rsi
+    sprite: _Orienta/Sponsors/Orientalink/radio.rsi
     heldPrefix: old-radio
   - type: UserInterface
     interfaces:
@@ -80,11 +80,11 @@
   suffix: 40ORNT
   components:
   - type: Sprite
-    sprite: Orienta/Sponsors/Orientalink/radio.rsi
+    sprite: _Orienta/Sponsors/Orientalink/radio.rsi
     layers:
     - state: old-radio
   - type: Item
-    sprite: Orienta/Sponsors/Orientalink/radio.rsi
+    sprite: _Orienta/Sponsors/Orientalink/radio.rsi
     heldPrefix: old-radio
   - type: UserInterface
     interfaces:
@@ -105,11 +105,11 @@
   suffix: 80ORNT
   components:
   - type: Sprite
-    sprite: Orienta/Sponsors/Orientalink/radio.rsi
+    sprite: _Orienta/Sponsors/Orientalink/radio.rsi
     layers:
     - state: old-radio
   - type: Item
-    sprite: Orienta/Sponsors/Orientalink/radio.rsi
+    sprite: _Orienta/Sponsors/Orientalink/radio.rsi
     heldPrefix: old-radio
   - type: UserInterface
     interfaces:
