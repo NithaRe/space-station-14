@@ -1,0 +1,17 @@
+- type: ttsVoice
+  id: Boich
+  name: Боич
+  sex: Male
+  speaker: boich
+  
+- type: ttsVoice
+  id: Vint
+  name: Винт
+  sex: Male
+  speaker: vint
+  
+- type: ttsVoice
+  id: Lua
+  name: Луа
+  sex: Female
+  speaker: lua
