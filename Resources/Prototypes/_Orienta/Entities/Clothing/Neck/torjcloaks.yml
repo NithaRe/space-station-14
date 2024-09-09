@@ -5,7 +5,7 @@
   description: торжественная версия плаща главы службы безопасности.
   components:
   - type: Sprite
-    sprite: Orienta/Clothing/Neck/hos.rsi
+    sprite: _Orienta/Clothing/Neck/hos.rsi
   - type: StealTarget
     stealGroup: HeadCloak
 
@@ -16,7 +16,7 @@
   description: торжественная версия плаща главы инженерного отдела.
   components:
   - type: Sprite
-    sprite: Orienta/Clothing/Neck/ce.rsi
+    sprite: _Orienta/Clothing/Neck/ce.rsi
   - type: StealTarget
     stealGroup: HeadCloak
 
@@ -27,7 +27,7 @@
   description: торжественная версия плаща главного врача.
   components:
   - type: Sprite
-    sprite: Orienta/Clothing/Neck/cmo.rsi
+    sprite: _Orienta/Clothing/Neck/cmo.rsi
   - type: StealTarget
     stealGroup: HeadCloak
 
@@ -38,7 +38,7 @@
   description: торжественная версия плаща научного руководителя.
   components:
   - type: Sprite
-    sprite: Orienta/Clothing/Neck/rd.rsi
+    sprite: _Orienta/Clothing/Neck/rd.rsi
   - type: StealTarget
     stealGroup: HeadCloak
 
@@ -49,7 +49,7 @@
   description: торжественная версия плаща квартирмейстера.
   components:
   - type: Sprite
-    sprite: Orienta/Clothing/Neck/qm.rsi
+    sprite: _Orienta/Clothing/Neck/qm.rsi
   - type: StealTarget
     stealGroup: HeadCloak
 
@@ -60,6 +60,6 @@
   description: торжественная версия плаща главы персонала.
   components:
   - type: Sprite
-    sprite: Orienta/Clothing/Neck/hop.rsi
+    sprite: _Orienta/Clothing/Neck/hop.rsi
   - type: StealTarget
     stealGroup: HeadCloak
