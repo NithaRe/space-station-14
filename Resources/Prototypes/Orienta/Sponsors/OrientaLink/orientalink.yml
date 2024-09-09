@@ -1,0 +1,857 @@
+- type: entity
+  name: Ориентик
+  parent: BaseItem
+  id: Orientik
+  suffix: 20 OK
+  description: Загадочная валюта вне человеческого понимания. Используется в Ориенталинке
+  components:
+  - type: Sprite
+    sprite: Orienta/Sponsors/Orientalink/orientik.rsi
+    state: orientik
+  - type: Item
+    sprite: Orienta/Sponsors/Orientalink/orientik.rsi
+    size: Tiny
+  - type: Stack
+    count: 20
+    stackType: Telecrystal
+  - type: StaticPrice
+    price: 0
+  - type: StackPrice
+    price: 200
+  - type: Currency
+    price:
+      Orientik: 1
+
+- type: entity
+  parent: [ BaseItem, StorePresetOrientaLink ]
+  id: OrientaLink10
+  name: ориенталинк
+  description: Радио для самых-самых модных!
+  suffix: 10ORNT
+  components:
+  - type: Sprite
+    sprite: Orienta/Sponsors/Orientalink/radio.rsi
+    layers:
+    - state: old-radio
+  - type: Item
+    sprite: Orienta/Sponsors/Orientalink/radio.rsi
+    heldPrefix: old-radio
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    preset: StorePresetOrientaLink
+    balance:
+      Orientik: 10
+
+- type: entity
+  parent: [ BaseItem, StorePresetOrientaLink ]
+  id: OrientaLink20
+  name: ориенталинк
+  description: Радио для самых-самых модных!
+  suffix: 20ORNT
+  components:
+  - type: Sprite
+    sprite: Orienta/Sponsors/Orientalink/radio.rsi
+    layers:
+    - state: old-radio
+  - type: Item
+    sprite: Orienta/Sponsors/Orientalink/radio.rsi
+    heldPrefix: old-radio
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    preset: StorePresetOrientaLink
+    balance:
+      Orientik: 20
+
+- type: entity
+  parent: [ BaseItem, StorePresetOrientaLink ]
+  id: OrientaLink40
+  name: ориенталинк
+  description: Радио для самых-самых модных!
+  suffix: 40ORNT
+  components:
+  - type: Sprite
+    sprite: Orienta/Sponsors/Orientalink/radio.rsi
+    layers:
+    - state: old-radio
+  - type: Item
+    sprite: Orienta/Sponsors/Orientalink/radio.rsi
+    heldPrefix: old-radio
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    preset: StorePresetOrientaLink
+    balance:
+      Orientik: 40
+
+- type: entity
+  parent: [ BaseItem, StorePresetOrientaLink ]
+  id: OrientaLink80
+  name: ориенталинк
+  description: Радио для самых-самых модных!
+  suffix: 80ORNT
+  components:
+  - type: Sprite
+    sprite: Orienta/Sponsors/Orientalink/radio.rsi
+    layers:
+    - state: old-radio
+  - type: Item
+    sprite: Orienta/Sponsors/Orientalink/radio.rsi
+    heldPrefix: old-radio
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    preset: StorePresetOrientaLink
+    balance:
+      Orientik: 80
+
+- type: entity
+  id: StorePresetOrientaLink
+  abstract: true
+  components:
+  - type: Store
+    name: Ориенталинк
+    categories:
+    - OrientaLinkClothing
+    - OrientaLinkFunnyThings
+    - OrientaLinkPlushie
+    - OrientaLinkBooks
+    currencyWhitelist:
+    - Orientik
+    balance:
+      Orientik: 0
+
+- type: storeCategory
+  id: OrientaLinkClothing
+  name: Одежда
+  priority: 0
+
+- type: storeCategory
+  id: OrientaLinkFunnyThings
+  name: Веселые штуки
+  priority: 1
+
+- type: storeCategory
+  id: OrientaLinkPlushie
+  name: Плюшки
+  priority: 2
+
+- type: storeCategory
+  id: OrientaLinkBooks
+  name: Книжки
+  priority: 3
+
+# Orienta-Sponsor-OrientaLink
+- type: entity
+  parent: Orientik
+  id: Orientik1
+  suffix: 1 OK
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: Orientik
+  id: Orientik5
+  suffix: 5 OK
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: Orientik
+  id: Orientik10
+  suffix: 10 OK
+  components:
+  - type: Stack
+    count: 10
+
+- type: currency
+  id: Orientik
+  displayName: Ориентиков
+  cash:
+    1: Orientik
+  canWithdraw: false
+
+- type: listing
+  id: UplinkClothingHeadPaperSackSmile
+  name: Улыбающаяся шапка из бумажного пакета
+  description: Бумажный пакет с грубо вырезанными отверстиями для глаз и нарисованной улыбкой на лицевой стороне. Совсем не жуткая.
+  productEntity: ClothingHeadPaperSackSmile
+  cost:
+    Orientik: 5
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingShoesDameDane
+  name: Туфли якудзы
+  description: В конце концов...
+  productEntity: ClothingShoesDameDane
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingShoeSlippersDuck
+  name: Тапки-уточки
+  description: Удобные, но преследуемые призраками уток, которых вы кормили хлебом в детстве.
+  productEntity: ClothingShoeSlippersDuck
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingOuterDiscoAssBlazer
+  name: Стильный диско-блейзер
+  description: Выглядит как шкура давно вымершего диско-зверя. На правом рукаве и на спине непонятные белые прямоугольники.
+  productEntity: ClothingOuterDiscoAssBlazer
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingHeadHatStrawHat
+  name: Соломенная шляпа
+  description: Модная шляпа для жарких деньков! Не рекомендуется носить около источников огня.
+  productEntity: ClothingHeadHatStrawHat
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingNeckBling
+  name: Побрякушки
+  description: Чертовски круто быть гангстером.
+  productEntity: ClothingNeckBling
+  cost:
+    Orientik: 5
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingOuterDameDane
+  name: Пальто якудзы
+  description: Пятница...
+  productEntity: ClothingOuterDameDane
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingEyesGlassesOutlawGlasses
+  name: Очки негодяя
+  description: Обязательны для каждого уважающего себя агента под прикрытием.
+  productEntity: ClothingEyesGlassesOutlawGlasses
+  cost:
+    Orientik: 5
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingEyesGlassesJensen
+  name: Очки Дженсена
+  description: Пара складных очков жёлтого оттенка. Вы никогда не просили о них.
+  productEntity: ClothingEyesGlassesJensen
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingEyesGlassesGar
+  name: Мужицкие очки
+  description: Совершать невозможное и раздавать пинки здравому смыслу!
+  productEntity: ClothingEyesGlassesGar
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingUniformJumpsuitHawaiRed
+  name: Красная гавайская рубашка
+  description: Красная, как сочные арбузы.
+  productEntity: ClothingUniformJumpsuitHawaiRed
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingHeadHelmetBone
+  name: Костяной шлем
+  description: Круто выглядящий шлем, сделанный из черепов ваших врагов.
+  productEntity: ClothingHeadHelmetBone
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingUniformJumpsuitDameDane
+  name: Костюм якудзы
+  description: Какой же я дурак...
+  productEntity: ClothingUniformJumpsuitDameDane
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingHeadHatCowboyBrown
+  name: Коричневая ковбойская шляпа
+  description: Эта шляпа слишком тесна для нас двоих.
+  productEntity: ClothingHeadHatCowboyBrown
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingUniformJumpsuitKimono
+  name: Кимоно
+  description: Традиционное китайское одеяние.
+  productEntity: ClothingUniformJumpsuitKimono
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingHeadHatBizarreSoft
+  name: Кепка хулигана
+  description: Поистине... невероятный аксессуар.
+  productEntity: ClothingHeadHatBizarreSoft
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingHeadHatCasa
+  name: Каса
+  description: Конусообразная шляпа.
+  productEntity: ClothingHeadHatCasa
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingMaskItalianMoustache
+  name: Итальянские усы
+  description: Изготовлены из волосков настоящих итальянских усов. Придает владельцу непреодолимое желание бурно жестикулировать.
+  productEntity: ClothingMaskItalianMoustache
+  cost:
+    Orientik: 5
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingUniformJumpsuitHawaiYellow
+  name: Жёлтая гавайская рубашка
+  description: Желтая, как яркое солнце.
+  productEntity: ClothingUniformJumpsuitHawaiYellow
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingOuterCoatExpensive
+  name: Дорогая шуба
+  description: Очень пушистая розовая шуба, сделанная из очень дорогого меха (очевидно).
+  productEntity: ClothingOuterCoatExpensive
+  cost:
+    Orientik: 5
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingHeadHatGladiator
+  name: Гладиаторский шлем
+  description: Защищает голову от суровых пепельных ветров и игрушечных копий.
+  productEntity: ClothingHeadHatGladiator
+  cost:
+    Orientik: 5
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingEyesGlassesGarGiga
+  name: Гигамужские очки
+  description: Мы эволюционируем из тех людей, какими были минуту назад, шаг за шагом мы продвигаемся, чуть дальше с каждым разом, вот как работает дрель!
+  productEntity: ClothingEyesGlassesGarGiga
+  cost:
+    Orientik: 5
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingHeadHatWitch
+  name: Ведьмина шляпа
+  description: Колдовская шляпа.
+  productEntity: ClothingHeadHatWitch
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingNeckCloakGoliathCloak
+  name: Плащ голиафа
+  description: Плащ голиафа, сделанный из шкуры выносливой фауны с далекой планеты. Однако с течением времени его защитные свойства ослабли.
+  productEntity: ClothingNeckCloakGoliathCloak
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingNeckCloakHerald
+  name: Плащ герольда
+  description: Зловещий красный плащ с шипами на плечах.
+  productEntity: ClothingNeckCloakHerald
+  cost:
+    Orientik: 5
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingNeckWatermelonCloak
+  name: Арбузный плащ
+  description: Съел бы...
+  productEntity: ClothingNeckWatermelonCloak
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingNeckCloakVoid
+  name: Плащ пустоты
+  description: Плащ тьмы. Для тех, кто перешёл на тёмную сторону силы.
+  productEntity: ClothingNeckCloakVoid
+  cost:
+    Orientik: 5
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingNeckScarfStrippedLightBlue
+  name: Полосатый светло-синий шарф
+  description: Стильный полосатый светло-синий. Идеальный зимний аксессуар для тех, у кого обостренное чувство моды, и тех, кто просто не выносит холодного ветра на своей шее.
+  productEntity: ClothingNeckScarfStripedLightBlue
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingNeckScarfStrippedPurple
+  name: Полосатый пурпурный шарф
+  description: Стильный полосатый пурпурный шарф. Идеальный зимний аксессуар для тех, у кого обостренное чувство моды, и тех, кто просто не выносит холодного ветра на своей шее.
+  productEntity: ClothingNeckScarfStripedPurple
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingNeckScarfStrippedOrange
+  name: Полосатый оранжевый шарф
+  description: Стильный полосатый оранжевый шарф. Идеальный зимний аксессуар для тех, у кого обостренное чувство моды, и тех, кто просто не выносит холодного ветра на своей шее.
+  productEntity: ClothingNeckScarfStripedOrange
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkDrinkNothing
+  name: Стакан ничего
+  description: Абсолютно ничего.
+  productEntity: DrinkNothing
+  cost:
+    Orientik: 5
+  categories:
+  - OrientaLinkFunnyThings
+
+- type: listing
+  id: UplinkFoodBakedWaffleRoffle
+  name: roffle-вафли
+  description: Вафли от Roffle. Co.
+  productEntity: FoodBakedWaffleRoffle
+  cost:
+    Orientik: 5
+  categories:
+  - OrientaLinkFunnyThings
+
+- type: listing
+  id: UplinkBookSlothClownPranks
+  name: Ленивец и клоун - розыгрыши над зоргами
+  description: Книга в отличном состоянии, с четкими страницами и яркой обложкой. На обложке книги изображены клоун Чаклз и ленивец Снагглз в окружении различных видов животных, с которыми они столкнулись во время своих приключений в космосе. На заднем плане видны Зорги, выглядывающие из-за космического корабля.
+  productEntity: BookSlothClownPranks
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkBooks
+
+- type: listing
+  id: UplinkBookSlothClownSSS
+  name: Ленивец и клоун - проделки космической станции
+  description: Книга выглядит новой, с глянцевой обложкой, на которой изображены клоун Чаклз и ленивец Снагглз, парящие в космосе на фоне звезд и планет. Чаклз одет в свой костюм банана, а Снагглз спит на гамаке из космических канатов. Название "Ленивец и клоун - шалости на космической станции" написано жирными и красочными буквами.
+  productEntity: BookSlothClownSSS
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkBooks
+
+- type: listing
+  id: UplinkBookSlothClownMMD
+  name: Ленивец и клоун - опасность лабиринта
+  description: Книга выглядит новой и яркой, на обложке изображены клоун Чаклз и ленивец Снагглз, стоящие перед меняющимся лабиринтом. Название "Ленивец и клоун - опасность лабиринта" написано жирными, красочными буквами, которые выделяются на фоне космоса и звезд.
+  productEntity: BookSlothClownMMD
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkBooks
+
+- type: listing
+  id: UplinkBookCafe
+  name: Кафе опоссума
+  description: Книга в новом состоянии, с яркой и причудливой обложкой, на которой изображен очаровательный опоссум, выглядывающий из-за кофейной чашки, с красочной и шумной сценой кафе на заднем плане. Название "Кафе опоссума" написано жирным, игривым шрифтом, а имя автора напечатано более мелким шрифтом под ним.
+  productEntity: BookCafe
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkBooks
+
+- type: listing
+  id: UplinkBookMap
+  name: Карта приключений
+  description: Книга в хорошем состоянии, на глянцевой обложке изображена сцена джунглей с яркими цветами и замысловатыми деталями. Название"Карта приключений" написано жирным золотым шрифтом. На обложке также изображён загадочный чемодан, из которого высыпается карта.
+  productEntity: BookMap
+  cost:
+    Orientik: 5
+  categories:
+  - OrientaLinkBooks
+
+- type: listing
+  id: UplinkClothingHeadHatSkub
+  name: Шапка скаб
+  description: Лучше всего сочетается с костюмом скаба.
+  productEntity: ClothingHeadHatSkub
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkClothingOuterSkub
+  name: Костюм скаба
+  description: На внешней стороне этого цилиндрического костюма грубо написано Скаб.
+  productEntity: ClothingOuterSkub
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkClothing
+
+- type: listing
+  id: UplinkSkub
+  name: Скаб
+  description: Скаб - это пятый Бог Хаоса.
+  productEntity: Skub
+  cost:
+    Orientik: 5
+  categories:
+  - OrientaLinkFunnyThings
+
+- type: listing
+  id: UplinkDiceBag
+  name: Мешочек с костями
+  description: Содержит всю удачу,котораявам только может понадобиться.
+  productEntity: DiceBag
+  cost:
+    Orientik: 5
+  categories:
+  - OrientaLinkFunnyThings
+
+- type: listing
+  id: UplinkFoodCornTrash
+  name: Кочерыжка кукурузы
+  description: Не осталось ни одного зёрнышка.
+  productEntity: FoodCornTrash
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkFunnyThings
+
+- type: listing
+  id: UplinkGlowstickBlue
+  name: Синий химсвет
+  description: Полезен для неразберихи и экстренных случаев.
+  productEntity: GlowstickBlue
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkFunnyThings
+
+- type: listing
+  id: UplinkGohei
+  name: Гохэй
+  description: Деревянный жезл, украшенный двумя бумажными лентами сидэ. Изначально использовался жрицами синтоистских храмов для очищения предметов. Теперь используется станционными виабушниками.
+  productEntity: Gohei
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkFunnyThings
+
+- type: listing
+  id: UplinkBanjoInstrument
+  name: Банджо
+  description: Это инструмент.
+  productEntity: BanjoInstrument
+  cost:
+    Orientik: 5
+  categories:
+  - OrientaLinkFunnyThings
+
+- type: listing
+  id: UplinkFoodOrange
+  name: Апельсин
+  description: А я всего лишь апельсин... Вас миллион, а я один
+  productEntity: FoodOrange
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkFunnyThings
+
+- type: listing
+  id: UplinkRGBStaff
+  name: Радужный посох
+  description: Посох, переливающийся всеми цветами радуги.
+  productEntity: RGBStaff
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkFunnyThings
+
+- type: listing
+  id: UplinkPlushieRGBee
+  name: Радужная пчела
+  description: Красивая пчела, переливающаяся всеми цветами радуги.
+  productEntity: PlushieRGBee
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushieHampter
+  name: Плюшевый хома
+  description: Маленький, миленький хомячок!
+  productEntity: PlushieHampter
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushieNar
+  name: Плюшевая Нар'Си
+  description: Плюшевый бог хочет крови. Пойдёшь ли ты за ней?
+  productEntity: PlushieNar
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushieDiona
+  name: Плюшевая диона
+  description: Маленький шелестящий друг. Обожает Робаст Харвест.
+  productEntity: PlushieDiona
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushieSnake
+  name: Плюшевая змея
+  description: Зелёная змейка. Шшшипит.
+  productEntity: PlushieSnake
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushieRatvar
+  name: Плюшевый Ратвар
+  description: Станьте праведником плюшевого божества!
+  productEntity: PlushieRatvar
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushieRouny
+  name: Плюшевый Руни
+  description: Огромное красное чудовище в вашем кармане. Не милота ли?
+  productEntity: PlushieRouny
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushieHolocarp
+  name: Плюшевый голокарп
+  description: Мерцает по всем заветам редспейса!
+  productEntity: PlushieHolocarp
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushieVox
+  name: Плюшевый Вокс
+  description: Главный плюшевый производитель вокселя.
+  productEntity: PlushieVox
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushieAtmosian
+  name: Плюшевый атмос
+  description: Лучше не оставлять его в атмосии одного...
+  productEntity: PlushieAtmosian
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushieArachind
+  name: Плюшевый арахнид
+  description: Лучший друг плюшевой моли.
+  productEntity: PlushieArachind
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushiePengiun
+  name: Плюшевый пингвин
+  description: Милый житель далёких холодных планет.
+  productEntity: PlushiePenguin
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushieRainbowCarp
+  name: Плюшевый радужный карп
+  description: Переливается яркими цветами радуги! Интересно, есть ли такие в редспейсе?
+  productEntity: PlushieRainbowCarp
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushieSpaceLizard
+  name: Плюшевый космический ящер
+  description: Ящер, на голове которого расположен округлый гермошлем.
+  productEntity: PlushieSpaceLizard
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushieXeno
+  name: Плюшевый ксенос
+  description: Он определённо покажется вам чужим.
+  productEntity: PlushieXeno
+  cost:
+    Orientik: 4
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushieMoth
+  name: Плюшевый ниан
+  description: Лучший друг плюшевого арахнида.
+  productEntity: PlushieMoth
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushieSharkBlue
+  name: Плюшевая синяя акула
+  description: Синяя акула из космического строительного магазина.
+  productEntity: PlushieSharkBlue
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkPlushieHuman
+  name: Плюшевый человек
+  description: Слишком громкий представитель человечества.
+  productEntity: PlushieHuman
+  cost:
+    Orientik: 3
+  categories:
+  - OrientaLinkPlushie
+
+- type: listing
+  id: UplinkToyAmongPequeno
+  name: Плюшевый амонг
+  description: Видимо он не был предателем.
+  productEntity: ToyAmongPequeno
+  cost:
+    Orientik: 5
+  categories:
+  - OrientaLinkPlushie
+
+- type: loadout
+  id: OrientaLink80
+  storage:
+    back:
+    - OrientaLink80

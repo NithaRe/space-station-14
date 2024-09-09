@@ -3,7 +3,8 @@
   name: loadout-group-inventory
   minLimit: 0
   maxLimit: 5
-  loadouts: []
+  loadouts:
+  - OrientaLink80
 
 - type: loadoutGroup
   id: ChiefEngineerBackpack
