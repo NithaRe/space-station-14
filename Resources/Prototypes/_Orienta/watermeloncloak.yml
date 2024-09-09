@@ -5,5 +5,5 @@
   description: Съел бы...
   components:
     - type: Sprite
-      sprite: _Orienta/watermeloncloak.rsi
+      sprite: _Orienta/Clothing/watermeloncloak.rsi
 

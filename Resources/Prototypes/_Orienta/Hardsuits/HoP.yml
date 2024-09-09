@@ -6,9 +6,9 @@
   description: шлем скафандра, изготовленный специально для главы персонала
   components:
   - type: Sprite
-    sprite: _Orienta/HoPsuit/HoPhelmet.rsi
+    sprite: _Orienta/Clothing/HoPsuit/HoPhelmet.rsi
   - type: Clothing
-    sprite: _Orienta/HoPsuit/HoPhelmet.rsi
+    sprite: _Orienta/Clothing/HoPsuit/HoPhelmet.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -20,9 +20,9 @@
   description: бронированный скафандр, украшенный медалью на груди, изготовленный специально для главы персонала
   components:
   - type: Sprite
-    sprite: _Orienta/HoPsuit/HoPspace.rsi
+    sprite: _Orienta/Clothing/HoPsuit/HoPspace.rsi
   - type: Clothing
-    sprite: _Orienta/HoPsuit/HoPspace.rsi
+    sprite: _Orienta/Clothing/HoPsuit/HoPspace.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
