@@ -33,6 +33,7 @@
   abstract: true
   components:
   - type: EmbeddableProjectile
+  - type: OrientaPersonalSignature #OrientaPersonalSignature
     offset: 0.3,0.0
     removalTime: 0.0
   - type: ThrowingAngle
