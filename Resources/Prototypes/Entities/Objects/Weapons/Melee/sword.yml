@@ -3,7 +3,7 @@
   id: BaseSword
   abstract: true
   components:
-  # Stories skills - start
+  # Orienta skills - start
   - type: ExploreToSkills
     seconds: 10
     skills:
@@ -20,7 +20,7 @@
       Melee: 0.9
     heavyAttackMultiplier: 1
     lightAttackMultiplier: 1
-  # Stories skills - end
+  # Orienta skills - end
   - type: Sharp
   - type: Execution
     doAfterDuration: 4.0

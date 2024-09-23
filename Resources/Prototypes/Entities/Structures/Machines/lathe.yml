@@ -397,7 +397,7 @@
   name: circuit imprinter
   description: Prints circuit boards for machines.
   components:
-  # Stories skills - start
+  # Orienta skills - start
   - type: ExploreToSkills
     seconds: 10
     skills:
@@ -405,7 +405,7 @@
   - type: ActivatableUIRequiresSkills
     skills:
       Science: 1.0
-  # Stories skills - end
+  # Orienta skills - end
   - type: Sprite
     sprite: Structures/Machines/circuit_imprinter.rsi
     snapCardinals: true
@@ -546,7 +546,7 @@
   name: exosuit fabricator
   description: Creates parts for robotics and other mechanical needs.
   components:
-  # Stories skills - start
+  # Orienta skills - start
   - type: ExploreToSkills
     seconds: 10
     skills:
@@ -554,7 +554,7 @@
   - type: ActivatableUIRequiresSkills
     skills:
       Science: 1.0
-  # Stories skills - end
+  # Orienta skills - end
   - type: Sprite
     sprite: Structures/Machines/exosuit_fabricator.rsi
     layers:

@@ -4,7 +4,7 @@
   name: anomaly vessel
   description: A container able to harness a scan of an anomaly and turn it into research data.
   components:
-  # Stories skills - start
+  # Orienta skills - start
   - type: ExploreToSkills
     seconds: 10
     skills:
@@ -15,7 +15,7 @@
   - type: GettingInteractedRequiresSkills
     skills:
       Science: 1.0
-  # Stories skills - end
+  # Orienta skills - end
   - type: Sprite
     noRot: true
     sprite: Structures/Machines/Anomaly/anomaly_vessel.rsi
@@ -132,11 +132,11 @@
   name: A.P.E.
   description: An Anomalous Particle Emitter, capable of shooting out unstable particles which can interface with anomalies.
   components:
-  # Stories skills - start
+  # Orienta skills - start
   - type: GettingInteractedRequiresSkills
     skills:
       Science: 0.5
-  # Stories skills - end
+  # Orienta skills - end
   - type: Sprite
     noRot: true
     sprite: Structures/Machines/Anomaly/ape.rsi
@@ -243,7 +243,7 @@
   placement:
     mode: AlignTileAny
   components:
-  # Stories skills - start
+  # Orienta skills - start
   - type: ExploreToSkills
     seconds: 10
     skills:
@@ -251,7 +251,7 @@
   - type: ActivatableUIRequiresSkills
     skills:
       Science: 1.0
-  # Stories skills - end
+  # Orienta skills - end
   - type: SpriteFade
   - type: Sprite
     sprite: Structures/Machines/Anomaly/anomaly_generator.rsi

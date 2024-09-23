@@ -4,11 +4,11 @@
   name: artifact analyzer
   description: A platform capable of performing analysis on various types of artifacts.
   components:
-  # Stories skills - start
+  # Orienta skills - start
   - type: GettingInteractedRequiresSkills
     skills:
       Science: 0.5
-  # Stories skills - end
+  # Orienta skills - end
   - type: Sprite
     noRot: true
     sprite: Structures/Machines/artifact_analyzer.rsi

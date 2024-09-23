@@ -647,11 +647,11 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
-  # Stories skills - start
+  # Orienta skills - start
     - !type:RequiresSkills
       skills:
         Engineering: 0.5
-  # Stories skills - end
+  # Orienta skills - end
 
 - type: construction
   id: DogBed

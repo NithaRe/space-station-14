@@ -6,7 +6,7 @@
   placement:
     mode: SnapgridCenter
   components:
-  # Stories skills - start
+  # Orienta skills - start
   - type: ExploreToSkills
     seconds: 10
     skills:
@@ -14,7 +14,7 @@
   - type: ActivatableUIRequiresSkills
     skills:
       Medicine: 1.0
-  # Stories skills - end
+  # Orienta skills - end
   - type: Sprite
     sprite: Structures/Machines/mixer.rsi
     snapCardinals: true
