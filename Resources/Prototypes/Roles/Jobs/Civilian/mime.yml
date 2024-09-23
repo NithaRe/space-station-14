@@ -14,11 +14,11 @@
     components:
     - type: MimePowers
     - type: FrenchAccent
-  # Stories skills - start
+  # Orienta skills - start
     - type: Skills
       skills:
         Melee: 1.0
-  # Stories skills - end
+  # Orienta skills - end
 
 - type: startingGear
   id: MimeGear

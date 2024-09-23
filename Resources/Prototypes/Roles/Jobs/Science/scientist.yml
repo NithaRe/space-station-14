@@ -13,14 +13,14 @@
   access:
   - Research
   - Maintenance
-  # Stories skills - start
+  # Orienta skills - start
   special:
   - !type:AddComponentSpecial
     components:
       - type: Skills
         skills:
           Science: 1.0
-  # Stories skills - end
+  # Orienta skills - end
 
 - type: startingGear
   id: ScientistGear

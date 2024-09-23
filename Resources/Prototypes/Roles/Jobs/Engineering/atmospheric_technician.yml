@@ -15,7 +15,7 @@
   - Engineering
   - External
   - Atmospherics
-  # Stories skills - start
+  # Orienta skills - start
   special:
   - !type:AddComponentSpecial
     components:
@@ -23,7 +23,7 @@
         skills:
           Engineering: 1.0
           Shuttle: 1.0
-  # Stories skills - end
+  # Orienta skills - end
 
 - type: startingGear
   id: AtmosphericTechnicianGear

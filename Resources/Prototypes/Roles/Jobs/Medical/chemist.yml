@@ -14,14 +14,14 @@
   - Medical
   - Chemistry
   - Maintenance
-  # Stories skills - start
+  # Orienta skills - start
   special:
   - !type:AddComponentSpecial
     components:
       - type: Skills
         skills:
           Medicine: 1.0
-  # Stories skills - end
+  # Orienta skills - end
 
 - type: startingGear
   id: ChemistGear

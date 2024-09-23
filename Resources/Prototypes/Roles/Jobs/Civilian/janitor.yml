@@ -14,13 +14,13 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: GarbageDay
     prototype: WeaponRevolverInspector
-  # Stories skills - start
+  # Orienta skills - start
   - !type:AddComponentSpecial
     components:
       - type: Skills
         skills:
           Melee: 0.1
-  # Stories skills - end
+  # Orienta skills - end
 
 - type: startingGear
   id: JanitorGear

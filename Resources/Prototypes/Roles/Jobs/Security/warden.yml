@@ -21,7 +21,7 @@
   - Detective
   - Cryogenics
   special:
-  # Stories skills - start
+  # Orienta skills - start
   - !type:AddComponentSpecial
     components:
     - type: Skills
@@ -31,7 +31,7 @@
         Guns: 1.0
         EnergyGuns: 1.0
         Shuttle: 0.5
-  # Stories skills - end
+  # Orienta skills - end
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
 

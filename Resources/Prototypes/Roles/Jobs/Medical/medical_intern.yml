@@ -15,14 +15,14 @@
   access:
   - Medical
   - Maintenance
-  # Stories skills - start
+  # Orienta skills - start
   special:
   - !type:AddComponentSpecial
     components:
       - type: Skills
         skills:
           Medicine: 0.5
-  # Stories skills - end
+  # Orienta skills - end
 
 - type: startingGear
   id: MedicalInternGear

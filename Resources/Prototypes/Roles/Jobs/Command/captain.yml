@@ -33,14 +33,14 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-  # Stories skills - start
+  # Orienta skills - start
       - type: Skills
         skills:
           Guns: 0.5
           EnergyGuns: 1.0
           Melee: 0.9
           Shuttle: 1.0
-  # Stories skills - end
+  # Orienta skills - end
 
 - type: startingGear
   id: CaptainGear

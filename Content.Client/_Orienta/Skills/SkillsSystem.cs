@@ -1,4 +1,4 @@
-using Content.Shared._Orient.Skills;
+using Content.Shared._Orienta.Skills;
 
 namespace Content.Client._Orienta.Skills;
 

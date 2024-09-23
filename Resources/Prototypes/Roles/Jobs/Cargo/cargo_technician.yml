@@ -11,14 +11,14 @@
   - Maintenance
   extendedAccess:
   - Salvage
-  # Stories skills - start
+  # Orienta skills - start
   special:
   - !type:AddComponentSpecial
     components:
       - type: Skills
         skills:
           Shuttle: 1.0
-  # Stories skills - end
+  # Orienta skills - end
 
 - type: startingGear
   id: CargoTechGear

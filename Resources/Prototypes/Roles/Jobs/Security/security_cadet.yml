@@ -22,7 +22,7 @@
   - External
   - Cryogenics
   special:
-  # Stories skills - start
+  # Orienta skills - start
   - !type:AddComponentSpecial
     components:
     - type: Skills
@@ -31,7 +31,7 @@
         EnergyGuns: 0.5
         Medicine: 0.1
         Melee: 0.3
-  # Stories skills - end
+  # Orienta skills - end
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
 

@@ -6,7 +6,7 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 72000 #20 hrs # Stories-RoleTime
+    time: 72000 #20 hrs # Orienta-RoleTime
   - !type:DepartmentTimeRequirement
     department: Civilian
     time: 18000 #5 hrs
@@ -21,7 +21,7 @@
   - Service
   - Detective
   special:
-  # Stories skills - start
+  # Orienta skills - start
   - !type:AddComponentSpecial
     components:
     - type: Skills
@@ -29,7 +29,7 @@
         Guns: 0.9
         EnergyGuns: 0.9
         Medicine: 0.3
-  # Stories skills - end
+  # Orienta skills - end
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
 
