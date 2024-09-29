@@ -1,0 +1,33 @@
+- type: job
+  id: Psychotherapist
+  name: job-name-psychotherapist
+  description: job-description-psychotherapist
+  playTimeTracker: JobPsychotherapist
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobMedicalDoctor
+      time: 14400 #4 hrs
+    - !type:OverallPlaytimeRequirement
+      time: 54000 # 15 hrs
+  startingGear: PsychotherapistGear
+  icon: "JobIconMedicalDoctor"
+  supervisors: job-supervisors-cmo
+  access:
+  - Medical
+  - Maintenance
+  - Chemistry
+
+- type: startingGear
+  id: PsychotherapistGear
+  equipment:
+    id: MedicalPDA
+    ears: ClothingHeadsetMedical
+    belt: ClothingBeltMedicalFilled
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+    shoes: ClothingShoesColorWhite
+  innerclothingskirt: ClothingUniformJumpskirtMedicalDoctor
+  satchel: ClothingBackpackSatchelMedicalFilled
+  duffelbag: ClothingBackpackDuffelMedicalFilled
+  #storage:
+    #back:
+    #- stuff
