@@ -34,6 +34,8 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server._Orienta.Orienteer;
+
 
 namespace Content.Server.Entry
 {
@@ -121,6 +123,9 @@ namespace Content.Server.Entry
                 _playTimeTracking.Initialize();
                 IoCManager.Resolve<JobWhitelistManager>().Initialize();
                 IoCManager.Resolve<PlayerRateLimitManager>().Initialize();
+
+                // Orienta: Orienteer
+                IoCManager.Resolve<PlayTimeSender>().Initialize();
             }
         }
 
@@ -169,6 +174,8 @@ namespace Content.Server.Entry
                 // start-backmen: IoC
                 IoCManager.Resolve<Content.Corvax.Interfaces.Server.IServerJoinQueueManager>().PostInitialize();
                 // end-backmen: IoC
+
+
             }
         }
 

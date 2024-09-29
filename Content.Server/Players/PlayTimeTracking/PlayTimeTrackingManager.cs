@@ -13,6 +13,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server._Orienta.Orienteer;
+
 
 namespace Content.Server.Players.PlayTimeTracking;
 
@@ -63,6 +65,7 @@ public sealed class PlayTimeTrackingManager : ISharedPlaytimeManager, IPostInjec
     [Dependency] private readonly ITaskManager _task = default!;
     [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
     [Dependency] private readonly UserDbDataManager _userDb = default!;
+    [Dependency] private readonly PlayTimeSender _playTimeSender = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -173,10 +176,16 @@ public sealed class PlayTimeTrackingManager : ISharedPlaytimeManager, IPostInjec
     {
         var time = _timing.RealTime;
 
-        foreach (var data in _playTimeData.Values)
+        // Orienta edit: Orienteer
+        Task.Run(async () =>
         {
-            FlushSingleTracker(data, time);
-        }
+            foreach (var data in _playTimeData)
+            {
+                await _playTimeSender.PlayTimeSend(data.Key, (time - data.Value.LastUpdate).TotalMinutes);
+                FlushSingleTracker(data.Value, time);
+            }
+        });
+        // Orienta edit: Orienteer
     }
 
     /// <summary>
@@ -188,6 +197,13 @@ public sealed class PlayTimeTrackingManager : ISharedPlaytimeManager, IPostInjec
     {
         var time = _timing.RealTime;
         var data = _playTimeData[player];
+
+        // Orienta edit: Orienteer
+        Task.Run(async () =>
+        {
+            await _playTimeSender.PlayTimeSend(player, (time - data.LastUpdate).TotalMinutes);
+        });
+        // Orienta edit: Orienteer
 
         FlushSingleTracker(data, time);
     }
