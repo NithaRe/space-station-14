@@ -28,6 +28,8 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Kitchen;
 using Content.Shared.Players.PlayTimeTracking;
+using Content.Server._Orienta.Orienteer;
+
 
 namespace Content.Server.IoC
 {
@@ -77,6 +79,9 @@ namespace Content.Server.IoC
             IoCManager.Register<JobWhitelistManager>();
             IoCManager.Register<PlayerRateLimitManager>();
             IoCManager.Register<MappingManager>();
+
+            // Orienta: Orienteer
+            IoCManager.Register<PlayTimeSender>();
         }
     }
 }
