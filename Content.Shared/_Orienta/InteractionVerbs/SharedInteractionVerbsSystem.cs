@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared.Contests;
 using Content.Shared.DoAfter;
 using Content.Shared.Ghost;
 using Content.Shared._Orienta.InteractionVerbs.Events;
@@ -24,7 +23,6 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
 
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfters = default!;
-    [Dependency] private readonly ContestsSystem _contests = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
@@ -100,14 +98,9 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
             || !force && CheckVerbCooldown(proto, args, out _, ownInteractions))
             return false;
 
-        // If contest advantage wasn't calculated yet, calculate it now and ensure it's in the allowed range
-        var contestAdvantageValid = true;
-        if (args.ContestAdvantage is null)
-            CalculateAdvantage(proto, ref args, out contestAdvantageValid);
-
         if (!_net.IsClient
             && !force
-            && (!contestAdvantageValid || proto.Action?.CanPerform(args, proto, true, _verbDependencies) != true))
+            && (proto.Action?.CanPerform(args, proto, true, _verbDependencies) != true))
         {
             CreateVerbEffects(proto.EffectFailure, Fail, proto, args);
             return false;
@@ -127,10 +120,6 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
 
         var cooldown = proto.Cooldown;
         var delay = proto.Delay;
-        if (proto.ContestDelay)
-            delay /= args.ContestAdvantage!.Value;
-        if (proto.ContestCooldown)
-            cooldown /= args.ContestAdvantage!.Value;
 
         StartVerbCooldown(proto, args, cooldown, ownInteractions);
 
@@ -212,12 +201,6 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
                 || !proto.Range.IsInRange(distance);
 
             var verbArgs = InteractionArgs.From(args);
-            // Calculate contest advantage early if required
-            if (proto.ContestAdvantageRange is not null)
-            {
-                CalculateAdvantage(proto, ref verbArgs, out var canPerform);
-                isInvalid |= !canPerform;
-            }
 
             var isRequirementMet = proto.Requirement?.IsMet(verbArgs, proto, _verbDependencies) != false;
             if (!isRequirementMet && proto.HideByRequirement)
@@ -245,30 +228,6 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
 
             args.Verbs.Add(verb);
         }
-    }
-
-    /// <summary>
-    ///     Calculates the effective contest advantage for the verb and writes their clamped value to <see cref="InteractionArgs.ContestAdvantage"/>.
-    /// </summary>
-    private void CalculateAdvantage(InteractionVerbPrototype proto, ref InteractionArgs args, out bool canPerform)
-    {
-        args.ContestAdvantage = 1f;
-        canPerform = true;
-
-        var contests = proto.AllowedContests;
-        if (contests == None)
-            return;
-
-        // We don't use EveryContest here because it's straight up bad
-        if (contests.HasFlag(Mass))
-            args.ContestAdvantage *= _contests.MassContest(args.User, args.Target, true, 10f);
-        if (contests.HasFlag(Stamina))
-            args.ContestAdvantage *= _contests.MassContest(args.User, args.Target, true, 10f);
-        if (contests.HasFlag(Health))
-            args.ContestAdvantage *= _contests.MassContest(args.User, args.Target, true, 10f);
-
-        canPerform = proto.ContestAdvantageRange?.IsInRange(args.ContestAdvantage.Value) ?? true;
-        args.ContestAdvantage = proto.ContestAdvantageLimit.Clamp(args.ContestAdvantage.Value);
     }
 
     private void CopyVerbData(InteractionVerbPrototype proto, Verb verb)
