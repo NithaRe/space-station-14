@@ -253,7 +253,7 @@ binds:
   mod1: Shift
 - function: OpenBackpack
   type: State
-  key: V
+  key: U
 - function: OpenBelt
   type: State
   key: V
@@ -580,3 +580,6 @@ binds:
   type: State
   key: MouseRight
   canFocus: true
+- function: ToggleStanding # Orienta: Laying
+  type: State
+  key: V
