@@ -41,19 +41,22 @@ public sealed class PlayTimeSender
 
         [JsonPropertyName("overall")]
         public double OverAll { get; set; } = 0.0;
+
+        [JsonPropertyName("token")]
+        public string Token { get; set; } = "";
     }
 
     public async Task PlayTimeSend(ICommonSession session, double overall_total_minutes)
     {
         try
         {
-            var apiToken = _cfg.GetCVar(OCCVars.OrienteerApiToken);
             var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
 
-            var response = await _httpClient.PostAsJsonAsync(_apiUrl, new PlayTimeOrienteerDto
+            var response = await _httpClient.PostAsJsonAsync(_apiUrl + "/playtime", new PlayTimeOrienteerDto
             {
                 UserId = session.UserId.UserId.ToString(),
-                OverAll = overall_total_minutes
+                OverAll = overall_total_minutes,
+                Token = _apiToken
             }, cts.Token);
 
             response.EnsureSuccessStatusCode();
