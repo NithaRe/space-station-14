@@ -14,6 +14,13 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: GarbageDay
     prototype: WeaponRevolverInspector
+  # Orienta skills - start
+  - !type:AddComponentSpecial
+    components:
+      - type: Skills
+        skills:
+          Melee: 0.1
+  # Orienta skills - end
 
 - type: startingGear
   id: JanitorGear

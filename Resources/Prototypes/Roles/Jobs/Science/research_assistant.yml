@@ -15,6 +15,14 @@
   access:
   - Research
   - Maintenance
+  # Orienta skills - start
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: Skills
+        skills:
+          Science: 0.5
+  # Orienta skills - end
 
 - type: startingGear
   id: ResearchAssistantGear

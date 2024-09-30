@@ -3,6 +3,11 @@
   parent: [ BaseMachinePowered, SmallConstructibleMachine ]
   abstract: true
   components:
+  # Orienta skills - start
+  - type: GettingInteractedRequiresSkills
+    skills:
+      Medicine: 0.5
+  # Orienta skills - end
   - type: Transform
     anchored: true
   - type: SolutionContainerMixer

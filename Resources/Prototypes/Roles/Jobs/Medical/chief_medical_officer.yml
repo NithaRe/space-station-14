@@ -39,6 +39,14 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  # Orienta skills - start
+      - type: Skills
+        skills:
+          Medicine: 1.0
+          Guns: 0.5
+          EnergyGuns: 0.5
+          Shuttle: 1.0
+  # Orienta skills - end
 
 - type: startingGear
   id: CMOGear

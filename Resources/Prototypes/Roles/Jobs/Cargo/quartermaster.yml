@@ -36,6 +36,11 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  # Orienta skills - start
+      - type: Skills
+        skills:
+          Shuttle: 1.0
+  # Orienta skills - end
 
 - type: startingGear
   id: QuartermasterGear

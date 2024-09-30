@@ -4,6 +4,11 @@
   name: cryo pod
   description: A special machine intended to create a safe environment for the use of chemicals that react in cold environments.
   components:
+  # Orienta skills - start
+  - type: GettingInteractedRequiresSkills
+    skills:
+      Medicine: 0.5
+  # Orienta skills - end
   - type: Sprite
     sprite: Structures/Machines/cryogenics.rsi
     drawdepth: Mobs

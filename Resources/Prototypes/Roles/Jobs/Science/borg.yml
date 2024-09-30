@@ -10,3 +10,10 @@
   icon: JobIconBorg
   supervisors: job-supervisors-rd
   jobEntity: PlayerBorgGeneric
+  # Orienta skills - start
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: Skills
+        anySkills: true
+  # Orienta skills - end

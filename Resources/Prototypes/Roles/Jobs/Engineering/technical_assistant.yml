@@ -18,6 +18,14 @@
   - Maintenance
   - Engineering
   - External
+  # Orienta skills - start
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: Skills
+        skills:
+          Engineering: 0.5
+  # Orienta skills - end
 
 - type: startingGear
   id: TechnicalAssistantGear
