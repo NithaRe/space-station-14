@@ -10,6 +10,7 @@ namespace Content.Shared._Orienta.InteractionVerbs.Requirements;
 /// <summary>
 ///     Requires the target to meet a certain whitelist and not meet a blacklist.
 /// </summary>
+
 [Serializable, NetSerializable]
 public sealed partial class EntityWhitelistRequirement : InteractionRequirement
 {
@@ -17,7 +18,7 @@ public sealed partial class EntityWhitelistRequirement : InteractionRequirement
 
     public override bool IsMet(InteractionArgs args, InteractionVerbPrototype proto, InteractionAction.VerbDependencies deps)
     {
-        return Whitelist.IsValid(args.Target, deps.EntMan) && !Blacklist.IsValid(args.Target, deps.EntMan);
+        return true;
     }
 }
 
