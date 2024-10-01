@@ -399,6 +399,18 @@
       - state: paramedic
 
 - type: entity
+  id: SpawnPointPsychotherapist
+  parent: SpawnPointJobBase
+  name: psychotherapist
+  components:
+  - type: SpawnPoint
+    job_id: Psychotherapist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: doctor
+
+- type: entity
   id: SpawnPointChemist
   parent: SpawnPointJobBase
   name: chemist

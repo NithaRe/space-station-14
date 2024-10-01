@@ -12,6 +12,7 @@ job-name-psychologist = психолог
 job-name-intern = интерн
 job-name-doctor = врач
 job-name-paramedic = парамедик
+job-name-psychotherapist = психотерапевт
 job-name-cmo = главный врач
 job-name-chemist = химик
 job-name-technical-assistant = технический ассистент

@@ -75,6 +75,7 @@
   - MedicalIntern
   - Psychologist
   - Paramedic
+  - Psychotherapist
 
 - type: department
   id: Security
