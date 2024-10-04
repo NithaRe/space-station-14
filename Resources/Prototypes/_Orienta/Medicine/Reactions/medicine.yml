@@ -1,9 +1,9 @@
 - type: reaction
-  id: Serenitol
+  id: SerenitolRecipe
   reactants:
     Phenol:
       amount: 1
-    Sugar:
+    SodiumPolyacrylate:
       amount: 1
     Water:
       amount: 1
@@ -11,22 +11,7 @@
     Serenitol: 3
 
 - type: reaction
-  id: Neurozenium
-  reactants:
-    Bleach:
-      amount: 1
-      catalyst: true
-    Acetone:
-      amount: 1
-    Mercury:
-      amount: 0.5
-    Copper:
-      amount: 0.5
-  products:
-    Neurozenium: 2
-
-- type: reaction
-  id: Blissifylovene
+  id: NebuprofenRecipe
   minTemp: 340
   reactants:
     Serenitol:
@@ -36,24 +21,10 @@
     SodiumCarbonate:
       amount: 1
   products:
-    Blissifylovene: 3
+    Nebuprofen: 3
 
 - type: reaction
-  id: Calmafluxine
-  minTemp: 325
-  reactants:
-    Phenol:
-      amount: 1
-    Inaprovaline:
-      amount: 1
-    Potassium:
-      amount: 1
-  products:
-    Calmafluxine: 3
-
-
-- type: reaction
-  id: Tranquinase
+  id: TranquinaseRecipe
   reactants:
     ChloralHydrate:
       amount: 1
@@ -68,31 +39,7 @@
     Tranquinase: 4
 
 - type: reaction
-  id: Equilibrazine
-  reactants:
-    FluorosulfuricAcid:
-      amount: 2
-    Sigynate:
-      amount: 2
-    Sugar:
-      amount: 1
-  products:
-    Equilibrazine: 5
-
-- type: reaction
-  id: Stubantazine
-  reactants:
-    Bicaridine:
-      amount: 1
-    Lithium:
-      amount: 1
-    Oil:
-      amount: 1
-  products:
-    Stubantazine: 3
-
-- type: reaction
-  id: Soretizone
+  id: SoretizoneRecipe
   minTemp: 340
   reactants:
     Bicaridine:
@@ -108,7 +55,7 @@
     Soretizone: 3
 
 - type: reaction
-  id: Agonolexyne
+  id: AgonolexyneRecipe
   minTemp: 350
   reactants:
     Bicaridine:
@@ -122,3 +69,19 @@
       catalyst: true
   products:
     Agonolexyne: 3
+    
+- type: reaction
+  id: AsparatineRecipe
+  minTemp: 350
+  reactants:
+    Ephedrine:
+      amount: 1
+    Water:
+      amount: 1
+    Sodium:
+      amount: 1
+    Plasma:
+      amount: 1
+      catalyst: true
+  products:
+    Asparatine: 3
