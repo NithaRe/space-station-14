@@ -37,8 +37,8 @@ public static class ServerPackaging
     private static readonly List<string> ServerContentAssemblies = new()
     {
         // Corvax-Secrets-Start
-        "Content.Corvax.Interfaces.Shared",
-        "Content.Corvax.Interfaces.Server",
+        // "Content.Corvax.Interfaces.Shared",  // Orienta: Comment
+        // "Content.Corvax.Interfaces.Server",  // Orienta: Comment
         // Corvax-Secrets-End
         "Content.Server.Database",
         "Content.Server",
