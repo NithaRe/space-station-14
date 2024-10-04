@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.IO.Compression;
 using Robust.Packaging;
 using Robust.Packaging.AssetProcessing;
@@ -85,7 +85,7 @@ public static class ClientPackaging
         var inputPass = graph.Input;
 
         // Corvax-Secrets-Start: Add Corvax interfaces to Magic ACZ
-        var assemblies = new List<string> { "Content.Client", "Content.Shared", "Content.Shared.Database", "Content.Corvax.Interfaces.Client", "Content.Corvax.Interfaces.Shared" };
+        var assemblies = new List<string> { "Content.Client", "Content.Shared", "Content.Shared.Database" };
         if (UseSecrets)
             assemblies.AddRange(new[] { "Content.Corvax.Shared", "Content.Corvax.Client" });
         // Corvax-Secrets-End
