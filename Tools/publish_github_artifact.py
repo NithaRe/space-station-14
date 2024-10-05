@@ -5,17 +5,19 @@ import os
 import subprocess
 
 GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
-PUBLISH_TOKEN = os.environ["PUBLISH_TOKEN"]
-ARTIFACT_ID = os.environ["ARTIFACT_ID"]
 GITHUB_REPOSITORY = os.environ["GITHUB_REPOSITORY"]
-VERSION = os.environ['GITHUB_SHA']
-FORK_ID = os.environ['FORK_ID']
+VERSION = os.environ["GITHUB_SHA"]
+
+ROBUST_CDN_URL = os.environ["ROBUST_CDN_URL"]
+PUBLISH_TOKEN = os.environ["PUBLISH_TOKEN"]
+FORK_ID = os.environ["FORK_ID"]
+
+ARTIFACT_ID = os.environ["ARTIFACT_ID"]
 
 #
 # CONFIGURATION PARAMETERS
 # Forks should change these to publish to their own infrastructure.
 #
-ROBUST_CDN_URL = "http://amadis.orientacorp.ru:8000/"
 
 def main():
     print("Fetching artifact URL from API...")
@@ -52,5 +54,5 @@ def get_engine_version() -> str:
     return tag[1:] # Cut off v prefix.
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -5,7 +5,7 @@ on:
 
 jobs:
   labeler:
-    if: github.actor != 'IanComradeBot'
+    if: github.actor != 'OrienBot'
     permissions:
       contents: read
       pull-requests: write
