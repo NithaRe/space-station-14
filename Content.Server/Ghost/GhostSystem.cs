@@ -155,7 +155,7 @@ namespace Content.Server.Ghost
             if (!playerMgr.TryGetSessionById(userId, out var targetPlayer))
                 return;
 
-            _ticker.Respawn(targetPlayer);
+            _gameTicker.Respawn(targetPlayer);
 
 
         }
