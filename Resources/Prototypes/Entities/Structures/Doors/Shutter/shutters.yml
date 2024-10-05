@@ -93,9 +93,6 @@
     lastSignals:
       DoorStatus: false
   - type: BlockWeather
-  - type: InteractionVerbs
-    allowedVerbs:
-    - KnockOn
 
 
 - type: entity

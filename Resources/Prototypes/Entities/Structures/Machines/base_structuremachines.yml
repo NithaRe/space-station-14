@@ -41,9 +41,6 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-  - type: InteractionVerbs
-    allowedVerbs:
-    - KnockOn
 
 - type: entity
   abstract: true

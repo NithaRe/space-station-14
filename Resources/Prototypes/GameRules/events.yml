@@ -150,7 +150,7 @@
   - type: StationEvent
     weight: 5
     duration: 1
-    minimumPlayers: 10
+    minimumPlayers: 100 # Orienta DisableClosetSkeleton kostyl
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
@@ -558,9 +558,9 @@
   id: MimicVendorRule
   parent: BaseGameRule
   components:
-  - type: StationEvent
-    earliestStart: 0
-    minimumPlayers: 20
-    maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
-    weight: 5
-  - type: MobReplacementRule
+- type: StationEvent
+  earliestStart: 0
+  minimumPlayers: 20
+  maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
+  weight: 5
+- type: MobReplacementRule
