@@ -847,7 +847,7 @@
   startNode: start
   targetNode: blastdoor
   category: construction-category-structures
-  description: На ней написано: "БАБАХ НАХ".
+  description: На ней написано - "БАБАХ НАХ".
   icon:
     sprite: Structures/Doors/Shutters/blastdoor.rsi
     state: closed
