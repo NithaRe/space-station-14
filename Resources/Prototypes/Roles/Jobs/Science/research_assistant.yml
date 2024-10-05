@@ -21,7 +21,7 @@
     components:
       - type: Skills
         skills:
-          Science: 0.5
+          Science: 1
   # Orienta skills - end
 
 - type: startingGear

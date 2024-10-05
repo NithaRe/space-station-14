@@ -10,7 +10,7 @@ public sealed partial class LayingDownComponent : Component
     public float StandingUpTime { get; set; } = 1f;
 
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public float SpeedModify { get; set; } = 0.4f;
+    public float SpeedModify { get; set; } = 0.2f;
 }
 [Serializable, NetSerializable]
 public sealed class ChangeLayingDownEvent : CancellableEntityEventArgs;
