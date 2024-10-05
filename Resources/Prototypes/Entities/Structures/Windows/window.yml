@@ -89,28 +89,6 @@
   - type: BlockWeather
 
 - type: entity
-  parent: Window
-  id: TintedWindow
-  name: tinted window
-  components:
-  - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Windows/tinted_window.rsi
-  - type: Icon
-    sprite: Structures/Windows/tinted_window.rsi
-  - type: IconSmooth
-    base: twindow
-  - type: Construction
-    graph: Window
-    node: tintedWindow
-  - type: Occluder
-  - type: StaticPrice
-    price: 70
-  - type: InteractionVerbs
-    allowedVerbs:
-    - KnockOn
-
-- type: entity
   id: WindowRCDResistant
   parent: Window
   abstract: true
@@ -207,9 +185,6 @@
       sprite: Structures/Windows/cracks_directional.rsi
   - type: StaticPrice
     price: 10
-  - type: InteractionVerbs
-    allowedVerbs:
-    - KnockOn
 
 - type: entity
   id: WindowDirectionalRCDResistant
