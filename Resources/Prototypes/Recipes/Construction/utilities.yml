@@ -670,7 +670,7 @@
 - type: construction
   id: GasDualPortVentPump
   name: двухпортовая вентиляция 
-  description: Присоединены клапан и труба. Два порта: для вдува воздуха и для выдува при сифонировании.
+  description: Присоединены клапан и труба. Два порта - для вдува воздуха и для выдува при сифонировании.
   graph: GasBinary
   startNode: start
   targetNode: dualportventpump
