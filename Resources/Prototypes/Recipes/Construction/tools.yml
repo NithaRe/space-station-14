@@ -1,44 +1,44 @@
 - type: construction
-  name: torch
+  name: факел
   id: LightTorch
   graph: LightTorch
   startNode: start
   targetNode: torch
   category: construction-category-tools
-  description: A torch fashioned from some wood.
+  description: Факел, исполненный в дереве.
   icon: { sprite: Objects/Misc/torch.rsi, state: icon }
   objectType: Item
 
 - type: construction
-  name: logic gate
+  name: логическая схема
   id: LogicGate
   graph: LogicGate
   startNode: start
   targetNode: logic_gate
   category: construction-category-tools
-  description: A binary logic gate for signals.
+  description: Бинарная логическая схема.
   icon: { sprite: Objects/Devices/gates.rsi, state: or_icon }
   objectType: Item
 
 - type: construction
-  name: edge detector
+  name: контурный детектор
   id: EdgeDetector
   graph: LogicGate
   startNode: start
   targetNode: edge_detector
   category: construction-category-tools
-  description: An edge detector for signals.
+  description: Контурный детектор для сигналов.
   icon: { sprite: Objects/Devices/gates.rsi, state: edge_detector }
   objectType: Item
 
 - type: construction
-  name: power sensor
+  name: датчик тока
   id: PowerSensor
   graph: LogicGate
   startNode: start
   targetNode: power_sensor
   category: construction-category-tools
-  description: A power network checking device for signals.
+  description: Датчик тока в сети.
   icon: { sprite: Objects/Devices/gates.rsi, state: power_sensor }
   objectType: Item
 
