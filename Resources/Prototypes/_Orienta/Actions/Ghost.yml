@@ -5,7 +5,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    icon: Orienta/Interface/actions/respawn.png
+    icon: _Orienta/Interface/actions/respawn.png
     checkCanInteract: false
     event: !type:RespawnActionEvent
     useDelay: 1500
