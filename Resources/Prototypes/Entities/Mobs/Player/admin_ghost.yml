@@ -33,6 +33,10 @@
     - NuclearOperative
     - SyndicateAgent
     - CentralCommand
+  # Orienta skills - start
+  - type: Skills
+    anySkills: true
+  # Orienta skills - end
   - type: UserInterface
     interfaces:
       enum.SolarControlConsoleUiKey.Key:
