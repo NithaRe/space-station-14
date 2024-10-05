@@ -24,7 +24,7 @@
     components:
       - type: Skills
         skills:
-          Engineering: 0.5
+          Engineering: 1
   # Orienta skills - end
 
 - type: startingGear
