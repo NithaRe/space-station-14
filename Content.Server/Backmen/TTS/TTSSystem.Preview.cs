@@ -1,4 +1,5 @@
-﻿using Content.Server.Players.RateLimiting;
+using Content.Server.Players.RateLimiting;
+using Content.Shared.Players.RateLimiting;
 using Content.Shared.Backmen.TTS;
 using Content.Shared.Corvax.TTS;
 using Robust.Shared.Player;
@@ -8,7 +9,7 @@ using Robust.Shared.Random;
 // ReSharper disable once CheckNamespace
 namespace Content.Server.Corvax.TTS;
 
-public sealed partial class TTSSystem
+public sealed partial class TTSSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
