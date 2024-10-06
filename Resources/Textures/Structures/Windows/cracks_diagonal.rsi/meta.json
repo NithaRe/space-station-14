@@ -9,6 +9,6 @@
   "states": [
     {"name": "DamageOverlay_5", "directions": 1},
     {"name": "DamageOverlay_10", "directions": 1},
-    {"name": "DamageOverlay_20", "directions": 1},
+    {"name": "DamageOverlay_20", "directions": 1}
   ]
 }
