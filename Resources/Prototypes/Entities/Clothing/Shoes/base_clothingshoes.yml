@@ -24,6 +24,7 @@
     - ClothMade
     - WhitelistChameleon
   - type: ProtectedFromStepTriggers
+  - type: FootPrint # Orienta footprint system
 
 - type: entity
   abstract: true
