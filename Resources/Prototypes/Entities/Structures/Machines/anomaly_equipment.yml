@@ -4,6 +4,18 @@
   name: anomaly vessel
   description: A container able to harness a scan of an anomaly and turn it into research data.
   components:
+  # Orienta skills - start
+  - type: ExploreToSkills
+    seconds: 10
+    skills:
+      Science: 0.1
+  - type: ActivatableUIRequiresSkills
+    skills:
+      Science: 1.0
+  - type: GettingInteractedRequiresSkills
+    skills:
+      Science: 1.0
+  # Orienta skills - end
   - type: Sprite
     noRot: true
     sprite: Structures/Machines/Anomaly/anomaly_vessel.rsi
@@ -120,6 +132,11 @@
   name: A.P.E.
   description: An Anomalous Particle Emitter, capable of shooting out unstable particles which can interface with anomalies.
   components:
+  # Orienta skills - start
+  - type: GettingInteractedRequiresSkills
+    skills:
+      Science: 0.5
+  # Orienta skills - end
   - type: Sprite
     noRot: true
     sprite: Structures/Machines/Anomaly/ape.rsi
@@ -226,6 +243,16 @@
   placement:
     mode: AlignTileAny
   components:
+  # Orienta skills - start
+  - type: ExploreToSkills
+    seconds: 10
+    skills:
+      Science: 0.1
+  - type: ActivatableUIRequiresSkills
+    skills:
+      Science: 1.0
+  # Orienta skills - end
+  - type: StationAiWhitelist
   - type: SpriteFade
   - type: Sprite
     sprite: Structures/Machines/Anomaly/anomaly_generator.rsi
@@ -284,6 +311,9 @@
     fuelCost: 10
     doAfterDelay: 5
   - type: WiresPanel
+  - type: Wires
+    boardName: wires-board-name-anomalygenerator
+    layoutId: AnomalyGenerator
   - type: Destructible
     thresholds:
     - trigger:
@@ -300,6 +330,8 @@
     interfaces:
         enum.AnomalyGeneratorUiKey.Key:
           type: AnomalyGeneratorBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
   - type: Appearance
   - type: ActiveRadio
     channels:

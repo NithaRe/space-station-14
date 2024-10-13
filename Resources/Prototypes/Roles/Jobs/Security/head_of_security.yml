@@ -15,8 +15,6 @@
       time: 108000 #50 hrs # Corvax-RoleTime
 #    - !type:OverallPlaytimeRequirement
 #      time: 144000 #40 hrs
-    - !type:AgeRequirement
-      requiredAge: 21
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
@@ -40,6 +38,15 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  # Orienta skills - start
+      - type: Skills
+        skills:
+          Medicine: 0.3
+          Melee: 0.9
+          Guns: 1.0
+          EnergyGuns: 1.0
+          Shuttle: 1.0
+  # Orienta skills - end
 
 - type: startingGear
   id: HoSGear

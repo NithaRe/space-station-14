@@ -6,10 +6,10 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 36000 #10 hrs # Corvax-RoleTime
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 72000 #20 hrs # Corvax-RoleTime
-      inverted: true # stop playing intern if you're good at security!
+    # - !type:DepartmentTimeRequirement
+      # department: Security
+      # time: 72000 #20 hrs # Corvax-RoleTime
+      # inverted: true # stop playing intern if you're good at security!
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
@@ -22,6 +22,16 @@
   - External
   - Cryogenics
   special:
+  # Orienta skills - start
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills
+      skills:
+        Guns: 0.5
+        EnergyGuns: 0.5
+        Medicine: 0.1
+        Melee: 0.3
+  # Orienta skills - end
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
 
@@ -34,7 +44,7 @@
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
     pocket1: WeaponPistolMk58
-    pocket2: BookSpaceLaw # Corvax-HyperLink
+    pocket2: BookSecurity
   storage:
     back:
     - Flash

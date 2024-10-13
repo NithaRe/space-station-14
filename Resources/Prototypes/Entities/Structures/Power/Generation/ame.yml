@@ -5,6 +5,9 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: ActivatableUIRequiresSkills
+    skills:
+      Engineering: 1.0
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
@@ -29,8 +32,8 @@
         layer:
         - WallLayer
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
   - type: Destructible
     thresholds:
     - trigger:
@@ -153,8 +156,8 @@
         layer:
         - WallLayer
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
   - type: Destructible
     thresholds:
     - trigger:

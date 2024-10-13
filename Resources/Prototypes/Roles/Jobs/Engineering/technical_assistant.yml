@@ -6,18 +6,26 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 3600 #1 hr
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 36000 #10 hrs # Corvax-RoleTime
-      inverted: true # stop playing intern if you're good at engineering!
+    # - !type:DepartmentTimeRequirement
+      # department: Engineering
+      # time: 36000 #10 hrs # Corvax-RoleTime
+      # inverted: true # stop playing intern if you're good at engineering!
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
   supervisors: job-supervisors-engineering
-  canBeAntag: false
+  canBeAntag: true # Corvax-MRP: Available not only for newbies
   access:
   - Maintenance
   - Engineering
   - External
+  # Orienta skills - start
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: Skills
+        skills:
+          Engineering: 1
+  # Orienta skills - end
 
 - type: startingGear
   id: TechnicalAssistantGear

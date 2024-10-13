@@ -1,0 +1,21 @@
+- type: guideEntry
+  id: OrientaRuleset
+  name: guide-entry-Orienta-Rules
+  text: "/ServerInfo/Guidebook/ServerRules/Defaultrules.xml"
+  priority: -2
+  ruleEntry: true
+  children:
+    - OrientaRule0
+    - OrientaRule1
+
+- type: guideEntry
+  id: OrientaRule0
+  name: guide-entry-orienta-rule-1
+  text: "/ServerInfo/_Orienta/Rules/rule1.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: OrientaRule1
+  name: guide-entry-orienta-ruler-2
+  text: "/ServerInfo/_Orienta/Rules/rule2.xml"
+  ruleEntry: true

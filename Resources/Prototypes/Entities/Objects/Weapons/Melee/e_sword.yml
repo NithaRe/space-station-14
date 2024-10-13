@@ -1,8 +1,18 @@
 - type: entity
-  id: BaseMeleeWeaponEnergy # more generic naming in case someone makes like, idk, an energy axe
+  name: energy sword
   parent: BaseItem
-  abstract: true
+  id: EnergySword
+  description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
   components:
+   # Stories - start
+  - type: ExploreToSkills
+    seconds: 10
+    skills:
+      Melee: 0.4
+  - type: HitRequiresSkills
+    skills:
+      Melee: 1.0
+   # Stories - end
   - type: EnergySword
   - type: ItemToggle
     soundActivate:
@@ -17,11 +27,10 @@
     - type: Sharp
     - type: DisarmMalus
       malus: 0.6
-    - type: Execution
-      doAfterDuration: 4.0
   - type: ItemToggleHot
   - type: ItemToggleSize
     activatedSize: Huge
+  - type: ItemTogglePointLight
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
       path: /Audio/Weapons/eblade1.ogg
@@ -37,10 +46,19 @@
       params:
         variation: 0.125
     activatedDamage:
-      types:
-        Slash: 15
-        Heat: 15
-        Structural: 20
+        types:
+            Slash: 15
+            Heat: 15
+            Structural: 20
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/e_sword.rsi
+    layers:
+      - state: e_sword
+      - state: e_sword_blade
+        color: "#FFFFFF"
+        visible: false
+        shader: unshaded
+        map: [ "blade" ]
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 1
@@ -49,6 +67,7 @@
         Blunt: 4.5
   - type: Item
     size: Small
+    sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
   - type: UseDelay
     delay: 1.0
   - type: PointLight
@@ -70,116 +89,10 @@
   - type: Reflect
   - type: IgnitionSource
     temperature: 700
-# Corvax-HiddenDesc-Start
-  - type: Tag
-    tags:
-    - Write
-  # Corvax-HiddenDesc-Start
-  - type: HiddenDescription
-    entries:
-    - label: corvax-hidden-desc-EnergySword-syndicate
-      whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
-    - label: corvax-hidden-desc-EnergySword-security
-      jobRequired:
-        - HeadOfSecurity
-        - Detective
-        - SecurityCadet
-        - SecurityOfficer
-        - Warden
-        - Captain
-    - label: corvax-hidden-desc-EnergySword-cargo
-      jobRequired:
-        - SalvageSpecialist
-# Corvax-HiddenDesc-End
-
-- type: entity
-  name: energy sword
-  parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
-  id: EnergySword
-  description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/e_sword.rsi
-    layers:
-    - state: e_sword
-    - state: e_sword_blade
-      color: "#FFFFFF"
-      visible: false
-      shader: unshaded
-      map: [ "blade" ]
-  - type: Item
-    sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
-
-- type: entity
-  name: energy dagger
-  parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
-  id: EnergyDaggerLoud
-  description: A not as loud and dangerous dagger with a beam made of pure, concentrated plasma. This one is completely undisguised.
-  components:
-  - type: ItemToggle
-    soundActivate:
-      path: /Audio/Weapons/ebladeon.ogg
-      params:
-        volume: -3
-    soundDeactivate:
-      path: /Audio/Weapons/ebladeoff.ogg
-      params:
-        volume: -3
-  - type: ItemToggleMeleeWeapon
-    activatedSoundOnSwing:
-      path: /Audio/Weapons/eblademiss.ogg
-      params:
-        volume: -3
-        variation: 0.250
-    activatedDamage:
-        types:
-            Slash: 10
-            Heat: 10
-    deactivatedSecret: true
-  - type: ItemToggleActiveSound
-    activeSound:
-      path: /Audio/Weapons/ebladehum.ogg
-      params:
-        volume: -3
-  - type: ComponentToggler
-    components:
-    - type: Sharp
-    - type: DisarmMalus
-      malus: 0.4
-    - type: Execution
-      doAfterDuration: 4.0
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
-    layers:
-      - state: e_sword
-      - state: e_sword_blade
-        color: "#FFFFFF"
-        visible: false
-        shader: unshaded
-        map: [ "blade" ]
-  - type: MeleeWeapon
-    wideAnimationRotation: 145
-    attackRate: 1
-    hidden: true
-    damage:
-      types:
-        Blunt: 1
-  - type: Item
-    size: Tiny
-    sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
-  - type: PointLight
-    enabled: false
-    radius: 1.5
-    energy: 1.5
-    color: white
-    netsync: false
 
 - type: entity
   name: pen
-  parent: BaseMeleeWeaponEnergy
+  parent: EnergySword
   id: EnergyDagger
   suffix: E-Dagger
   description: 'A dark ink pen.'
@@ -193,31 +106,27 @@
       path: /Audio/Weapons/ebladeoff.ogg
       params:
         volume: -6
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        volume: -6
+        variation: 0.250
+    activatedDamage:
+        types:
+            Slash: 10
+            Heat: 10
+    deactivatedSecret: true
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
       params:
         volume: -6
-  - type: ItemToggleMeleeWeapon
-    activatedSoundOnSwing:
-      path: /Audio/Weapons/eblademiss.ogg
-      params:
-        volume: -3
-        variation: 0.250
-    activatedDamage:
-      types:
-        Slash: 10
-        Heat: 10
   - type: ComponentToggler
     components:
     - type: Sharp
     - type: DisarmMalus
       malus: 0.4
-    - type: Execution
-      doAfterDuration: 4.0
-    - type: Contraband
-      severity: Syndicate
-      allowedDepartments: null
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_dagger.rsi
     layers:
@@ -227,15 +136,6 @@
         visible: false
         shader: unshaded
         map: [ "blade" ]
-  - type: Item
-    size: Tiny
-    sprite: Objects/Weapons/Melee/e_dagger.rsi
-  - type: PointLight
-    enabled: false
-    radius: 1.5
-    energy: 1.5
-    color: white
-    netsync: false
   - type: MeleeWeapon
     wideAnimationRotation: 145
     attackRate: 1
@@ -243,27 +143,35 @@
     damage:
       types:
         Blunt: 1
+  - type: Item
+    size: Tiny
+    sprite: Objects/Weapons/Melee/e_dagger.rsi
+  - type: UseDelay
+    delay: 1.0
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    energy: 1.5
+    color: white
+    netsync: false
+  - type: Appearance
+  - type: ToggleableLightVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+        shader: unshaded
+      right:
+      - state: inhand-right-blade
+        shader: unshaded
   - type: Tag
     tags:
     - Write
-# Corvax-HiddenDesc-Start
-  - type: HiddenDescription
-    entries:
-    - label: corvax-hidden-desc-EnergyDagger-syndicate
-      whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
-    - label: corvax-hidden-desc-EnergyDagger-research
-      jobRequired:
-        - ResearchAssistant
-        - ResearchDirector
-        - Scientist
-        - Borg
-# Corvax-HiddenDesc-End
+  - type: DisarmMalus
+    malus: 0
 
 - type: entity
-  parent: [BaseItem, BaseSyndicateContraband]
+  parent: BaseItem
   id: EnergyDaggerBox
   name: e-dagger box
   suffix: E-Dagger
@@ -282,7 +190,7 @@
 
 - type: entity
   name: energy cutlass
-  parent: [BaseMeleeWeaponEnergy, BaseMajorContraband]
+  parent: EnergySword
   id: EnergyCutlass
   description: An exotic energy weapon.
   components:
@@ -302,27 +210,21 @@
         shader: unshaded
         map: [ "blade" ]
   - type: Item
+    size: Small
     sprite: Objects/Weapons/Melee/e_cutlass.rsi
-  # Corvax-HiddenDesc-Start
-  - type: HiddenDescription
-    entries:
-    #- label: corvax-hidden-desc-EnergyCutlass-pirate #У нас нету в игре PirateRole, грусть
-    - label: corvax-hidden-desc-EnergyCutlass-security
-      jobRequired:
-      - HeadOfSecurity
-      - Detective
-      - SecurityCadet
-      - SecurityOfficer
-      - Warden
-      - Captain
-    - label: corvax-hidden-desc-EnergyCutlass-cargo
-      jobRequired:
-      - SalvageSpecialist
-  # Corvax-HiddenDesc-End
+  - type: ToggleableLightVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+        shader: unshaded
+      right:
+      - state: inhand-right-blade
+        shader: unshaded
 
 - type: entity
   name: double-bladed energy sword
-  parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
+  parent: EnergySword
   id: EnergySwordDouble
   description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. This can be stored in pockets.
   components:
@@ -357,8 +259,6 @@
     - type: Sharp
     - type: DisarmMalus
       malus: 0.7
-    - type: Execution
-      doAfterDuration: 4.0
   - type: Wieldable
     wieldSound: null # esword light sound instead
   - type: MeleeWeapon
@@ -383,35 +283,14 @@
   - type: Reflect
     reflectProb: .75
     spread: 75
-  - type: Construction
-    graph: EnergyDoubleSwordGraph
-    node: double-bladed energy sword
-  # Corvax-HiddenDesc-Start
-  - type: HiddenDescription
-    entries:
-    - label: corvax-hidden-desc-EnergySword-syndicate
-      whitelistMind:
-        components:
-        - TraitorRole
-        - NukeOperative
-    - label: corvax-hidden-desc-EnergySword-security
-      jobRequired:
-      - HeadOfSecurity
-      - Detective
-      - SecurityCadet
-      - SecurityOfficer
-      - Warden
-      - Captain
-    - label: corvax-hidden-desc-EnergySword-cargo
-      jobRequired:
-      - SalvageSpecialist
-  # Corvax-HiddenDesc-End
-
-- type: entity
-  suffix: One-Handed, For Borgs
-  parent: EnergySwordDouble
-  id: CyborgEnergySwordDouble # why is this invalid if ID is BorgEnergySwordDouble
-  description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. Specially designed for syndicate cyborgs.
-  components: # could add energy-draining like the L6C
-  - type: Wieldable
-    freeHandsRequired: 0 # because borg has no off-hand to wield with.  Without this, it will be unable to activate the esword
+  - type: UseDelay
+    delay: 1
+  - type: ToggleableLightVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+        shader: unshaded
+      right:
+      - state: inhand-right-blade
+        shader: unshaded

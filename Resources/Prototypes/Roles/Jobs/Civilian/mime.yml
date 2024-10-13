@@ -3,9 +3,6 @@
   name: job-name-mime
   description: job-description-mime
   playTimeTracker: JobMime
-  requirements:
-  - !type:OverallPlaytimeRequirement
-      time: 90000 #25 hrs # Corvax-RoleTime
   startingGear: MimeGear
   icon: "JobIconMime"
   supervisors: job-supervisors-hop
@@ -17,11 +14,15 @@
     components:
     - type: MimePowers
     - type: FrenchAccent
+  # Orienta skills - start
+    - type: Skills
+      skills:
+        Melee: 1.0
+  # Orienta skills - end
 
 - type: startingGear
   id: MimeGear
   equipment:
-    belt: ClothingBeltSuspenders
     gloves: ClothingHandsGlovesColorWhite
     shoes: ClothingShoesColorWhite
     pocket1: CrayonMime

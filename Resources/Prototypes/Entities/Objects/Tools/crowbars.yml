@@ -4,6 +4,20 @@
   id: BaseCrowbar
   abstract: true
   components:
+  # Orienta skills - start
+  - type: HitToSkills
+    skills:
+      Melee: 0.02
+  - type: SkillsAffectAttackRate
+    skills:
+      Melee: 0.9
+    multiplier: 1
+  - type: SkillsAffectDamage
+    skills:
+      Melee: 0.5
+    heavyAttackMultiplier: 1
+    lightAttackMultiplier: 1
+  # Orienta skills - end
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/crowbar_drop.ogg

@@ -17,6 +17,14 @@
   extendedAccess:
   - Hydroponics
   - Bar
+  # Orienta skills - start
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: Skills
+        skills:
+          Melee: 1.0
+  # Orienta skills - end
 
 - type: startingGear
   id: ChefGear

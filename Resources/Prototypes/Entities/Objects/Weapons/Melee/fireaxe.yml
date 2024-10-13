@@ -4,6 +4,24 @@
   id: FireAxe
   description: Truly, the weapon of a madman. Who would think to fight fire with an axe?
   components:
+  # Orienta skills - start
+  - type: ExploreToSkills
+    seconds: 10
+    skills:
+      Melee: 0.2
+  - type: HitToSkills
+    skills:
+      Melee: 0.05
+  - type: SkillsAffectAttackRate
+    skills:
+      Melee: 0.9
+    multiplier: 1
+  - type: SkillsAffectDamage
+    skills:
+      Melee: 0.5
+    heavyAttackMultiplier: 1
+    lightAttackMultiplier: 1
+  # Orienta skills - end
   - type: Tag
     tags:
     - FireAxe
@@ -53,7 +71,7 @@
 - type: entity
   id: FireAxeFlaming
   name: fire axe
-  parent: FireAxe
+  parent: [BaseSyndicateContraband, FireAxe]
   description: Why fight fire with an axe when you can fight with fire and axe? Now featuring rugged rubberized handle!
   components:
   - type: MeleeWeapon

@@ -5,6 +5,20 @@
   description: A rooty tooty point and shooty.
   abstract: true
   components:
+   # Stories - start
+  - type: ShotToSkills
+    skills:
+      Guns: 0.01
+  - type: SkillsAffectShots
+    minAngle: 90
+    maxAngle: 90
+    skills:
+      Guns: 1.0
+  - type: ExploreToSkills
+    seconds: 10
+    skills:
+      Guns: 0.1
+  # Stories - end
   - type: Sprite
   - type: Item
     size: Huge
@@ -36,7 +50,6 @@
         whitelist:
           tags:
             - MagazineLightRifle
-        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgeLightRifle
@@ -53,7 +66,7 @@
 
 - type: entity
   name: AKMS
-  parent: [BaseWeaponRifle, BaseMajorContraband]
+  parent: [BaseWeaponRifle, BaseRestrictedContraband]
   id: WeaponRifleAk
   description: An iconic weapon of war. Uses .30 rifle ammo.
   components:
@@ -82,7 +95,6 @@
         whitelist:
           tags:
             - MagazineLightRifle
-        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgeLightRifle
@@ -102,7 +114,7 @@
 
 - type: entity
   name: M-90gl
-  parent: [BaseWeaponRifle, BaseSyndicateContraband]
+  parent: BaseWeaponRifle
   id: WeaponRifleM90GrenadeLauncher
   description: An older bullpup carbine model, with an attached underbarrel grenade launcher. Uses .20 rifle ammo.
   components:
@@ -126,7 +138,6 @@
         whitelist:
           tags:
             - MagazineRifle
-        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgeRifle
@@ -146,7 +157,7 @@
 
 - type: entity
   name: Lecter
-  parent: [BaseWeaponRifle, BaseRestrictedContraband]
+  parent: BaseWeaponRifle
   id: WeaponRifleLecter
   description: A high end military grade assault rifle. Uses .20 rifle ammo.
   components:
@@ -173,7 +184,6 @@
         whitelist:
           tags:
             - MagazineRifle
-        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgeRifle

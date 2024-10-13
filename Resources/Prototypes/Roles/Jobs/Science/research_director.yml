@@ -9,8 +9,6 @@
       time: 54000 #15 hrs # Corvax-RoleTime
 #    - !type:OverallPlaytimeRequirement
 #      time: 144000 #40 hrs
-    - !type:AgeRequirement
-      requiredAge: 21
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
@@ -30,6 +28,14 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  # Orienta skills - start
+      - type: Skills
+        skills:
+          Science: 1.0
+          Guns: 0.5
+          EnergyGuns: 0.5
+          Shuttle: 1.0
+  # Orienta skills - end
 
 - type: startingGear
   id: ResearchDirectorGear

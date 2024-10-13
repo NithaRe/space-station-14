@@ -18,7 +18,7 @@
   - type: Transform
     anchored: true
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: FlimsyMetallic
   - type: Destructible
     thresholds:
@@ -107,11 +107,6 @@
         - FullTileMask
         layer:
         - TableLayer
-  - type: InteractionPopup
-    interactSuccessString: fence-rattle-success
-    messagePerceivedByOthers: fence-rattle-success
-    interactSuccessSound:
-      collection: FenceRattle
   - type: Destructible
     thresholds:
     - trigger:
@@ -166,11 +161,6 @@
         layer:
         - MidImpassable
         - LowImpassable
-  - type: InteractionPopup
-    interactSuccessString: fence-rattle-success
-    messagePerceivedByOthers: fence-rattle-success
-    interactSuccessSound:
-      collection: FenceRattle
   - type: Destructible
     thresholds:
     - trigger:
@@ -234,11 +224,6 @@
         layer:
         - MidImpassable
         - LowImpassable
-  - type: InteractionPopup
-    interactSuccessString: fence-rattle-success
-    messagePerceivedByOthers: fence-rattle-success
-    interactSuccessSound:
-      collection: FenceRattle
   - type: Construction
     graph: FenceMetal
     node: corner
@@ -271,11 +256,6 @@
         layer:
         - MidImpassable
         - LowImpassable
-  - type: InteractionPopup
-    interactSuccessString: fence-rattle-success
-    messagePerceivedByOthers: fence-rattle-success
-    interactSuccessSound:
-      collection: FenceRattle
   - type: Construction
     graph: FenceMetal
     node: end

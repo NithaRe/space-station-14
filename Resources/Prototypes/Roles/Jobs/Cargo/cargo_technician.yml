@@ -11,6 +11,14 @@
   - Maintenance
   extendedAccess:
   - Salvage
+  # Orienta skills - start
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: Skills
+        skills:
+          Shuttle: 1.0
+  # Orienta skills - end
 
 - type: startingGear
   id: CargoTechGear

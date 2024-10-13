@@ -3,7 +3,6 @@ using System.Linq;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using Content.Corvax.Interfaces.Server;
 using Content.Corvax.Interfaces.Shared;
 using Content.Server.Chat.Managers;
@@ -31,6 +30,7 @@ namespace Content.Server.Connection
     public interface IConnectionManager
     {
         void Initialize();
+        void PostInit();
         Task<bool> HavePrivilegedJoin(NetUserId userId); // Corvax-Queue
 
         /// <summary>
@@ -51,7 +51,6 @@ namespace Content.Server.Connection
     /// </summary>
     public sealed partial class ConnectionManager : IConnectionManager
     {
-        [Dependency] private readonly IServerDbManager _dbManager = default!;
         [Dependency] private readonly IPlayerManager _plyMgr = default!;
         [Dependency] private readonly IServerNetManager _netMgr = default!;
         [Dependency] private readonly IServerDbManager _db = default!;
@@ -212,7 +211,7 @@ namespace Content.Server.Connection
                 return null;
             }
 
-            var adminData = await _dbManager.GetAdminDataForAsync(e.UserId);
+            var adminData = await _db.GetAdminDataForAsync(e.UserId);
 
             // Corvax-Start: Allow privileged players bypass bunker
             var isPrivileged = await HavePrivilegedJoin(e.UserId);
@@ -223,7 +222,7 @@ namespace Content.Server.Connection
                 var customReason = _cfg.GetCVar(CCVars.PanicBunkerCustomReason);
 
                 var minMinutesAge = _cfg.GetCVar(CCVars.PanicBunkerMinAccountAge);
-                var record = await _dbManager.GetPlayerRecordByUserId(userId);
+                var record = await _db.GetPlayerRecordByUserId(userId);
                 var validAccountAge = record != null &&
                                       record.FirstSeenTime.CompareTo(DateTimeOffset.UtcNow - TimeSpan.FromMinutes(minMinutesAge)) <= 0;
                 var bypassAllowed = _cfg.GetCVar(CCVars.BypassBunkerWhitelist) && await _db.GetWhitelistStatusAsync(userId);
@@ -301,6 +300,35 @@ namespace Content.Server.Connection
                 return (ConnectionDenyReason.Full, Loc.GetString("soft-player-cap-full"), null);
             }
 
+            // Checks for whitelist IF it's enabled AND the user isn't an admin. Admins are always allowed.
+            if (_cfg.GetCVar(CCVars.WhitelistEnabled) && adminData is null)
+            {
+                if (_whitelists is null)
+                {
+                    _sawmill.Error("Whitelist enabled but no whitelists loaded.");
+                    // Misconfigured, deny everyone.
+                    return (ConnectionDenyReason.Whitelist, Loc.GetString("whitelist-misconfigured"), null);
+                }
+
+                foreach (var whitelist in _whitelists)
+                {
+                    if (!IsValid(whitelist, _plyMgr.PlayerCount))
+                    {
+                        // Not valid for current player count.
+                        continue;
+                    }
+
+                    var whitelistStatus = await IsWhitelisted(whitelist, e.UserData, _sawmill);
+                    if (!whitelistStatus.isWhitelisted)
+                    {
+                        // Not whitelisted.
+                        return (ConnectionDenyReason.Whitelist, Loc.GetString("whitelist-fail-prefix", ("msg", whitelistStatus.denyMessage!)), null);
+                    }
+
+                    // Whitelisted, don't check any more.
+                    break;
+                }
+            }
 
             return null;
         }
@@ -318,7 +346,7 @@ namespace Content.Server.Connection
             var maxPlaytimeMinutes = _cfg.GetCVar(CCVars.BabyJailMaxOverallMinutes);
 
             // Wait some time to lookup data
-            var record = await _dbManager.GetPlayerRecordByUserId(userId);
+            var record = await _db.GetPlayerRecordByUserId(userId);
 
             // No player record = new account or the DB is having a skill issue
             if (record == null)
@@ -400,7 +428,7 @@ namespace Content.Server.Connection
         {
             if (HasTemporaryBypass(userId))
                 return true;
-            var adminBypass = _cfg.GetCVar(CCVars.AdminBypassMaxPlayers) && await _dbManager.GetAdminDataForAsync(userId) != null;
+            var adminBypass = _cfg.GetCVar(CCVars.AdminBypassMaxPlayers) && await _db.GetAdminDataForAsync(userId) != null;
             var havePriorityJoin = _sponsorsMgr != null && _sponsorsMgr.HaveServerPriorityJoin(userId); // Corvax-Sponsors
             var wasInGame = EntitySystem.TryGet<GameTicker>(out var ticker) &&
                             ticker.PlayerGameStatuses.TryGetValue(userId, out var status) &&

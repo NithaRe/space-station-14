@@ -50,6 +50,20 @@
   id: Screwdriver
   description: Industrial grade torque in a small screwdriving package.
   components:
+  # Orienta skills - start
+  - type: HitToSkills
+    skills:
+      Melee: 0.02
+  - type: SkillsAffectAttackRate
+    skills:
+      Melee: 0.9
+    multiplier: 1
+  - type: SkillsAffectDamage
+    skills:
+      Melee: 0.5
+    heavyAttackMultiplier: 1
+    lightAttackMultiplier: 1
+  # Orienta skills - end
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/screwdriver_drop.ogg
@@ -94,6 +108,20 @@
   id: Wrench
   description: 'A common tool for assembly and disassembly. Remember: lefty latchy, righty removey.'
   components:
+  # Orienta skills - start
+  - type: HitToSkills
+    skills:
+      Melee: 0.02
+  - type: SkillsAffectAttackRate
+    skills:
+      Melee: 0.9
+    multiplier: 1
+  - type: SkillsAffectDamage
+    skills:
+      Melee: 0.5
+    heavyAttackMultiplier: 1
+    lightAttackMultiplier: 1
+  # Orienta skills - end
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/wrench_drop.ogg
@@ -234,6 +262,20 @@
   id: PowerDrill
   description: A simple powered hand drill.
   components:
+  # Orienta skills - start
+  - type: HitToSkills
+    skills:
+      Melee: 0.02
+  - type: SkillsAffectAttackRate
+    skills:
+      Melee: 0.9
+    multiplier: 1
+  - type: SkillsAffectDamage
+    skills:
+      Melee: 0.5
+    heavyAttackMultiplier: 1
+    lightAttackMultiplier: 1
+  # Orienta skills - end
   - type: Tag
     tags:
     - Powerdrill
@@ -288,6 +330,11 @@
   name: RCD
   description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
   components:
+  # Orienta skills - start
+  - type: GettingInteractedRequiresSkills
+    skills:
+      Engineering: 0.5
+  # Orienta skills - end
   - type: RCD
     availablePrototypes:
     - WallSolid
@@ -460,6 +507,20 @@
   id: Shovel
   description: A large tool for digging and moving dirt.
   components:
+  # Orienta skills - start
+  - type: HitToSkills
+    skills:
+      Melee: 0.02
+  - type: SkillsAffectAttackRate
+    skills:
+      Melee: 0.9
+    multiplier: 1
+  - type: SkillsAffectDamage
+    skills:
+      Melee: 0.5
+    heavyAttackMultiplier: 1
+    lightAttackMultiplier: 1
+  # Orienta skills - end
   - type: Sprite
     sprite: Objects/Tools/shovel.rsi
     state: icon
@@ -514,3 +575,6 @@
   - type: Tag
     tags:
     - RollingPin
+  - type: Construction
+    graph: WoodenRollingPin
+    node: rollingpin

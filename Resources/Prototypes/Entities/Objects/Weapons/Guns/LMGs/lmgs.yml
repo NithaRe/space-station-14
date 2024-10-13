@@ -5,14 +5,34 @@
   description: A rooty tooty point and shooty.
   abstract: true
   components:
+  # Stories - start
+  - type: ShotToSkills
+    skills:
+      Guns: 0.01
+  - type: SkillsAffectShots
+    minAngle: 90
+    maxAngle: 90
+    skills:
+      Guns: 1.0
+  - type: ShotRequiresSkills
+    skills:
+      Guns: 1.0
+  - type: ExploreToSkills
+    seconds: 10
+    skills:
+      Guns: 0.1
+  # Stories - end
   - type: Sprite
   - type: Item
     size: Huge
+    shape:
+    - 0,0,4,3
   - type: Clothing
     sprite: Objects/Weapons/Guns/LMGs/l6.rsi
     quickEquip: false
     slots:
     - Back
+    - suitStorage
   - type: Wieldable
     unwieldOnUse: false
   - type: GunWieldBonus
@@ -65,7 +85,7 @@
 - type: entity
   name: L6 SAW
   id: WeaponLightMachineGunL6
-  parent: [BaseWeaponLightMachineGun, BaseSyndicateContraband]
+  parent: BaseWeaponLightMachineGun
   description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. Uses .30 rifle ammo.
   components:
   - type: Sprite

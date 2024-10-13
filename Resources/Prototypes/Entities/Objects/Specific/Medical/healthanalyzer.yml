@@ -4,6 +4,15 @@
   name: health analyzer
   description: A hand-held body scanner capable of distinguishing vital signs of the subject.
   components:
+  # Orienta skills - start
+  - type: GettingInteractedRequiresSkills
+    skills:
+      Medicine: 0.5
+  - type: ExploreToSkills
+    seconds: 10
+    skills:
+      Medicine: 0.1
+  # Orienta skills - end
   - type: Sprite
     sprite: Objects/Specific/Medical/healthanalyzer.rsi
     state: icon
@@ -47,6 +56,7 @@
   components:
   - type: PowerCellDraw
     drawRate: 1.2 #Calculated for 5 minutes on a small cell
+  - type: ToggleCellDraw
   - type: ActivatableUIRequiresPowerCell
 
 - type: entity

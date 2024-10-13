@@ -5,6 +5,12 @@
   description: A thruster that allows a shuttle to move.
   abstract: true
   components:
+    # Orienta skills - start
+    - type: ExploreToSkills
+      seconds: 10
+      skills:
+        Shuttle: 0.33
+    # Orienta skills - end
     - type: Fixtures
       fixtures:
         fix1:
@@ -40,7 +46,7 @@
       powerLoad: 1500
     - type: ExtensionCableReceiver
     - type: Damageable
-      damageContainer: Inorganic
+      damageContainer: StructuralInorganic
       damageModifierSet: Electronic
     - type: Destructible
       thresholds:
@@ -193,7 +199,7 @@
         - !type:ChangeConstructionNodeBehavior
           node: machineFrame
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Electronic
   - type: StaticPrice
     price: 2000

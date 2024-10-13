@@ -20,6 +20,10 @@ namespace Content.Client.Stylesheets
 
         public const string ClassAngleRect = "AngleRect";
 
+        //Orienta Parallax Start
+        public const string ClassAngleRectTransparent = "AngleRectTransparent";
+        //Orienta Parallax End
+
         public const string ButtonOpenRight = "OpenRight";
         public const string ButtonOpenLeft = "OpenLeft";
         public const string ButtonOpenBoth = "OpenBoth";
