@@ -7,6 +7,7 @@ reagent-effect-painkiller-head-strong1 = Ваша голова онемела.
 reagent-effect-painkiller-head-strong2 = Вы чувствуете, что можете нормально мыслить.
 reagent-effect-painkiller-head-strong3 = Вы наконец-то можете сосредоточиться.
 reagent-effect-painkiller-head-strong4 = Вы чувствуете огромное облегчение.
+reagent-effect-painkiller-fade = Действие обезболивающего начинает ослабевать...
 reagent-effect-painkiller-head-fade = Вам кажется, что голова вот-вот взорвется.
 reagent-effect-asparatine-overdose = Ваш живот болит.
 reagent-effect-asparatine-overdose2 = Такое чуство, будто вас пырнули в живот
