@@ -228,6 +228,34 @@
   - type: AccessReader
     access: [ [ "Medical" ] ]
 
+# Psychotherapist
+- type: entity
+  id: LockerPsychotherapist
+  parent: LockerBase
+  name: psychotherapist's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: med_secure
+    stateDoorOpen: med_secure_open
+    stateDoorClosed: med_secure_door
+  - type: AccessReader
+    access: [ [ "Medical" ] ]
+
+# MedBrother
+- type: entity
+  id: LockerMedBrother
+  parent: LockerBase
+  name: medbrother's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: med_secure
+    stateDoorOpen: med_secure_open
+    stateDoorClosed: med_secure_door
+  - type: AccessReader
+    access: [ [ "Medical" ] ]
+
 # Paramedic
 - type: entity
   id: LockerParamedic

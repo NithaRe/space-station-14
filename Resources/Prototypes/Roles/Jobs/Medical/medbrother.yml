@@ -1,15 +1,15 @@
 - type: job
-  id: Psychotherapist
-  name: job-name-psychotherapist
-  description: job-description-psychotherapist
-  playTimeTracker: JobPsychotherapist
+  id: MedBrother
+  name: job-name-medbrother
+  description: job-description-medbrother
+  playTimeTracker: JobMedBrother
   requirements:
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 14400 #4 hrs
+      time: 7200 # 2 hrs
     - !type:OverallPlaytimeRequirement
-      time: 54000 # 15 hrs
-  startingGear: PsychotherapistGear
+      time: 36000 # 10 hrs
+  startingGear: MedBrotherGear
   icon: "JobIconMedicalDoctor"
   supervisors: job-supervisors-cmo
   access:
@@ -18,10 +18,11 @@
   - Chemistry
 
 - type: startingGear
-  id: PsychotherapistGear
+  id: MedBrotherGear
   equipment:
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
+    jumpsuit: UniformScrubsColorBlue
   satchel: ClothingBackpackSatchelMedicalFilled
   duffelbag: ClothingBackpackDuffelMedicalFilled
   #storage:

@@ -411,6 +411,18 @@
       - state: doctor
 
 - type: entity
+  id: SpawnPointMedBrother
+  parent: SpawnPointJobBase
+  name: medbrother
+  components:
+  - type: SpawnPoint
+    job_id: MedBrother
+  - type: Sprite
+    layers:
+      - state: green
+      - state: doctor
+
+- type: entity
   id: SpawnPointChemist
   parent: SpawnPointJobBase
   name: chemist

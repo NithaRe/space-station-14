@@ -101,6 +101,7 @@
   - Psychologist
   - Paramedic
   - Psychotherapist
+  - MedBrother
 
 - type: department
   id: Security

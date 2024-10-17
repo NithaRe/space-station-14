@@ -107,6 +107,9 @@
   id: JobPsychotherapist
 
 - type: playTimeTracker
+  id: JobMedBrother
+
+- type: playTimeTracker
   id: JobPsychologist
 
 - type: playTimeTracker
