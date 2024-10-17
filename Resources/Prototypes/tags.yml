@@ -19,6 +19,9 @@
   id: AnomalyHost
 
 - type: Tag
+  id: AntiPsychos
+
+- type: Tag
   id: AppraisalTool
 
 - type: Tag
