@@ -20,6 +20,7 @@
 - type: startingGear
   id: MedBrotherGear
   equipment:
+    id: MedBrotherPDA
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
     jumpsuit: UniformScrubsColorBlue

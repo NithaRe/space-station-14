@@ -626,6 +626,36 @@
 
 - type: entity
   parent: BaseMedicalPDA
+  id: PsychiatristPDA
+  name: medical PDA
+  description: Shiny and sterile.
+  components:
+  - type: Pda
+    id: PsychiatristIDCard
+    state: pda-medical
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentVColor: "#447987"
+  - type: Icon
+    state: pda-medical
+
+- type: entity
+  parent: BaseMedicalPDA
+  id: MedBrotherPDA
+  name: medical PDA
+  description: Shiny and sterile.
+  components:
+  - type: Pda
+    id: MedBrotherIDCard
+    state: pda-medical
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentVColor: "#447987"
+  - type: Icon
+    state: pda-medical
+
+- type: entity
+  parent: BaseMedicalPDA
   id: ChemistryPDA
   name: chemistry PDA
   description: It has a few discolored blotches here and there.

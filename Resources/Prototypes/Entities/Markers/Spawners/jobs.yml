@@ -401,10 +401,10 @@
 - type: entity
   id: SpawnPointPsychotherapist
   parent: SpawnPointJobBase
-  name: psychotherapist
+  name: psychiatrist
   components:
   - type: SpawnPoint
-    job_id: Psychotherapist
+    job_id: Psychiatrist
   - type: Sprite
     layers:
       - state: green

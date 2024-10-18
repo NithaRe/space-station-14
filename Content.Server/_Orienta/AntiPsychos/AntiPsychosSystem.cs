@@ -36,7 +36,7 @@ public sealed class AntiPsychosSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        //SubscribeLocalEvent<SubdermalImplantComponent, ImplantImplantedEvent>(ImplantCheck);
+        //SubscribeLocalEvent<SubdermalImplantComponent, ImplantImplantedEvent>(ImplantCheck);       
     }
 
     /// <summary>

@@ -447,7 +447,7 @@
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
-  id: JobPsychotherapist
+  id: JobPsychiatrist
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
@@ -475,7 +475,6 @@
   - MedicalBackpack
   - MedicalDoctorOuterClothing
   - MedicalShoes
-  - MedicalDoctorPDA
   - Glasses
   - SurvivalMedical
   - Trinkets
@@ -493,7 +492,6 @@
   - MedicalBackpack
   - MedicalDoctorOuterClothing
   - MedicalShoes
-  - MedicalDoctorPDA
   - Glasses
   - SurvivalMedical
   - Trinkets

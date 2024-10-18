@@ -228,11 +228,11 @@
   - type: AccessReader
     access: [ [ "Medical" ] ]
 
-# Psychotherapist
+# Psychiatrist
 - type: entity
-  id: LockerPsychotherapist
+  id: LockerPsychiatrist
   parent: LockerBase
-  name: psychotherapist's locker
+  name: psychiatrist's locker
   components:
   - type: Appearance
   - type: EntityStorageVisuals

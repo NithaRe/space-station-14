@@ -98,9 +98,8 @@
   - ChiefMedicalOfficer
   - MedicalDoctor
   - MedicalIntern
-  - Psychologist
+  - Psychiatrist
   - Paramedic
-  - Psychotherapist
   - MedBrother
 
 - type: department

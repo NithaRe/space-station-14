@@ -89,6 +89,15 @@
         component: ForcedSleeping
         refresh: false
         type: Add
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold 
+          min: 1
+        key: AntiPsychos
+        component: AntiPsychos 
+        type: Add
+        time: 720000
+        refresh: false
 
 - type: reagent
   id: Atractine
@@ -134,6 +143,15 @@
         conditions:
           - !type:ReagentThreshold
             max: 0.1
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold 
+          min: 1
+        key: AntiPsychos
+        component: AntiPsychos 
+        type: Add
+        time: 720000
+        refresh: false
       
 - type: reagent
   id: Anodium
@@ -165,6 +183,15 @@
         component: SeeingRainbows 
         type: Add
         time: 2.2
+        refresh: false
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold 
+          min: 1
+        key: AntiPsychos
+        component: AntiPsychos 
+        type: Add
+        time: 720000
         refresh: false
       
 - type: reagent
@@ -198,4 +225,13 @@
         component: SeeingRainbows 
         type: Add
         time: 2.2
+        refresh: false
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold 
+          min: 1
+        key: AntiPsychos
+        component: AntiPsychos 
+        type: Add
+        time: 720000
         refresh: false
