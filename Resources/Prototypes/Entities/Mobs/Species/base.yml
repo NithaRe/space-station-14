@@ -213,6 +213,9 @@
     - DoorBumpOpener
     - AnomalyHost
   - type: LayingDown # Orienta: Laying
+  - type: FootPrint
+    SlediProto: FootprintBoots
+  - type: FootPrintTrailer
 
 - type: entity
   save: false

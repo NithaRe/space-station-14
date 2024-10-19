@@ -117,5 +117,11 @@ namespace Content.Shared.Maps
         {
             TileId = id;
         }
+
+        /// <summary>
+        /// Orienta - Задает цвет следам.
+        /// </summary>
+        [DataField]
+        public Color? Color;
     }
 }

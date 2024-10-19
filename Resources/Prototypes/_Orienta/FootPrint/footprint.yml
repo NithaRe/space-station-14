@@ -1,0 +1,13 @@
+- type: decal
+  id: FootprintNaked
+  showMenu: true
+  sprite:
+    sprite: _Orienta/FootPrint/footprints.rsi
+    state: FootprintNaked
+    
+- type: decal
+  id: FootprintBoots
+  showMenu: true
+  sprite:
+    sprite: _Orienta/FootPrint/footprints.rsi
+    state: FootprintBoots

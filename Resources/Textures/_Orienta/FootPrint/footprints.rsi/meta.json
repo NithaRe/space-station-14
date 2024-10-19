@@ -1,0 +1,16 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "copyright": "Created on Orienta by NithaRe",
+    "states": [
+        {
+            "name": "FootprintBoots"
+        },
+        {
+            "name": "FootprintNaked"
+        }
+    ]
+}
