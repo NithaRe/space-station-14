@@ -125,6 +125,40 @@
         prob: 0.5
 
 - type: entity
+  id: LockerPsychotherapistFilled
+  suffix: Filled
+  parent: LockerPsychiatrist
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterCoatLab
+      - id: ClothingOuterWinterMed
+      - id: ClothingUniformJumpsuitMedicalDoctor
+      - id: ClothingUniformJumpskirtMedicalDoctor
+      - id: ClothingHandsGlovesLatex
+      - id: ClothingHeadsetMedical
+      - id: ClothingMaskSterile
+      - id: MedkitFilled
+        prob: 0.3
+
+- type: entity
+  id: LockerMedBrotherFilled
+  suffix: Filled
+  parent: LockerMedBrother
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterCoatLab
+      - id: ClothingOuterWinterMed
+      - id: UniformScrubsColorBlue
+      - id: ClothingUniformJumpskirtMedicalDoctor
+      - id: ClothingHandsGlovesNitrile
+      - id: ClothingHeadsetMedical
+      - id: ClothingMaskSterile
+      - id: MedkitFilled
+        prob: 0.3
+
+- type: entity
   id: LockerParamedicFilled
   suffix: Filled
   parent: LockerParamedic

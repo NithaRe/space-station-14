@@ -1,0 +1,45 @@
+- type: reaction
+  id: Lidicaine
+  reactants:
+    Mannitol:
+      amount: 2
+    Water:
+      amount: 1
+    Lipozine:
+      amount: 1
+  products:
+    Lidicaine: 4
+
+- type: reaction
+  id: Atractine
+  reactants:
+    Mannitol:
+      amount: 1
+    AcetylChloride:
+      amount: 1
+  products:
+    Atractine: 2
+
+- type: reaction
+  id: Anodium
+  minTemp: 370
+  reactants:
+    PropeneOxide:
+      amount: 1
+    PropeneGlycol:
+      amount: 1
+    Ephedrine:
+      amount: 1
+  products:
+    Anodium: 1
+
+- type: reaction
+  id: Corvol
+  minTemp: 370
+  reactants:
+    SodiumLauryl:
+      amount: 1
+    Silicon:
+      amount: 1
+  products:
+    Corvol: 2

@@ -1,0 +1,31 @@
+- type: job
+  id: MedBrother
+  name: job-name-medbrother
+  description: job-description-medbrother
+  playTimeTracker: JobMedBrother
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobMedicalDoctor
+      time: 7200 # 2 hrs
+    - !type:OverallPlaytimeRequirement
+      time: 36000 # 10 hrs
+  startingGear: MedBrotherGear
+  icon: "JobIconMedicalDoctor"
+  supervisors: job-supervisors-cmo
+  access:
+  - Medical
+  - Maintenance
+  - Chemistry
+
+- type: startingGear
+  id: MedBrotherGear
+  equipment:
+    id: MedBrotherPDA
+    ears: ClothingHeadsetMedical
+    belt: ClothingBeltMedicalFilled
+    jumpsuit: UniformScrubsColorBlue
+  satchel: ClothingBackpackSatchelMedicalFilled
+  duffelbag: ClothingBackpackDuffelMedicalFilled
+  #storage:
+    #back:
+    #- stuff

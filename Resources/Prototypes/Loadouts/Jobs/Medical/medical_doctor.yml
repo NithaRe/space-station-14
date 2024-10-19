@@ -79,6 +79,11 @@
     jumpsuit: ClothingUniformJumpsuitMedicalDoctor
 
 - type: loadout
+  id: UniformScrubsColorBlue
+  equipment:
+    jumpsuit: UniformScrubsColorBlue
+
+- type: loadout
   id: MedicalDoctorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMedicalDoctor

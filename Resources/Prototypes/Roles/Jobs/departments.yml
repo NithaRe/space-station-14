@@ -98,8 +98,9 @@
   - ChiefMedicalOfficer
   - MedicalDoctor
   - MedicalIntern
-  - Psychologist
+  - Psychiatrist
   - Paramedic
+  - MedBrother
 
 - type: department
   id: Security

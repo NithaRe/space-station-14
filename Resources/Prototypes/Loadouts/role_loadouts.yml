@@ -447,7 +447,7 @@
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
-  id: JobMedicalDoctor
+  id: JobPsychiatrist
   groups:
   - Inventory # Corvax-Loadouts
   - GroupTankHarness
@@ -463,6 +463,40 @@
   - SurvivalMedical
   - Trinkets
   - GroupSpeciesBreathToolMedical
+
+- type: roleLoadout
+  id: JobMedBrother
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - MedicalDoctorHead
+  - MedicalMask
+  - MedicalGloves
+  - MedicalBackpack
+  - MedicalDoctorOuterClothing
+  - MedicalShoes
+  - Glasses
+  - SurvivalMedical
+  - Trinkets
+  - GroupSpeciesBreathToolMedical
+
+- type: roleLoadout
+  id: JobMedicalDoctor
+  groups:
+  - Inventory # Corvax-Loadouts
+  - GroupTankHarness
+  - MedicalDoctorHead
+  - MedicalMask
+  - MedicalDoctorJumpsuit
+  - MedicalGloves
+  - MedicalBackpack
+  - MedicalDoctorOuterClothing
+  - MedicalShoes
+  - Glasses
+  - SurvivalMedical
+  - Trinkets
+  - GroupSpeciesBreathToolMedical
+
 
 - type: roleLoadout
   id: JobMedicalIntern

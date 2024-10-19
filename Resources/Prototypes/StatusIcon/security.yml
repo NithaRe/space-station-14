@@ -50,3 +50,14 @@
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: MindShield
+
+- type: securityIcon
+  id: AntiPsychoIcon
+  priority: 2
+  locationPreference: Left # Corvax-TypingIndicator
+  layer: Mod
+  isShaded: true
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: AntiPsycho
+

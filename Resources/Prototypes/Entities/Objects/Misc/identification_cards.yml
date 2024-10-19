@@ -182,6 +182,30 @@
 
 - type: entity
   parent: IDCardStandard
+  id: PsychiatristIDCard
+  name: psychiatrist ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idmedicaldoctor
+  - type: PresetIdCard
+    job: Psychiatrist
+
+- type: entity
+  parent: IDCardStandard
+  id: MedBrotherIDCard
+  name: medbrother ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idmedicaldoctor
+  - type: PresetIdCard
+    job: MedBrother
+
+- type: entity
+  parent: IDCardStandard
   id: ChemistIDCard
   name: chemist ID card
   components:
