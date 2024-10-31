@@ -20,7 +20,6 @@
 - type: startingGear
   id: PsychiatristGear
   equipment:
-    id: PsychiatristPDA
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
   satchel: ClothingBackpackSatchelMedicalFilled

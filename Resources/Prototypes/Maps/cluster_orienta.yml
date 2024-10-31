@@ -1,5 +1,5 @@
 - type: gameMap
-  id: Cluster_orienta
+  id: Cluster_Orienta
   mapName: 'Cluster'
   mapPath: /Maps/cluster_orienta.yml
   minPlayers: 10
