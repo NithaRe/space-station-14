@@ -7,6 +7,7 @@
   children:
     - OrientaRule0
     - OrientaRule1
+    - OrientaRule3
 
 - type: guideEntry
   id: OrientaRule0
@@ -18,4 +19,10 @@
   id: OrientaRule1
   name: guide-entry-orienta-ruler-2
   text: "/ServerInfo/_Orienta/Rules/rule2.xml"
+  ruleEntry: true
+
+- type: guideEntry
+  id: OrientaRule3
+  name: guide-entry-orienta-ruler-0
+  text: "/ServerInfo/_Orienta/Rules/rule0.xml"
   ruleEntry: true
