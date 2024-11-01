@@ -123061,7 +123061,7 @@ entities:
     - type: Transform
       pos: 46.5,-22.5
       parent: 8364
-- proto: LockerPsychotherapistFilled
+- proto: LockerPsychiatristFilled
   entities:
   - uid: 27926
     components:
@@ -143856,7 +143856,7 @@ entities:
     - type: Transform
       pos: 10.5,-35.5
       parent: 8364
-- proto: SpawnPointPsychotherapist
+- proto: SpawnPointPsychiatrist
   entities:
   - uid: 27920
     components:

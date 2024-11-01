@@ -137,7 +137,10 @@
       - id: ClothingUniformJumpskirtMedicalDoctor
       - id: ClothingHandsGlovesLatex
       - id: ClothingHeadsetMedical
-      - id: ClothingMaskSterile
+      - id: PillLidicaine
+      - id: PillAtractine
+      - id: PillAnodium
+      - id: PillCorvol
       - id: MedkitFilled
         prob: 0.3
 

@@ -399,7 +399,7 @@
       - state: paramedic
 
 - type: entity
-  id: SpawnPointPsychotherapist
+  id: SpawnPointPsychiatrist
   parent: SpawnPointJobBase
   name: psychiatrist
   components:
