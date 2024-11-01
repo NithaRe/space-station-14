@@ -7,7 +7,7 @@
   color: "#9c7b28"
   metabolisms:
     Medicine:
-      metabolismRate : 0.01
+      metabolismRate : 0.5
       effects:
       - !type:GenericStatusEffect # Makes the player "hallucinate" or high
         key: SeeingRainbows
@@ -92,7 +92,7 @@
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold 
-          min: 1
+          min: 10
         key: AntiPsychos
         component: AntiPsychos 
         type: Add
@@ -108,7 +108,7 @@
   color: "#093175"
   metabolisms:
     Medicine:
-      metabolismRate : 0.01
+      metabolismRate : 0.5
       effects:
       - !type:PopupMessage
         type: Local
@@ -146,7 +146,7 @@
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold 
-          min: 1
+          min: 10
         key: AntiPsychos
         component: AntiPsychos 
         type: Add
@@ -162,7 +162,7 @@
   color: "#44bcc8"
   metabolisms:
     Medicine:
-      metabolismRate : 0.01
+      metabolismRate : 0.5
       effects:
       - !type:PopupMessage
         type: Local
@@ -187,7 +187,7 @@
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold 
-          min: 1
+          min: 10
         key: AntiPsychos
         component: AntiPsychos 
         type: Add
@@ -204,7 +204,7 @@
   flavor: medicine
   metabolisms:
     Medicine:
-      metabolismRate: 0.01
+      metabolismRate: 0.5
       effects:
       - !type:PopupMessage
         type: Local
@@ -229,7 +229,7 @@
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold 
-          min: 1
+          min: 10
         key: AntiPsychos
         component: AntiPsychos 
         type: Add

@@ -15,7 +15,7 @@
   reactants:
     Mannitol:
       amount: 1
-    AcetylChloride:
+    Chlorine:
       amount: 1
   products:
     Atractine: 2
@@ -24,9 +24,9 @@
   id: Anodium
   minTemp: 370
   reactants:
-    PropeneOxide:
+    Chlorine:
       amount: 1
-    PropeneGlycol:
+    SodiumHydroxide:
       amount: 1
     Ephedrine:
       amount: 1
@@ -37,7 +37,7 @@
   id: Corvol
   minTemp: 370
   reactants:
-    SodiumLauryl:
+    SodiumPolyacrylate:
       amount: 1
     Silicon:
       amount: 1
