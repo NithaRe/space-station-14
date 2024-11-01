@@ -650,6 +650,86 @@
           Quantity: 10
 
 - type: entity
+  name: pill
+  suffix: Lidicaine 10u
+  parent: Pill
+  id: PillLidicaine
+  components:
+  - type: Pill
+    pillType: 2
+  - type: Sprite
+    state: pill3
+  - type: Label
+    currentLabel: Лидикаин 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Lidicaine
+          Quantity: 10
+
+- type: entity
+  name: pill
+  suffix: Atractine 10u
+  parent: Pill
+  id: PillAtractine
+  components:
+  - type: Pill
+    pillType: 2
+  - type: Sprite
+    state: pill3
+  - type: Label
+    currentLabel: Атрактин 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Atractine
+          Quantity: 10
+
+- type: entity
+  name: pill
+  suffix: Anodium 10u
+  parent: Pill
+  id: PillAnodium
+  components:
+  - type: Pill
+    pillType: 2
+  - type: Sprite
+    state: pill3
+  - type: Label
+    currentLabel: Анодиум 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Anodium
+          Quantity: 10
+
+- type: entity
+  name: pill
+  suffix: Corvol 10u
+  parent: Pill
+  id: PillCorvol
+  components:
+  - type: Pill
+    pillType: 2
+  - type: Sprite
+    state: pill3
+  - type: Label
+    currentLabel: Корвол 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Corvol
+          Quantity: 10
+
+- type: entity
   name: pill canister
   parent: PillCanister
   id: PillCanisterTricordrazine

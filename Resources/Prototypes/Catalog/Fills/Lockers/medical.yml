@@ -125,7 +125,7 @@
         prob: 0.5
 
 - type: entity
-  id: LockerPsychotherapistFilled
+  id: LockerPsychiatristFilled
   suffix: Filled
   parent: LockerPsychiatrist
   components:
@@ -137,7 +137,10 @@
       - id: ClothingUniformJumpskirtMedicalDoctor
       - id: ClothingHandsGlovesLatex
       - id: ClothingHeadsetMedical
-      - id: ClothingMaskSterile
+      - id: PillLidicaine
+      - id: PillAtractine
+      - id: PillAnodium
+      - id: PillCorvol
       - id: MedkitFilled
         prob: 0.3
 
@@ -154,6 +157,8 @@
       - id: ClothingUniformJumpskirtMedicalDoctor
       - id: ClothingHandsGlovesNitrile
       - id: ClothingHeadsetMedical
+      - id: ClothingOuterStraightjacket
+      - id: ClothingOuterStraightjacket
       - id: ClothingMaskSterile
       - id: MedkitFilled
         prob: 0.3
