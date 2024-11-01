@@ -157,6 +157,8 @@
       - id: ClothingUniformJumpskirtMedicalDoctor
       - id: ClothingHandsGlovesNitrile
       - id: ClothingHeadsetMedical
+      - id: ClothingOuterStraightjacket
+      - id: ClothingOuterStraightjacket
       - id: ClothingMaskSterile
       - id: MedkitFilled
         prob: 0.3
