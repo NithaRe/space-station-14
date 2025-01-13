@@ -15,7 +15,7 @@ RELEASE_DIR = "release"
 # CONFIGURATION PARAMETERS
 # Forks should change these to publish to their own infrastructure.
 #
-ROBUST_CDN_URL = "https://cdn.station14.ru/"
+ROBUST_CDN_URL = "https://amadis.orientacorp.ru:8000/"
 
 def main():
     session = requests.Session()
