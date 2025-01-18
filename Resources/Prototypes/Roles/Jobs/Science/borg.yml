@@ -12,6 +12,7 @@
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
   jobEntity: StationAiBrain
+  jobPreviewEntity: PlayerStationAiPreview
   applyTraits: false
 
 - type: job
@@ -25,12 +26,5 @@
   canBeAntag: false
   icon: JobIconBorg
   supervisors: job-supervisors-rd
-  jobEntity: PlayerBorgGeneric
-  # Orienta skills - start
-  special:
-  - !type:AddComponentSpecial
-    components:
-      - type: Skills
-        anySkills: true
-  # Orienta skills - end
+  jobEntity: PlayerBorgBattery
   applyTraits: false

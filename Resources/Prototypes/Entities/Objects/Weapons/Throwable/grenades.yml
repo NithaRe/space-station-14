@@ -81,6 +81,9 @@
     guides:
     - Security
     - Antagonists
+  - type: Tag
+    tags:
+    - GrenadeFlashBang
 
 - type: entity
   id: GrenadeFlashEffect
@@ -392,9 +395,9 @@
     entries:
     - label: corvax-hidden-desc-HolyHandGrenade-syndicate
       whitelistMind:
-        components:
-          - TraitorRole
-          - NukeOperative
+        mindRoles:
+        - TraitorRole
+        - NukeopsRole
     - label: corvax-hidden-desc-HolyHandGrenade-research
       jobRequired:
         - ResearchAssistant
