@@ -34,11 +34,7 @@ namespace Content.Client.Info
             AddInfoButton("server-info-website-button", CCVars.InfoLinksWebsite);
             AddInfoButton("server-info-wiki-button", CCVars.InfoLinksWiki);
             AddInfoButton("server-info-forum-button", CCVars.InfoLinksForum);
-            //Orienta Parallax Start
-            var button = new Button { Text = "Поддержать нас" };
-            button.OnPressed += _ => uriOpener.OpenUri("https://boosty.to/orienta");
-            buttons.AddChild(button);
-            //Orienta Parallax End
+            AddInfoButton("server-info-telegram-button", CCVars.InfoLinksTelegram);
 
             var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
             var guidebookButton = new Button() { Text = Loc.GetString("server-info-guidebook-button") };

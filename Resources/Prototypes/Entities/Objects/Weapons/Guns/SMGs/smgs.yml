@@ -5,20 +5,6 @@
   description: A rooty tooty point and shooty.
   abstract: true
   components:
-  # Stories - start
-  - type: ShotToSkills
-    skills:
-      Guns: 0.01
-  - type: SkillsAffectShots
-    minAngle: 90
-    maxAngle: 90
-    skills:
-      Guns: 0.99
-  - type: ExploreToSkills
-    seconds: 10
-    skills:
-      Guns: 0.1
-  # Stories - end
   - type: Sprite
   - type: Item
     size: Large
@@ -33,6 +19,7 @@
     minAngle: 2
     maxAngle: 16
     fireRate: 8
+    burstFireRate: 8
     angleIncrease: 3
     angleDecay: 16
     selectedMode: FullAuto
@@ -41,6 +28,7 @@
     - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/smg.ogg
+    defaultDirection: 1, 0
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
@@ -55,6 +43,7 @@
         whitelist:
           tags:
             - MagazinePistolSubMachineGun
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistol
@@ -71,7 +60,7 @@
 
 - type: entity
   name: Atreides
-  parent: BaseWeaponSubMachineGun
+  parent: [BaseWeaponSubMachineGun, BaseMajorContraband]
   id: WeaponSubMachineGunAtreides
   description: Pla-ket-ket-ket-ket! Uses .35 auto ammo.
   components:
@@ -93,16 +82,11 @@
   - type: Appearance
 
 - type: entity
-  name: C-20r sub machine gun
-  parent: BaseWeaponSubMachineGun
+  name: C-20r submachine gun
+  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
   id: WeaponSubMachineGunC20r
   description: A firearm that is often used by the infamous nuclear operatives. Uses .35 auto ammo.
   components:
-  # Stories - start
-  - type: ShotRequiresSkills
-    skills:
-      Guns: 1.0
-  # Stories - end
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
     layers:
@@ -137,7 +121,7 @@
 
 - type: entity
   name: Drozd
-  parent: BaseWeaponSubMachineGun
+  parent: [BaseWeaponSubMachineGun, BaseRestrictedContraband]
   id: WeaponSubMachineGunDrozd
   description: An excellent fully automatic Heavy SMG.
   components:
@@ -158,12 +142,15 @@
     - type: Gun
       minAngle: 21
       maxAngle: 32
-      fireRate: 6
-      selectedMode: FullAuto
+      fireRate: 12
+      burstFireRate: 12
+      selectedMode: Burst
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
       availableModes:
-        - FullAuto
+        - Burst
+      shotsPerBurst: 3
+      burstCooldown: 0.25
     - type: ItemSlots
       slots:
         gun_magazine:
@@ -175,6 +162,7 @@
           whitelist:
             tags:
               - MagazinePistolSubMachineGun
+          whitelistFailPopup: gun-magazine-whitelist-fail
         gun_chamber:
           name: Chamber
           startingItem: CartridgePistol
@@ -229,6 +217,7 @@
         whitelist:
           tags:
             - CartridgeMagnum
+        whitelistFailPopup: gun-magazine-whitelist-fail
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -237,7 +226,7 @@
 
 - type: entity
   name: WT550
-  parent: BaseWeaponSubMachineGun
+  parent: [ BaseWeaponSubMachineGun, BaseRestrictedContraband ]
   id: WeaponSubMachineGunWt550
   description: An excellent SMG, produced by NanoTrasen's Small Arms Division. Uses .35 auto ammo.
   components:
@@ -266,6 +255,8 @@
     angleDecay: 6
     selectedMode: FullAuto
     shotsPerBurst: 5
+    burstCooldown: 0.2
+    burstFireRate: 7
     availableModes:
     - SemiAuto
     - Burst
@@ -281,6 +272,7 @@
         whitelist:
           tags:
             - MagazinePistolSubMachineGunTopMounted
+        whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistol
