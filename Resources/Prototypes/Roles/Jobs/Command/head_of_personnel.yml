@@ -55,6 +55,9 @@
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
+      - type: AntiPsychos 
+        time: 720000
+        refresh: false
       - type: CommandStaff
   # Orienta skills - start
       - type: Skills
