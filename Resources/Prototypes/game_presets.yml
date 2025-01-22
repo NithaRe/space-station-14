@@ -68,19 +68,21 @@
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
 
+ # Orienta mode start
 - type: gamePreset
-  id: Extended
+  id: Orienta
   alias:
   - extended
   - shittersafari
-  name: extended-title
-  showInVote: false #2boring2vote
-  description: extended-description
+  name: Ориента
+  showInVote: true
+  description: Стандартный игровой опыт Orienta. Настали тёмные времена. Кто знает, кто воткнёт нож в спину в этот раз...
   rules:
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+  #Orienta mode end
 
 - type: gamePreset
   id: Greenshift
@@ -100,7 +102,7 @@
     - secret
     - sekrit
   name: secret-title
-  showInVote: true
+  showInVote: false
   description: secret-description
   rules:
     - Secret
@@ -164,7 +166,7 @@
   name: death-match-title
   description: death-match-description
   maxPlayers: 15
-  showInVote: true
+  showInVote: false
   supportedMaps: DeathMatchMapPool
   rules:
     - DeathMatch31
