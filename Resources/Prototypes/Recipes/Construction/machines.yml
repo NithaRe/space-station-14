@@ -11,12 +11,6 @@
   icon:
     sprite: Structures/Machines/parts.rsi
     state: 4
-  conditions:
-  # Orienta skills - start
-    - !type:RequiresSkills
-      skills:
-        Engineering: 0.5
-  # Orienta skills - end
 
 - type: construction
   name: машинный каркас
@@ -31,12 +25,6 @@
   icon:
     sprite: Structures/Machines/parts.rsi
     state: "box_0"
-  conditions:
-  # Orienta skills - start
-    - !type:RequiresSkills
-      skills:
-        Engineering: 0.5
-  # Orienta skills - end
 
 # Switching
 - type: construction
@@ -54,11 +42,6 @@
     state: switch-off
   conditions:
     - !type:TileNotBlocked
-  # Orienta skills - start
-    - !type:RequiresSkills
-      skills:
-        Engineering: 0.5
-  # Orienta skills - end
 
 - type: construction
   name: выключатель
@@ -77,11 +60,6 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
-  # Orienta skills - start
-    - !type:RequiresSkills
-      skills:
-        Engineering: 0.5
-  # Orienta skills - end
 
 - type: construction
   name: переключатель
@@ -100,11 +78,6 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
-  # Orienta skills - start
-    - !type:RequiresSkills
-      skills:
-        Engineering: 0.5
-  # Orienta skills - end
 
 - type: construction
   name: кнопка
@@ -123,11 +96,6 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
-  # Orienta skills - start
-    - !type:RequiresSkills
-      skills:
-        Engineering: 0.5
-  # Orienta skills - end
 
 - type: construction
   name: направленный выключатель
@@ -146,11 +114,6 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
-  # Orienta skills - start
-    - !type:RequiresSkills
-      skills:
-        Engineering: 0.5
-  # Orienta skills - end
 
 - type: construction
   name: направленный переключатель
@@ -169,11 +132,6 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
-  # Orienta skills - start
-    - !type:RequiresSkills
-      skills:
-        Engineering: 0.5
-  # Orienta skills - end
 
 - type: construction
   name: направленная кнопка
@@ -192,8 +150,3 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
-  # Orienta skills - start
-    - !type:RequiresSkills
-      skills:
-        Engineering: 0.5
-  # Orienta skills - end

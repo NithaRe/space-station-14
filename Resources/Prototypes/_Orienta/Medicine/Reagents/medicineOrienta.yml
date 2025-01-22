@@ -8,12 +8,12 @@
   color: "#f2ff00"
   metabolisms:
     Medicine:
-      metabolismRate : 0.01
+      metabolismRate : 0.1
       effects: 
       - !type:HealthChange
         damage:
           groups:
-            Brute: -5
+            Brute: -0.5
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -138,7 +138,7 @@
   color: "#ffc7c7"
   metabolisms:
     Medicine:
-      metabolismRate : 0.01
+      metabolismRate : 0.1
       effects:
       - !type:HealthChange
         conditions:
@@ -146,7 +146,7 @@
           max: 50
         damage:
           groups:
-            Brute: -1.5
+            Brute: -0.5
           types:
             Poison: -1 ##Should be about what it was when it healed the toxin group
             Heat: -1
@@ -220,13 +220,13 @@
   color: "#ebbce9"
   metabolisms:
     Medicine:
-      metabolismRate : 0.03
+      metabolismRate : 0.3
       effects:
       - !type:HealthChange
         damage:
           types:
-            Asphyxiation: -2
-            Bloodloss: -0.5
+            Asphyxiation: -1
+            Bloodloss: -0.2
       - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -268,14 +268,14 @@
   color: "#2e3b52"
   metabolisms:
     Medicine:
-      metabolismRate : 0.02
+      metabolismRate : 0.2
       effects:
       - !type:HealthChange
         damage:
           types:
-            Heat: -3
-            Shock: -3
-            Cold: -3
+            Heat: -1
+            Shock: -1
+            Cold: -1
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -353,12 +353,12 @@
   color: "#2e2c2c"
   metabolisms:
     Medicine:
-      metabolismRate : 0.01
+      metabolismRate : 0.1
       effects:
       - !type:HealthChange
         damage:
           types:
-            Poison: -3
+            Poison: -0.5
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -411,7 +411,7 @@
   color: "#093175"
   metabolisms:
     Medicine:
-      metabolismRate : 0.1
+      metabolismRate : 0.03
       effects:
       - !type:HealthChange
         conditions:
@@ -420,7 +420,7 @@
           mobstate: Critical
         damage:
           types:
-            Asphyxiation: -15
+            Asphyxiation: -3
       - !type:ModifyBleedAmount
         amount: -1.5
       - !type:PopupMessage
@@ -495,8 +495,8 @@
           reagent: Agonolexyne
           max: 0.01
       - !type:MovespeedModifier
-        walkSpeedModifier: 0.9 # Changes walk-speed modifier from 0.95 to 0.9
-        sprintSpeedModifier: 0.7
+        walkSpeedModifier: 0.7 # Changes walk-speed modifier from 0.95 to 0.9
+        sprintSpeedModifier: 0.6
         conditions:
         - !type:ReagentThreshold
           max: 1.0 # it gets worse before the addiction ends.
