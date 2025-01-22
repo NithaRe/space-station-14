@@ -603,3 +603,25 @@
       min: 1
       max: 1
       pickPlayer: false
+
+
+# Orienta Events start
+
+- type: entityTable
+  id: OrientaBasicEventsTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: AnomalySpawn
+    - id: BluespaceArtifact
+    - id: BluespaceLocker
+    - id: BreakerFlip
+    - id: BureaucraticError
+    - id: ClericalError
+    - id: CockroachMigration
+    - id: IonStorm # its calm like 90% of the time smh
+    - id: MassHallucinations
+    - id: MimicVendorRule
+    - id: PowerGridCheck
+    - id: RandomSentience
+    - id: SolarFlare
+    - id: VentClog

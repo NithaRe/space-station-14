@@ -291,6 +291,19 @@
       - !type:NestedSelector
         tableId: SpicyPestEventsTable
 
+# Orienta Gamemode Start
+- type: entityTable
+  id: BasicOrientaRulesTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+      - !type:NestedSelector
+        tableId: OrientaBasicEventsTable
+      - !type:NestedSelector
+        tableId: CargoGiftsTable
+      - !type:NestedSelector
+        tableId: CalmPestEventsTable
+# Orienta Gamemode End
+
 - type: entityTable
   id: SpaceTrafficControlTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
@@ -309,6 +322,16 @@
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTable
+
+# Orienta Gamemode Start
+- type: entity
+  id: BasicOrientaEventScheduler
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: BasicOrientaRulesTable
+# Orienta Gamemode End
 
 - type: entity
   id: RampingStationEventScheduler
