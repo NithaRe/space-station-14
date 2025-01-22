@@ -51,40 +51,18 @@
         probability: 0.1
         conditions:
         - !type:ReagentThreshold
-          reagent: Blissifylovene
+          reagent: Soretizone
           min: 3.6
         key: ForcedSleep
         component: ForcedSleeping
         refresh: false
         type: Add
-      - !type:ChemVomit # STRONG Makes you vomit if Blissifylovene (AD) is ingested
-        probability: 0.4
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Blissifylovene
-          min: 1.4
-      - !type:GenericStatusEffect # STRONG Makes you pass out if you take too much of Blissifylovene (AD)
+      - !type:GenericStatusEffect # STRONG Makes you pass out if you take too much of Soretizone (AD)
         probability: 0.1
         conditions:
         - !type:ReagentThreshold
-          reagent: Blissifylovene
+          reagent: Tranquinase
           min: 3.6
-        key: ForcedSleep
-        component: ForcedSleeping
-        refresh: false
-        type: Add
-      - !type:ChemVomit # STRONG Makes you vomit if Equilibrazine (AA) is ingested
-        probability: 0.4
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Equilibrazine
-          min: 2
-      - !type:GenericStatusEffect # STRONG Makes you pass out if you take too much of Equilibrazine (AA)
-        probability: 0.1
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Equilibrazine
-          min: 4.8
         key: ForcedSleep
         component: ForcedSleeping
         refresh: false
