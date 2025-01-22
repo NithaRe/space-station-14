@@ -14,7 +14,7 @@ public sealed partial class FootPrintComponent : Component
     [DataField]
     public float FootPrintDistance = 1f;
     [DataField]
-    public float DistanceFootPrint = 10f;
+    public float DistanceFootPrint = 2f;
     [DataField]
     public Color FootPrintColor = Color.White;
     [DataField]
@@ -24,5 +24,5 @@ public sealed partial class FootPrintComponent : Component
     [DataField]
     public FixedPoint2 PickSolution = 1f;
     [DataField]
-    public float DistanceIntensityCost = 0.05f;
+    public float DistanceIntensityCost = 0.1f;
 }
