@@ -129,7 +129,8 @@
                 <BoxContainer Orientation="Vertical" Margin="10">
                     <!-- Antags -->
                     <ScrollContainer VerticalExpand="True">
-                        <BoxContainer Name="AntagList" Orientation="Vertical" />
+                        <BoxContainer Name="AntagOrienta" HorizontalExpand="True" Orientation="Vertical"/>
+                        <Label Text="{Loc 'humanoid-profile-editor-noantag-label'}" HorizontalAlignment="Left" VerticalAlignment="Top" />
                     </ScrollContainer>
                 </BoxContainer>
                 <BoxContainer Orientation="Vertical" Margin="10">
