@@ -1,0 +1,10 @@
+- type: entity
+  id: ActionFreeze
+  name: Freeze
+  description: Freeze Freeze Freeze
+  components:
+  - type: InstantAction
+    icon: _Orienta/Interface/actions/freeze.png
+    checkCanInteract: false
+    event: !type:FreezeActionEvent
+    useDelay: 60
