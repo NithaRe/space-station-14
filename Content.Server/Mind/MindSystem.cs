@@ -277,7 +277,7 @@ public sealed class MindSystem : SharedMindSystem
             // Держу кулачки
             if (EntityManager.HasComponent<HumanoidAppearanceComponent>(entity.Value))
             {
-                // Если компонент есть, добавляем FreezeComponent
+                // Если компонента FreezeComponent нет, добавляем FreezeComponent
                 if (!EntityManager.HasComponent<FreezeComponent>(entity.Value))
                 {
                     EntityManager.AddComponent<FreezeComponent>(entity.Value);
