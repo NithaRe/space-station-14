@@ -23,4 +23,7 @@ public sealed partial class FreezeComponent : Component
     [DataField("freezeActionEntity")]
     [AutoNetworkedField]
     public EntityUid? FreezeActionEntity;
+
+    [DataField("targetEntity")]
+    public EntityUid? TargetEntity;
 }

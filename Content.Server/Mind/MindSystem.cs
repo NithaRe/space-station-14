@@ -2,8 +2,10 @@ using Content.Server.Administration.Logs;
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Server.Mind.Commands;
+using Content.Shared._Orienta.Freeze;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
+using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Players;
@@ -271,6 +273,16 @@ public sealed class MindSystem : SharedMindSystem
             RaiseLocalEvent(entity.Value, new MindAddedMessage(mindEnt, containerEnt));
             RaiseLocalEvent(mindId, new MindGotAddedEvent(mindEnt, containerEnt));
             Dirty(entity.Value, component);
+
+            // Держу кулачки
+            if (EntityManager.HasComponent<HumanoidAppearanceComponent>(entity.Value))
+            {
+                // Если компонент есть, добавляем FreezeComponent
+                if (!EntityManager.HasComponent<FreezeComponent>(entity.Value))
+                {
+                    EntityManager.AddComponent<FreezeComponent>(entity.Value);
+                }
+            }
         }
     }
 
