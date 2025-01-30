@@ -2,11 +2,14 @@ using Content.Server.Administration.Logs;
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Server.Mind.Commands;
+using Content.Shared._Orienta.Freeze;
 using Content.Shared.Database;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost; 
+using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Players;
+using Content.Shared.Silicons.Borgs.Components;
 using Robust.Server.GameStates;
 using Robust.Server.Player;
 using Robust.Shared.Network;
@@ -271,6 +274,16 @@ public sealed class MindSystem : SharedMindSystem
             RaiseLocalEvent(entity.Value, new MindAddedMessage(mindEnt, containerEnt));
             RaiseLocalEvent(mindId, new MindGotAddedEvent(mindEnt, containerEnt));
             Dirty(entity.Value, component);
+
+            // Добавление Захвата при трансфере Mind в борга или гуманоида
+            if (EntityManager.HasComponent<HumanoidAppearanceComponent>(entity.Value) || EntityManager.HasComponent<BorgChassisComponent>(entity.Value))
+            {
+                // Если компонента FreezeComponent нет, добавляем FreezeComponent
+                if (!EntityManager.HasComponent<FreezeComponent>(entity.Value))
+                {
+                    EntityManager.AddComponent<FreezeComponent>(entity.Value);
+                }
+            }
         }
     }
 

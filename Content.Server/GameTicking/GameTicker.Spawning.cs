@@ -6,6 +6,7 @@ using Content.Server.GameTicking.Events;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
+using Content.Shared._Orienta.Freeze;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
@@ -292,6 +293,12 @@ namespace Content.Server.GameTicking
             {
                 _chatManager.DispatchServerMessage(player,
                     Loc.GetString("job-greet-station-name", ("stationName", metaData.EntityName)));
+            }
+
+            // Проверка на наличие компонента и присвоение
+            if (!EntityManager.HasComponent<FreezeComponent>(mob))
+            {
+                EntityManager.AddComponent<FreezeComponent>(mob);
             }
 
             // We raise this event directed to the mob, but also broadcast it so game rules can do something now.
