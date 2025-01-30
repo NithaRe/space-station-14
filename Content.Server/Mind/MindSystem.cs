@@ -9,6 +9,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Players;
+using Content.Shared.Silicons.Borgs.Components;
 using Robust.Server.GameStates;
 using Robust.Server.Player;
 using Robust.Shared.Network;
@@ -275,7 +276,7 @@ public sealed class MindSystem : SharedMindSystem
             Dirty(entity.Value, component);
 
             // Держу кулачки
-            if (EntityManager.HasComponent<HumanoidAppearanceComponent>(entity.Value))
+            if (EntityManager.HasComponent<HumanoidAppearanceComponent>(entity.Value) || EntityManager.HasComponent<BorgChassisComponent>(entity.Value))
             {
                 // Если компонента FreezeComponent нет, добавляем FreezeComponent
                 if (!EntityManager.HasComponent<FreezeComponent>(entity.Value))
