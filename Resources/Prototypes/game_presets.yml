@@ -72,15 +72,14 @@
 - type: gamePreset
   id: Orienta
   alias:
-  - extended
-  - shittersafari
+  - greenshift
+  - shittersafarideluxeedition
   name: Ориента
   showInVote: true
   description: Стандартный игровой опыт Orienta. Настали тёмные времена. Кто знает, кто воткнёт нож в спину в этот раз...
   rules:
-  - BasicStationEventScheduler
   - MeteorSwarmScheduler
-  - SpaceTrafficControlEventScheduler
+  - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   #Orienta mode end
 

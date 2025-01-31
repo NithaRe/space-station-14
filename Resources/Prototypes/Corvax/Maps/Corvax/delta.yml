@@ -56,7 +56,7 @@
             Chaplain: [ 1, 1 ]
             Chef: [ 1, 2 ]
             Clown: [ 1, 1 ]
-            Janitor: [ 1, 2 ]
+            Janitor: [ 2, 2 ]
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 2, 2 ]
