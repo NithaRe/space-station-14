@@ -1,9 +1,0 @@
-- type: entity
-  id: ActionFreeze
-  name: Захват
-  description: Вы берёте в захват выбранного игрока. Это действие стоит применять только в крайних случаях. Данную способность запрещено использовать для получения игрового преимущества
-  components:
-  - type: EntityTargetAction
-    icon: _Orienta/Interface/actions/freeze.png
-    event: !type:FreezeActionEvent
-    useDelay: 60
