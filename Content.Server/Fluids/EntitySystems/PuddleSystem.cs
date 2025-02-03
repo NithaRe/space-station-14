@@ -490,7 +490,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             return false;
         }
 
-        /// FIX: PR #48 Фикс несмываемых маленьких луж
+        /// FIX: PR #47 Фикс несмываемых маленьких луж
         /// TODO: Исправить что при формировании маленькой лужицы с Potassium (Калий) будет мини взрыв
         if ((addedSolution.Volume < 6) && (addedSolution.Volume > 0))
         {
