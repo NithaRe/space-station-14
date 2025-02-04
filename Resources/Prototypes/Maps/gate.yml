@@ -19,7 +19,6 @@
             #service
             Captain: [ 1, 1 ]
             # IAA: [ 1, 1 ] # Corvax-IAA # PR 48 Добавление голопадов и фикс роли ИИ
-            StationAi: [ 1, 1 ] # PR 48 Добавление голопадов и фикс роли ИИ
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
