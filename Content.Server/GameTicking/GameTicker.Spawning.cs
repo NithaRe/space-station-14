@@ -9,11 +9,13 @@ using Content.Server.Station.Components;
 using Content.Shared._Orienta.Freeze;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
+using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
+using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
@@ -296,9 +298,13 @@ namespace Content.Server.GameTicking
             }
 
             // Проверка на наличие компонента и присвоение
-            if (!EntityManager.HasComponent<FreezeComponent>(mob))
+            if (EntityManager.HasComponent<HumanoidAppearanceComponent>(mob) || EntityManager.HasComponent<BorgChassisComponent>(mob))
             {
-                EntityManager.AddComponent<FreezeComponent>(mob);
+                // Если компонента FreezeComponent нет, добавляем FreezeComponent
+                if (!EntityManager.HasComponent<FreezeComponent>(mob))
+                {
+                    EntityManager.AddComponent<FreezeComponent>(mob);
+                }
             }
 
             // We raise this event directed to the mob, but also broadcast it so game rules can do something now.
