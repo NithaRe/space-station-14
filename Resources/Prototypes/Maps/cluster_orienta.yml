@@ -19,7 +19,8 @@
           availableJobs:
             #service
             Captain: [ 1, 1 ]
-            IAA: [ 1, 1 ] # Corvax-IAA
+            # IAA: [ 1, 1 ] # Corvax-IAA # PR 48 Добавление голопадов и фикс роли ИИ
+            StationAi: [ 1, 1 ] # PR 48 Добавление голопадов и фикс роли ИИ
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
             Botanist: [ 2, 2 ]
@@ -61,4 +62,3 @@
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
-
