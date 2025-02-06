@@ -28284,12 +28284,6 @@ entities:
       parent: 1
 - proto: ComputerFrame
   entities:
-  - uid: 2685
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -4.5,48.5
-      parent: 1
   - uid: 2752
     components:
     - type: Transform
@@ -67534,6 +67528,11 @@ entities:
     - type: Transform
       pos: 12.5,-1.5
       parent: 1
+  - uid: 12698
+    components:
+    - type: Transform
+      pos: 14.5,-1.5
+      parent: 1
 - proto: SpawnPointLatejoin
   entities:
   - uid: 7480
@@ -67832,6 +67831,14 @@ entities:
     components:
     - type: Transform
       pos: -12.5,5.5
+      parent: 1
+- proto: StationAiUploadComputer
+  entities:
+  - uid: 2685
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -4.5,48.5
       parent: 1
 - proto: StationMap
   entities:
@@ -68308,6 +68315,30 @@ entities:
       parent: 1
     - type: SurveillanceCamera
       id: Entrance
+  - uid: 12689
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 40.5,23.5
+      parent: 1
+  - uid: 12692
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -6.5,-33.5
+      parent: 1
+  - uid: 12694
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -39.5,16.5
+      parent: 1
+  - uid: 12696
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -13.5,27.5
+      parent: 1
 - proto: SurveillanceCameraEngineering
   entities:
   - uid: 12070
@@ -68365,6 +68396,11 @@ entities:
       parent: 1
     - type: SurveillanceCamera
       id: Gravity Generator Room
+  - uid: 12690
+    components:
+    - type: Transform
+      pos: 22.5,-23.5
+      parent: 1
 - proto: SurveillanceCameraGeneral
   entities:
   - uid: 12068
@@ -68414,6 +68450,57 @@ entities:
       parent: 1
     - type: SurveillanceCamera
       id: Library
+  - uid: 12685
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 19.5,3.5
+      parent: 1
+  - uid: 12686
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 29.5,3.5
+      parent: 1
+  - uid: 12687
+    components:
+    - type: Transform
+      pos: 41.5,1.5
+      parent: 1
+  - uid: 12688
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 44.5,18.5
+      parent: 1
+  - uid: 12691
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,-30.5
+      parent: 1
+  - uid: 12693
+    components:
+    - type: Transform
+      pos: -13.5,-26.5
+      parent: 1
+  - uid: 12695
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 6.5,16.5
+      parent: 1
+  - uid: 12699
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,-16.5
+      parent: 1
+  - uid: 12700
+    components:
+    - type: Transform
+      pos: -27.5,1.5
+      parent: 1
 - proto: SurveillanceCameraMedical
   entities:
   - uid: 1759
@@ -68618,6 +68705,12 @@ entities:
       parent: 1
     - type: SurveillanceCamera
       id: Brig Area
+  - uid: 12684
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 33.5,18.5
+      parent: 1
 - proto: SurveillanceCameraService
   entities:
   - uid: 12079
@@ -68643,6 +68736,17 @@ entities:
       parent: 1
     - type: SurveillanceCamera
       id: Bar
+  - uid: 12697
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.5,-2.5
+      parent: 1
+  - uid: 12701
+    components:
+    - type: Transform
+      pos: -1.5,1.5
+      parent: 1
 - proto: SurveillanceCameraSupply
   entities:
   - uid: 12075

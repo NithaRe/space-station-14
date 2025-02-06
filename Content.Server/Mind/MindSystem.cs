@@ -4,7 +4,7 @@ using Content.Server.Ghost;
 using Content.Server.Mind.Commands;
 using Content.Shared._Orienta.Freeze;
 using Content.Shared.Database;
-using Content.Shared.Ghost; 
+using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
