@@ -58,7 +58,7 @@
   color: "#334E6D"
   roles:
   - Captain
-  #- IAA # Corvax-IAA PR 48 # PR 48 Добавление голопадов и фикс роли ИИ
+  - IAA # Corvax-IAA # PR 52 Возвращение АВД
   - ChiefEngineer
   - ChiefMedicalOfficer
   - HeadOfPersonnel
