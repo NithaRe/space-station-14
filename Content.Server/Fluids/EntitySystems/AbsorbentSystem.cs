@@ -111,6 +111,9 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
             && _useDelay.IsDelayed((used, useDelay)))
             return;
 
+        // PR 51 Фикс фикса луж
+        _solutionContainerSystem.TryAddReagent(absorberSoln.Value, "Water", FixedPoint2.New(0.01), out _);
+
         // If it's a puddle try to grab from
         if (!TryPuddleInteract(user, used, target, component, useDelay, absorberSoln.Value))
         {
