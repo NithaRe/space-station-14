@@ -19,7 +19,7 @@
           availableJobs:
             #service
             Captain: [ 1, 1 ]
-            # IAA: [ 1, 1 ] # Corvax-IAA # PR 48 Добавление голопадов и фикс роли ИИ
+            IAA: [ 1, 1 ] # Corvax-IAA # PR 52 Возвращение АВД
             StationAi: [ 1, 1 ] # PR 48 Добавление голопадов и фикс роли ИИ
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
