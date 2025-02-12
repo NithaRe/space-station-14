@@ -44,6 +44,8 @@
         prob: 0.90
       - id: Pickaxe
         prob: 0.40
+      - id: LegendaryPickaxe
+        prob: 0.40        
       - id: Pickaxe
         prob: 0.10
       - id: Shovel
