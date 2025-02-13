@@ -1,4 +1,4 @@
-﻿# Generic borg
+# Generic borg
 - type: borgType
   id: generic
 
@@ -152,6 +152,8 @@
 
   defaultModules:
   - BorgModuleTreatment
+  - BorgModuleDefibrillator # PR 55 Добавление руки боргам и фикс медицинского борга
+  - BorgModuleAdvancedTreatment # PR 55 Добавление руки боргам и фикс медицинского борга
 
   radioChannels:
   - Science
