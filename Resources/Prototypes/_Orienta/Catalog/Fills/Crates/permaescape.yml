@@ -1,0 +1,9 @@
+- type: entity
+  id: CratePermaEscapeDigging
+  parent: CrateGenericSteel
+  suffix: Digging
+  components:
+  - type: StorageFill
+    contents:
+       - id: LegendaryPickaxe
+         prob: 0.40        

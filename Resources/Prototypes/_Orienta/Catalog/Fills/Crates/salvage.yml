@@ -1,0 +1,10 @@
+- type: entity
+  id: CrateSalvageEquipment
+  name: "salvage equipment crate"
+  description: For the daring.
+  suffix: Filled
+  parent: CrateGenericSteel
+  components:
+  - type: StorageFill
+    contents:
+      - id: LegendaryPickaxe
