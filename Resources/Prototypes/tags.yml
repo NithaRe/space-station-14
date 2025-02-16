@@ -955,9 +955,6 @@
   id: Pickaxe
 
 - type: Tag
-  id: LegendaryPickaxe
-
-- type: Tag
   id: Pie
 
 - type: Tag
