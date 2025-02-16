@@ -8,7 +8,7 @@
     tags:
     - LegendaryPickaxe
   - type: Sprite
-    sprite: Objects/Weapons/Melee/legendary_pickaxe.rsi
+    sprite: _Orienta/Objects/Weapons/Melee/legendary_pickaxe.rsi
     state: legendary_pickaxe
   - type: MeleeWeapon
     attackRate: 1.7
@@ -32,6 +32,6 @@
     shape:
     - 0,0,2,0
     - 1,1,1,2
-    sprite: Objects/Weapons/Melee/legendary_pickaxe.rsi
+    sprite: _Orienta/Objects/Weapons/Melee/legendary_pickaxe.rsi
     storedRotation: -45
   - type: UseDelay
