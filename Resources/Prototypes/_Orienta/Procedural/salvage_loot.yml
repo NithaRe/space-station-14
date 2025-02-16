@@ -1,7 +1,0 @@
-- type: salvageLoot
-  id: SalvageLoot
-  loots:
-    - !type:RandomSpawnsLoot
-      entries:
-        - proto: LegendaryPickaxe
-          prob: 0.05
