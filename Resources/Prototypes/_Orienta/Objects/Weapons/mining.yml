@@ -1,0 +1,37 @@
+- type: entity
+  name: Легендарная кирка
+  parent: BaseItem
+  id: LegendaryPickaxe
+  description: Ходят слухи, что это кирка великого шахтёра Дестера Ола. Ну по крайней мере так на бирке написано.
+  components:
+  - type: Tag
+    tags:
+    - LegendaryPickaxe
+  - type: Sprite
+    sprite: _Orienta/Objects/Weapons/Melee/legendary_pickaxe.rsi
+    state: legendary_pickaxe
+  - type: MeleeWeapon
+    attackRate: 1.7
+    wideAnimationRotation: -135
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+      params:
+        volume: -3
+    damage:
+      groups:
+        Brute: 10
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      groups:
+        Brute: 15
+      types:
+        Structural: 90
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,0
+    - 1,1,1,2
+    sprite: _Orienta/Objects/Weapons/Melee/legendary_pickaxe.rsi
+    storedRotation: -45
+  - type: UseDelay
