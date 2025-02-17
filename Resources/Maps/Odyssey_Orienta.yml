@@ -59,8 +59,6 @@ entities:
     components:
     - type: MetaData
       name: Odyssey
-    - type: BecomesStation
-      id: Odyssey
     - type: Transform
       pos: -0.484375,-0.484375
       parent: 1
@@ -223,6 +221,8 @@ entities:
       bodyType: Dynamic
     - type: Fixtures
       fixtures: {}
+    - type: BecomesStation
+      id: Odyssey
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
@@ -8437,7 +8437,7 @@ entities:
       pos: 0.5,1.5
       parent: 8474
     - type: Door
-      secondsUntilStateChange: -1776.5248
+      secondsUntilStateChange: -1873.1865
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -8499,7 +8499,7 @@ entities:
       pos: -25.5,6.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -7799.7017
+      secondsUntilStateChange: -7896.3633
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -9435,7 +9435,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
-      autoRecharge: True
   - uid: 175
     components:
     - type: MetaData
@@ -9446,7 +9445,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
-      autoRecharge: True
   - uid: 176
     components:
     - type: MetaData
@@ -9457,7 +9455,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
-      autoRecharge: True
   - uid: 177
     components:
     - type: Transform
@@ -9465,7 +9462,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
-      autoRecharge: True
   - uid: 178
     components:
     - type: Transform
@@ -9474,7 +9470,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
-      autoRecharge: True
   - uid: 179
     components:
     - type: Transform
@@ -9483,7 +9478,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
-      autoRecharge: True
   - uid: 180
     components:
     - type: Transform
@@ -9492,7 +9486,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
-      autoRecharge: True
   - uid: 181
     components:
     - type: Transform
@@ -9501,7 +9494,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
-      autoRecharge: True
   - uid: 182
     components:
     - type: Transform
@@ -9510,7 +9502,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
-      autoRecharge: True
   - uid: 183
     components:
     - type: Transform
@@ -9519,7 +9510,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
-      autoRecharge: True
   - uid: 184
     components:
     - type: Transform
@@ -9528,7 +9518,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
-      autoRecharge: True
   - uid: 185
     components:
     - type: Transform
@@ -9536,7 +9525,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 50000
-      autoRecharge: True
   - uid: 186
     components:
     - type: Transform
@@ -9591,7 +9579,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 200000
-      autoRecharge: True
   - uid: 8692
     components:
     - type: Transform
@@ -26508,6 +26495,13 @@ entities:
     - type: Transform
       pos: -34.5,-3.5
       parent: 2
+- proto: CratePermaEscapeSpawner
+  entities:
+  - uid: 6023
+    components:
+    - type: Transform
+      pos: 8.5,-26.5
+      parent: 2
 - proto: CratePlastic
   entities:
   - uid: 2658
@@ -26648,7 +26642,7 @@ entities:
       pos: -5.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -933.1064
+      secondsUntilStateChange: -1029.7681
       state: Opening
   - uid: 2679
     components:
@@ -54698,7 +54692,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 8000000
-      autoRecharge: True
   - uid: 6775
     components:
     - type: Transform
@@ -54706,7 +54699,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 8000000
-      autoRecharge: True
   - uid: 6776
     components:
     - type: Transform
@@ -54714,7 +54706,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 8000000
-      autoRecharge: True
   - uid: 6777
     components:
     - type: Transform
@@ -54722,7 +54713,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 8000000
-      autoRecharge: True
   - uid: 6778
     components:
     - type: Transform
@@ -55650,6 +55640,13 @@ entities:
     - type: Transform
       pos: 25.5,-14.5
       parent: 2
+- proto: SpawnPointObserver
+  entities:
+  - uid: 6032
+    components:
+    - type: Transform
+      pos: -0.5,1.5
+      parent: 2
 - proto: SpawnPointPassenger
   entities:
   - uid: 6891
@@ -56113,7 +56110,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 2500000
-      autoRecharge: True
   - uid: 6961
     components:
     - type: MetaData
@@ -56123,7 +56119,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 2500000
-      autoRecharge: True
   - uid: 6962
     components:
     - type: MetaData
@@ -56133,7 +56128,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 2500000
-      autoRecharge: True
   - uid: 6963
     components:
     - type: MetaData
@@ -56143,7 +56137,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 2500000
-      autoRecharge: True
   - uid: 6964
     components:
     - type: MetaData
@@ -56153,7 +56146,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 2500000
-      autoRecharge: True
   - uid: 6965
     components:
     - type: Transform
@@ -56161,7 +56153,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 2500000
-      autoRecharge: True
   - uid: 6966
     components:
     - type: Transform
@@ -56169,7 +56160,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 2500000
-      autoRecharge: True
   - uid: 8810
     components:
     - type: Transform
@@ -56192,7 +56182,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 2000000
-      autoRecharge: True
   - uid: 6968
     components:
     - type: MetaData
@@ -56203,7 +56192,6 @@ entities:
       parent: 2
     - type: BatterySelfRecharger
       autoRechargeRate: 2000000
-      autoRecharge: True
   - uid: 6969
     components:
     - type: Transform
