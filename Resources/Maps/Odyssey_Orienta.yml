@@ -6848,7 +6848,7 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: IFF
-      flags: HideLabel
+      #flags: HideLabel
     - type: RadiationGridResistance
   - uid: 8474
     components:
