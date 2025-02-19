@@ -4,7 +4,6 @@ using Content.Server.Station.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using System.Text;
-using Content.Shared.Voting;
 
 namespace Content.Server.GameTicking
 {
@@ -71,7 +70,6 @@ namespace Content.Server.GameTicking
             {
                 stationNames.Append(_gameMapManager.GetSelectedMap()?.MapName ??
                                     Loc.GetString("game-ticker-no-map-selected"));
-                _voteManager.CreateStandardVote(null, StandardVoteType.Map); // PR 60 Голосование в конце раунда + маппул Ориенты
             }
 
             var gmTitle = Loc.GetString(preset.ModeTitle);
