@@ -100,8 +100,6 @@ namespace Content.Server.GameTicking
 
             var maps = new List<GameMapPrototype>();
 
-            _voteManager.CreateStandardVote(null, StandardVoteType.Map); // PR 60 Голосование в конце раунда + маппул Ориенты
-
             // the map might have been force-set by something
             // (i.e. votemap or forcemap)
             var mainStationMap = _gameMapManager.GetSelectedMap();
