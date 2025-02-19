@@ -95,8 +95,10 @@ public sealed class GameMapManager : IGameMapManager
 
     public IEnumerable<GameMapPrototype> CurrentlyEligibleMaps()
     {
-        var maps = AllVotableMaps().Where(IsMapEligible).ToArray();
-        return maps.Length == 0 ? AllMaps().Where(x => x.Fallback) : maps;
+        // var maps = AllVotableMaps().Where(IsMapEligible).ToArray();
+        // return maps.Length == 0 ? AllMaps().Where(x => x.Fallback) : maps;
+        var allowedMaps = new HashSet<string> { "Odyssey", "Cluster", "Box" }; // ID карт из текущего маппула
+        return AllMaps().Where(map => allowedMaps.Contains(map.ID));
     }
 
     public IEnumerable<GameMapPrototype> AllVotableMaps()
