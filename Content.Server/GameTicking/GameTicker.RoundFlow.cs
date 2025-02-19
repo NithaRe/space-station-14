@@ -31,7 +31,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly DiscordWebhook _discord = default!;
         [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
-        [Dependency] private readonly IVoteManager _voteManager = default!; // PR 60 Голосование в конце раунда + маппул Ориенты
+        [Dependency] private readonly IVoteManager _voteManager = default!; // PR 61 Голосование в конце раунда + маппул Ориенты
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -356,7 +356,7 @@ namespace Content.Server.GameTicking
                 Log.Error($"Error while sending round end Discord message: {e}");
             }
 
-            _voteManager.CreateStandardVote(null, StandardVoteType.Map); // PR 60 Голосование в конце раунда + маппул Ориенты
+            _voteManager.CreateStandardVote(null, StandardVoteType.Map); // PR 61 Голосование в конце раунда + маппул Ориенты
         }
 
         public void ShowRoundEndScoreboard(string text = "")

@@ -2,7 +2,7 @@
   id: Box
   mapName: 'Box Station'
   mapPath: /Maps/box.yml
-  minPlayers: 0 # PR 60 Голосование в конце раунда + маппул Ориенты
+  minPlayers: 0 # PR 61 Голосование в конце раунда + маппул Ориенты
   stations:
     Boxstation:
       stationProto: StandardNanotrasenStation
