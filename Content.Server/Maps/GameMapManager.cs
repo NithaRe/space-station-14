@@ -96,7 +96,7 @@ public sealed class GameMapManager : IGameMapManager
     public IEnumerable<GameMapPrototype> CurrentlyEligibleMaps()
     {
         var maps = AllVotableMaps().Where(IsMapEligible).ToArray();
-        return maps.Length == 0 ? AllMaps().Where(x => x.Fallback) : maps;;
+        return maps.Length == 0 ? AllMaps().Where(x => x.Fallback) : maps;
     }
 
     public IEnumerable<GameMapPrototype> AllVotableMaps()
