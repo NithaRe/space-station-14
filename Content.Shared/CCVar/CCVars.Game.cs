@@ -63,7 +63,7 @@ public sealed partial class CCVars
         ///     Controls the game map prototype to load. SS14 stores these prototypes in Prototypes/Maps.
         /// </summary>
         public static readonly CVarDef<string>
-            GameMap = CVarDef.Create("game.map", "Odyssey", CVar.SERVERONLY);
+            GameMap = CVarDef.Create("game.map", string.Empty, CVar.SERVERONLY);
 
         /// <summary>
         ///     Controls whether to use world persistence or not.
