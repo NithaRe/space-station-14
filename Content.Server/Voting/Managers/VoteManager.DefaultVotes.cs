@@ -279,7 +279,6 @@ namespace Content.Server.Voting.Managers
 
             foreach (var (k, v) in maps)
             {
-                _logManager.GetSawmill("maps").Warning($"Map {k}, {v} added");
                 options.Options.Add((v, k));
             }
 
