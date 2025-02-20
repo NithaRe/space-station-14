@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Reflection;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.PDA.Ringer;
@@ -138,7 +139,6 @@ public sealed partial class StoreSystem
         }
 
         var buyer = msg.Actor;
-
         //verify that we can actually buy this listing and it wasn't added
         if (!ListingHasCategory(listing, component.Categories))
             return;
@@ -155,6 +155,16 @@ public sealed partial class StoreSystem
 
         //check that we have enough money
         var cost = listing.Cost;
+
+        bool isOrientikPurchase = cost.Keys.Any(currency => currency.Id == "Orientik");
+
+        if (isOrientikPurchase)
+        {
+            OnBuyRequestOrientik(uid, component, msg);
+            return;
+        }
+
+        Log.Warning($"Попытка вывести цену при покупке: {cost}");
         foreach (var (currency, amount) in cost)
         {
             if (!component.Balance.TryGetValue(currency, out var balance) || balance < amount)
@@ -162,6 +172,9 @@ public sealed partial class StoreSystem
                 return;
             }
         }
+
+        // Добавляем лог перед списанием
+        Log.Warning($"[UPLINK] Игрок {ToPrettyString(buyer)} покупает {listing.ID} фор??? {string.Join(", ", cost.Select(c => $"{c.Value} {c.Key}"))}");
 
         if (!IsOnStartingMap(uid, component))
             component.RefundAllowed = false;
@@ -277,6 +290,27 @@ public sealed partial class StoreSystem
         RaiseLocalEvent(ref buyFinished);
 
         UpdateUserInterface(buyer, uid, component);
+    }
+
+    private void OnBuyRequestOrientik(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
+    {
+        // Логируем информацию о покупке
+        var listing = component.FullListingsCatalog.FirstOrDefault(x => x.ID.Equals(msg.Listing.Id));
+        var buyer = msg.Actor;
+        if (listing == null) //make sure this listing actually exists
+        {
+            Log.Debug("listing does not exist");
+            return;
+        }
+        var cost = listing.Cost;
+        Log.Warning($"[ORIENTIK] Игрок {ToPrettyString(buyer)} пытается купить {listing.ID} за {string.Join(", ", cost.Select(c => $"{c.Value} {c.Key}"))}");
+
+        Log.Warning($"[ORIENTIK] Вот вся информация о uid: {uid}");
+        Log.Warning($"[ORIENTIK] Вот вся информация о msg: {msg}");
+        Log.Warning($"[ORIENTIK] Вот вся информация о msg.Actor: {buyer}");
+
+        // Дополнительная логика для обработки покупки за ориентики
+        // Например, проверка, сколько ориентиков у игрока
     }
 
     /// <summary>
