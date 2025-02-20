@@ -82,13 +82,13 @@ public sealed partial class CCVars
         ///     Prototype to use for map pool.
         /// </summary>
         public static readonly CVarDef<string>
-            GameMapPool = CVarDef.Create("game.map_pool", "DefaultMapPool", CVar.SERVERONLY);
+            GameMapPool = CVarDef.Create("game.map_pool", "OrientaMapPool", CVar.SERVERONLY); // PR 61 Голосование в конце раунда + маппул Ориенты
 
-        /// <summary>
-        ///     The depth of the queue used to calculate which map is next in rotation.
-        ///     This is how long the game "remembers" that some map was put in play. Default is 16 rounds.
-        /// </summary>
-        public static readonly CVarDef<int>
+    /// <summary>
+    ///     The depth of the queue used to calculate which map is next in rotation.
+    ///     This is how long the game "remembers" that some map was put in play. Default is 16 rounds.
+    /// </summary>
+    public static readonly CVarDef<int>
             GameMapMemoryDepth = CVarDef.Create("game.map_memory_depth", 16, CVar.SERVERONLY);
 
         /// <summary>

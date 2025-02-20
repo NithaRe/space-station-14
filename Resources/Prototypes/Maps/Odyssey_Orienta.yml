@@ -3,7 +3,7 @@
   mapName: 'Odyssey'
   mapPath: /Maps/Odyssey_Orienta.yml
   minPlayers: 0
-  maxPlayers: 60
+  # maxPlayers: 60 # PR 61 Голосование в конце раунда + маппул Ориенты
   stations:
     Odyssey:
       stationProto: StandardNanotrasenStation
