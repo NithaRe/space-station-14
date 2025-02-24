@@ -18,6 +18,7 @@ using Prometheus;
 using Robust.Server.Maps;
 using Robust.Shared.Asynchronous;
 using Robust.Shared.Audio;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -32,6 +33,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!; // PR 61 Голосование в конце раунда + маппул Ориенты
+        [Dependency] private readonly IConfigurationManager _configurationManager = default!; // PR 62 Фикс проблемы forcemap
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -356,6 +358,7 @@ namespace Content.Server.GameTicking
                 Log.Error($"Error while sending round end Discord message: {e}");
             }
 
+            _configurationManager.SetCVar(CCVars.GameMap, String.Empty); // PR 62 Фикс проблемы forcemap
             _voteManager.CreateStandardVote(null, StandardVoteType.Map); // PR 61 Голосование в конце раунда + маппул Ориенты
         }
 
