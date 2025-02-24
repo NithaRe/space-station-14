@@ -1,7 +1,11 @@
+using System;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
+using Content.Server._Orienta.Purchase;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
+using Content.Server.Chat.Systems;
 using Content.Server.PDA.Ringer;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
@@ -31,6 +35,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly RequestForBuy _purchaseService = default!;
 
     private void InitializeUi()
     {
@@ -130,41 +135,39 @@ public sealed partial class StoreSystem
     /// </summary>
     private void OnBuyRequest(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
     {
-        var listing = component.FullListingsCatalog.FirstOrDefault(x => x.ID.Equals(msg.Listing.Id));
+        _ = ProcessPurchaseAsync(uid, component, msg);
+    }
 
-        if (listing == null) //make sure this listing actually exists
+    private async Task ProcessPurchaseAsync(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
+    {
+        var listing = component.FullListingsCatalog.FirstOrDefault(x => x.ID.Equals(msg.Listing.Id));
+        if (listing == null)
         {
             Log.Debug("listing does not exist");
             return;
         }
 
+        if (listing.Cost.ContainsKey("Orientik"))
+        {
+            await HandleOrientikPurchaseAsync(uid, component, msg);
+            return;
+        }
+
+        // Оригинальная синхронная логика для стандартных валют
         var buyer = msg.Actor;
-        //verify that we can actually buy this listing and it wasn't added
+
         if (!ListingHasCategory(listing, component.Categories))
             return;
 
-        //condition checking because why not
         if (listing.Conditions != null)
         {
             var args = new ListingConditionArgs(component.AccountOwner ?? buyer, uid, listing, EntityManager);
             var conditionsMet = listing.Conditions.All(condition => condition.Condition(args));
-
             if (!conditionsMet)
                 return;
         }
 
-        //check that we have enough money
         var cost = listing.Cost;
-
-        bool isOrientikPurchase = cost.Keys.Any(currency => currency.Id == "Orientik");
-
-        if (isOrientikPurchase)
-        {
-            OnBuyRequestOrientik(uid, component, msg);
-            return;
-        }
-
-        Log.Warning($"Попытка вывести цену при покупке: {cost}");
         foreach (var (currency, amount) in cost)
         {
             if (!component.Balance.TryGetValue(currency, out var balance) || balance < amount)
@@ -173,32 +176,23 @@ public sealed partial class StoreSystem
             }
         }
 
-        // Добавляем лог перед списанием
-        Log.Warning($"[UPLINK] Игрок {ToPrettyString(buyer)} покупает {listing.ID} фор??? {string.Join(", ", cost.Select(c => $"{c.Value} {c.Key}"))}");
-
         if (!IsOnStartingMap(uid, component))
-            component.RefundAllowed = false;
+            DisableRefund(uid, component);
 
-        //subtract the cash
         foreach (var (currency, amount) in cost)
         {
             component.Balance[currency] -= amount;
-
             component.BalanceSpent.TryAdd(currency, FixedPoint2.Zero);
-
             component.BalanceSpent[currency] += amount;
         }
 
-        //spawn entity
         if (listing.ProductEntity != null)
         {
             var product = Spawn(listing.ProductEntity, Transform(buyer).Coordinates);
             _hands.PickupOrDrop(buyer, product);
-
             HandleRefundComp(uid, component, product);
 
             var xForm = Transform(product);
-
             if (xForm.ChildCount > 0)
             {
                 var childEnumerator = xForm.ChildEnumerator;
@@ -209,23 +203,17 @@ public sealed partial class StoreSystem
             }
         }
 
-        //give action
         if (!string.IsNullOrWhiteSpace(listing.ProductAction))
         {
             EntityUid? actionId;
-            // I guess we just allow duplicate actions?
-            // Allow duplicate actions and just have a single list buy for the buy-once ones.
             if (!_mind.TryGetMind(buyer, out var mind, out _))
                 actionId = _actions.AddAction(buyer, listing.ProductAction);
             else
                 actionId = _actionContainer.AddAction(mind, listing.ProductAction);
 
-            // Add the newly bought action entity to the list of bought entities
-            // And then add that action entity to the relevant product upgrade listing, if applicable
             if (actionId != null)
             {
                 HandleRefundComp(uid, component, actionId.Value);
-
                 if (listing.ProductUpgradeId != null)
                 {
                     foreach (var upgradeListing in component.FullListingsCatalog)
@@ -246,17 +234,13 @@ public sealed partial class StoreSystem
             {
                 component.BoughtEntities.Remove(listing.ProductActionEntity.Value);
             }
-
             if (!_actionUpgrade.TryUpgradeAction(listing.ProductActionEntity, out var upgradeActionId))
             {
                 if (listing.ProductActionEntity != null)
                     HandleRefundComp(uid, component, listing.ProductActionEntity.Value);
-
                 return;
             }
-
             listing.ProductActionEntity = upgradeActionId;
-
             if (upgradeActionId != null)
                 HandleRefundComp(uid, component, upgradeActionId.Value);
         }
@@ -274,13 +258,11 @@ public sealed partial class StoreSystem
             component.RefundAllowed = false;
         }
 
-        //log dat shit.
-        _admin.Add(LogType.StorePurchase,
-            LogImpact.Low,
+        _admin.Add(LogType.StorePurchase, LogImpact.Low,
             $"{ToPrettyString(buyer):player} purchased listing \"{ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listing, _proto)}\" from {ToPrettyString(uid)}");
 
-        listing.PurchaseAmount++; //track how many times something has been purchased
-        _audio.PlayEntity(component.BuySuccessSound, msg.Actor, uid); //cha-ching!
+        listing.PurchaseAmount++;
+        _audio.PlayEntity(component.BuySuccessSound, msg.Actor, uid);
 
         var buyFinished = new StoreBuyFinishedEvent
         {
@@ -292,25 +274,37 @@ public sealed partial class StoreSystem
         UpdateUserInterface(buyer, uid, component);
     }
 
-    private void OnBuyRequestOrientik(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
+    private async Task HandleOrientikPurchaseAsync(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
     {
-        // Логируем информацию о покупке
         var listing = component.FullListingsCatalog.FirstOrDefault(x => x.ID.Equals(msg.Listing.Id));
-        var buyer = msg.Actor;
-        if (listing == null) //make sure this listing actually exists
+        if (listing == null || !listing.Cost.TryGetValue("Orientik", out var price))
+            return;
+
+        if (!TryComp<ActorComponent>(msg.Actor, out var actorComp))
         {
-            Log.Debug("listing does not exist");
+            Log.Info($"[StoreSystem] Не удалось определить игрока {msg.Actor}");
             return;
         }
-        var cost = listing.Cost;
-        Log.Warning($"[ORIENTIK] Игрок {ToPrettyString(buyer)} пытается купить {listing.ID} за {string.Join(", ", cost.Select(c => $"{c.Value} {c.Key}"))}");
 
-        Log.Warning($"[ORIENTIK] Вот вся информация о uid: {uid}");
-        Log.Warning($"[ORIENTIK] Вот вся информация о msg: {msg}");
-        Log.Warning($"[ORIENTIK] Вот вся информация о msg.Actor: {buyer}");
+        Log.Info($"[StoreSystem] Запрос покупки за Orientik отправлен для {msg.Actor}");
+        var ckey = actorComp.PlayerSession.Name;
+        var (success, message, new_balance) = await _purchaseService.SendPurchaseRequest(ckey, (int)price);
 
-        // Дополнительная логика для обработки покупки за ориентики
-        // Например, проверка, сколько ориентиков у игрока
+        if (!success)
+        {
+            Log.Warning($"[StoreSystem] Ошибка покупки для {msg.Actor}: {message}");
+            return;
+        }
+
+        component.Balance.TryAdd("Orientik", FixedPoint2.New((double)new_balance));
+        if (listing.ProductEntity != null)
+        {
+            var product = Spawn(listing.ProductEntity, Transform(msg.Actor).Coordinates);
+            _hands.PickupOrDrop(msg.Actor, product);
+        }
+
+        _audio.PlayEntity(component.BuySuccessSound, msg.Actor, uid);
+        UpdateUserInterface(msg.Actor, uid, component);
     }
 
     /// <summary>
