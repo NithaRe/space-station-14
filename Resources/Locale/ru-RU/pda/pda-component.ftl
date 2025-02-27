@@ -12,10 +12,6 @@ pda-bound-user-interface-show-uplink-title = Открыть аплинк
 pda-bound-user-interface-show-uplink-description = Получите доступ к своему аплинку
 pda-bound-user-interface-lock-uplink-title = Закрыть аплинк
 pda-bound-user-interface-lock-uplink-description = Предотвратите доступ к вашему аплинку персон без кода
-
-pda-orientik-store-title = Магазин Ориенты
-pda-orientik-store-description = Просмотр товаров доступных к покупке за ориентики
-
 comp-pda-ui-menu-title = КПК
 comp-pda-ui-footer = Карманный Персональный Компьютер
 comp-pda-ui-station = Станция: [color=white]{ $station }[/color]

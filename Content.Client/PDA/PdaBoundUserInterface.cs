@@ -1,11 +1,9 @@
 using Content.Client.CartridgeLoader;
-using Content.Shared._Orienta.Purchase;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.PDA;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
-using Robust.Shared.Player;
 
 namespace Content.Client.PDA
 {
@@ -74,20 +72,6 @@ namespace Content.Client.PDA
             {
                 SendMessage(new PdaLockUplinkMessage());
             };
-
-            _menu.ShowOrientikStoreButton.OnPressed += _ =>
-            {
-                if (EntMan.TryGetComponent<ActorComponent>(Owner, out var actor) &&
-                    actor.PlayerSession.AttachedEntity is { } attachedEntity)
-                {
-                    SendMessage(new PdaShowOrientikStoreMessage(EntMan.GetNetEntity(attachedEntity).Id));
-                }
-                else
-                {
-                    SendMessage(new PdaShowOrientikStoreMessage(EntMan.GetNetEntity(Owner).Id));
-                }
-            };
-
 
             _menu.OnProgramItemPressed += ActivateCartridge;
             _menu.OnInstallButtonPressed += InstallCartridge;

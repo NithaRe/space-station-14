@@ -10,7 +10,6 @@ using Content.Server.Station.Systems;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Server.Traitor.Uplink;
-using Content.Shared._Orienta.Purchase;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Chat;
@@ -39,7 +38,6 @@ namespace Content.Server.PDA
         [Dependency] private readonly UnpoweredFlashlightSystem _unpoweredFlashlight = default!;
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly IdCardSystem _idCard = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
 
         public override void Initialize()
         {
@@ -55,7 +53,6 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<PdaComponent, PdaShowMusicMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowUplinkMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaLockUplinkMessage>(OnUiMessage);
-            SubscribeLocalEvent<PdaComponent, PdaShowOrientikStoreMessage>(OnShowOrientikStore);
 
             SubscribeLocalEvent<PdaComponent, CartridgeLoaderNotificationSentEvent>(OnNotification);
 
@@ -137,20 +134,6 @@ namespace Content.Server.PDA
         private void OnAlertLevelChanged(AlertLevelChangedEvent args)
         {
             UpdateAllPdaUisOnStation();
-        }
-
-        private void OnShowOrientikStore(Entity<PdaComponent> ent, ref PdaShowOrientikStoreMessage msg)
-        {
-            if (_entityManager.TryGetEntity(new NetEntity(msg.ActorNetId), out var actorUid) &&
-                actorUid != null && // Проверяем, что он не null
-                TryComp<ActorComponent>(actorUid.Value, out _)) // Используем actorUid.Value
-            {
-                _ui.TryOpenUi(ent.Owner, OrientikStoreUiKey.Key, actorUid.Value);
-            }
-            else
-            {
-                Log.Warning($"Received invalid NetEntity {msg.ActorNetId} in PdaShowOrientikStoreMessage");
-            }
         }
 
         private void UpdateAllPdaUisOnStation()
