@@ -22,6 +22,9 @@ pda-bound-user-interface-show-uplink-description = Access your uplink
 pda-bound-user-interface-lock-uplink-title = Lock Uplink
 pda-bound-user-interface-lock-uplink-description = Prevent anyone from accessing your uplink without the code
 
+pda-orientik-store-title = Orientik Store
+pda-orientik-store-description = Browse items available for Orientiks
+
 comp-pda-ui-menu-title = PDA
 
 comp-pda-ui-footer = Personal Digital Assistant

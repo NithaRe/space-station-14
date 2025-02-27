@@ -80,6 +80,10 @@
                                        Visible="False"
                                        Text="{Loc 'pda-bound-user-interface-lock-uplink-title'}"
                                        Description="{Loc 'pda-bound-user-interface-lock-uplink-description'}"/>
+                <pda:PdaSettingsButton Name="ShowOrientikStoreButton"
+                       Access="Public"
+                       Text="{Loc 'pda-orientik-store-title'}"
+                       Description="{Loc 'pda-orientik-store-description'}"/>
             </BoxContainer>
         </ScrollContainer>
         <BoxContainer Orientation="Vertical"
