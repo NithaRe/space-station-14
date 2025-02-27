@@ -15,6 +15,12 @@ public sealed class PdaShowRingtoneMessage : BoundUserInterfaceMessage
 }
 
 [Serializable, NetSerializable]
+public sealed class PdaShowOrientikMessage : BoundUserInterfaceMessage
+{
+    public PdaShowOrientikMessage() { }
+}
+
+[Serializable, NetSerializable]
 public sealed class PdaShowUplinkMessage : BoundUserInterfaceMessage
 {
     public PdaShowUplinkMessage() { }

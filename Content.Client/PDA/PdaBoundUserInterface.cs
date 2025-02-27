@@ -63,6 +63,11 @@ namespace Content.Client.PDA
                 SendMessage(new PdaShowRingtoneMessage());
             };
 
+            _menu.OrientikButton.OnPressed += _ =>
+            {
+                SendMessage(new PdaShowOrientikMessage());
+            };
+
             _menu.ShowUplinkButton.OnPressed += _ =>
             {
                 SendMessage(new PdaShowUplinkMessage());

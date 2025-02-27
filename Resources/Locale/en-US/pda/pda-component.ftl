@@ -42,6 +42,10 @@ comp-pda-ui-ringtone-button = Ringtone
 
 comp-pda-ui-ringtone-button-description = Change your PDA's ringtone
 
+comp-pda-ui-orientalink-button = Orienta Store
+
+comp-pda-ui-orientalink-button-description = Store where you can buy items by orientiks
+
 comp-pda-ui-toggle-flashlight-button = Toggle Flashlight
 
 pda-bound-user-interface-music-button = Music Instrument
