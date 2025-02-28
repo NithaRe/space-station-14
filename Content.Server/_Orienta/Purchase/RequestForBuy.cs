@@ -11,13 +11,6 @@ using Robust.Shared.Log;
 
 namespace Content.Server._Orienta.Purchase
 {
-    public class ResponseFromBot
-    {
-        public bool Success { get; set; } // Успех или неудача покупки
-        public string? Message { get; set; } // Сообщение от бота (например, причина отказа)
-        public float NewBalance { get; set; } // Новый баланс игрока после покупки
-    }
-
     public sealed class RequestForBuy : EntitySystem
     {
         [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -29,29 +22,25 @@ namespace Content.Server._Orienta.Purchase
 
         public override void Initialize()
         {
-            _cfg.OnValueChanged(CCVars.PurchaseApiEnabled, v => _purchasesEnabled = v, true);
-            _cfg.OnValueChanged(CCVars.PurchaseApiUrl, v => _apiUrl = v, true);
-            _cfg.OnValueChanged(CCVars.PurchaseApiKey, v => _apiKey = v, true);
+            base.Initialize();
+            _cfg.OnValueChanged(CCVars.OrientikApiEnabled, v => _purchasesEnabled = v, true);
+            _cfg.OnValueChanged(CCVars.OrientikApiUrl, v => _apiUrl = v, true);
+            _cfg.OnValueChanged(CCVars.OrientikApiKey, v => _apiKey = v, true);
         }
 
-        public async Task<(bool, string, float)> SendPurchaseRequest(string ckey, int price)
+        public async Task<(bool success, string message, int newBalance)> SendPurchaseRequest(string ckey, int price)
         {
             if (!_purchasesEnabled)
-                return (false, "В config.toml отключены покупки", 0f);
+                return (false, "В config.toml отключены покупки", 0);
 
             if (string.IsNullOrEmpty(_apiUrl) || string.IsNullOrEmpty(_apiKey))
-                return (false, "APIUrl или APIKey не настроены в config.toml", 0f);
+                return (false, "APIUrl или APIKey не настроены в config.toml", 0);
 
-            var payload = new
-            {
-                ckey = ckey,
-                price = price
-            };
-
+            var payload = new { ckey = ckey, price = price };
             var json = JsonSerializer.Serialize(payload);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var request = new HttpRequestMessage(HttpMethod.Post, _apiUrl);
+            var request = new HttpRequestMessage(HttpMethod.Post, $"{_apiUrl}/purchases");
             request.Headers.Add("Authorization", $"Bearer {_apiKey}");
             request.Content = content;
 
@@ -63,22 +52,57 @@ namespace Content.Server._Orienta.Purchase
                 var responseContent = await response.Content.ReadAsStringAsync();
                 var botResponse = JsonSerializer.Deserialize<ResponseFromBot>(responseContent);
 
-                if (botResponse != null && botResponse.Success)
+                if (botResponse != null && botResponse.success)
                 {
-                    // Возвращаем успех, ckey и новый баланс с округлением до двух знаков после запятой
-                    return (true, $"Покупка прошла успешно для игрока {ckey}", botResponse.NewBalance);
+                    return (true, botResponse.message ?? "Покупка успешна", botResponse.newBalance);
                 }
-                else
-                {
-                    // В случае ошибки
-                    return (false, botResponse?.Message ?? "Неизвестная ошибка при обработке запроса", 0f);
-                }
+                return (false, botResponse?.message ?? "Неизвестная ошибка", 0);
             }
             catch (Exception ex)
             {
                 _log.Error($"Ошибка при отправке запроса: {ex.Message}");
-                return (false, "Ошибка при отправке запроса на покупку", 0f);
+                return (false, "Ошибка соединения с ботом", 0);
             }
+        }
+
+        public async Task<(bool success, string message, int balance)> GetBalance(string ckey)
+        {
+            if (!_purchasesEnabled)
+                return (false, "В config.toml отключены покупки", 0);
+
+            if (string.IsNullOrEmpty(_apiUrl) || string.IsNullOrEmpty(_apiKey))
+                return (false, "APIUrl или APIKey не настроены в config.toml", 0);
+
+            var request = new HttpRequestMessage(HttpMethod.Get, $"{_apiUrl}/balance?ckey={Uri.EscapeDataString(ckey)}");
+            request.Headers.Add("Authorization", $"Bearer {_apiKey}");
+
+            try
+            {
+                var response = await HttpClient.SendAsync(request);
+                response.EnsureSuccessStatusCode();
+
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var botResponse = JsonSerializer.Deserialize<ResponseFromBot>(responseContent);
+
+                if (botResponse != null && botResponse.success)
+                {
+                    return (true, "Баланс получен", botResponse.balance ?? botResponse.newBalance);
+                }
+                return (false, botResponse?.message ?? "Неизвестная ошибка", 0);
+            }
+            catch (Exception ex)
+            {
+                _log.Error($"Ошибка при запросе баланса: {ex.Message}");
+                return (false, "Ошибка соединения с ботом", 0);
+            }
+        }
+
+        public sealed class ResponseFromBot
+        {
+            public bool success { get; set; }
+            public string? message { get; set; }
+            public int newBalance { get; set; }
+            public int? balance { get; set; }
         }
     }
 }

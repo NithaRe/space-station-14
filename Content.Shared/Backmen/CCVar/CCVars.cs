@@ -70,20 +70,20 @@ public sealed class CCVars
     /// <summary>
     ///     Включение/выключение возможности покупать в игре за ориентики
     /// </summary>
-    public static readonly CVarDef<bool> PurchaseApiEnabled =
-        CVarDef.Create("purchases.enabled", false, CVar.SERVERONLY);
+    public static readonly CVarDef<bool> OrientikApiEnabled =
+            CVarDef.Create("orientik.api_enabled", false, CVar.SERVERONLY);
 
     /// <summary>
     ///     URL для purchases API
     /// </summary>
-    public static readonly CVarDef<string> PurchaseApiUrl =
-        CVarDef.Create("purchases.api_url", "", CVar.SERVERONLY);
+    public static readonly CVarDef<string> OrientikApiUrl =
+            CVarDef.Create("orientik.api_url", "", CVar.SERVERONLY);
 
     /// <summary>
     ///     Секретный ключ API для покупок
     /// </summary>
-    public static readonly CVarDef<string> PurchaseApiKey =
-        CVarDef.Create("purchases.api_key", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
+    public static readonly CVarDef<string> OrientikApiKey =
+            CVarDef.Create("orientik.api_key", "", CVar.SERVERONLY);
 
 
     /**
