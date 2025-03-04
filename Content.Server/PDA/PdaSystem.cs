@@ -52,7 +52,6 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<PdaComponent, PdaShowRingtoneMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowMusicMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowUplinkMessage>(OnUiMessage);
-            SubscribeLocalEvent<PdaComponent, PdaShowOrientikMessage>(OnUiMessageForOrientalink);
             SubscribeLocalEvent<PdaComponent, PdaLockUplinkMessage>(OnUiMessage);
 
             SubscribeLocalEvent<PdaComponent, CartridgeLoaderNotificationSentEvent>(OnNotification);
@@ -258,15 +257,6 @@ namespace Content.Server.PDA
 
             if (TryComp<InstrumentComponent>(uid, out var instrument))
                 _instrument.ToggleInstrumentUi(uid, msg.Actor, instrument);
-        }
-
-        private void OnUiMessageForOrientalink(EntityUid uid, PdaComponent pda, PdaShowOrientikMessage msg)
-        {
-            if (!PdaUiKey.Key.Equals(msg.UiKey))
-                return;
-
-            // Открываем интерфейс магазина ориенталинк
-            _store.ToggleUi(msg.Actor, uid);
         }
 
         private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaShowUplinkMessage msg)
