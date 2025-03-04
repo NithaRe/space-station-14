@@ -114,7 +114,7 @@
     gloves: ClothingHandsGlovesFingerless
   inhand:
     - WeaponMeleeToolboxRobust
-    - OrientaLink
+    - OrientaLink # PR 63 Покупка за ориентики
 
 #Brigmedic
 

@@ -88,6 +88,8 @@ public sealed partial class StoreSystem
     /// <param name="user">The person who if opening the store ui. Listings are filtered based on this.</param>
     /// <param name="store">The store entity itself</param>
     /// <param name="component">The store component being refreshed.</param>
+    /// 
+    /// PR 63 Покупка за ориентики. Модификация офовского метода
     public async void UpdateUserInterface(EntityUid? user, EntityUid store, StoreComponent? component = null)
     {
         if (!Resolve(store, ref component))
@@ -138,11 +140,13 @@ public sealed partial class StoreSystem
     /// <summary>
     /// Handles whenever a purchase was made.
     /// </summary>
+    /// PR 63 Покупка за ориентики. Модификация офовского метода
     private void OnBuyRequest(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
     {
         _ = ProcessPurchaseAsync(uid, component, msg);
     }
 
+    // PR 63 Покупка за ориентики. Таск для покупок
     private async Task ProcessPurchaseAsync(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
     {
         var listing = component.FullListingsCatalog.FirstOrDefault(x => x.ID.Equals(msg.Listing.Id));
@@ -279,6 +283,7 @@ public sealed partial class StoreSystem
         UpdateUserInterface(buyer, uid, component);
     }
 
+    // PR 63 Покупка за ориентики. Таск для покупок
     private async Task HandleOrientikPurchaseAsync(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
     {
         var listing = component.FullListingsCatalog.FirstOrDefault(x => x.ID.Equals(msg.Listing.Id));
@@ -287,17 +292,16 @@ public sealed partial class StoreSystem
 
         if (!TryComp<ActorComponent>(msg.Actor, out var actorComp))
         {
-            Log.Info($"[StoreSystem] Не удалось определить игрока {msg.Actor}");
+            // Log.Info($"[StoreSystem] Не удалось определить игрока {msg.Actor}");
             return;
         }
 
-        Log.Info($"[StoreSystem] Запрос покупки за Orientik отправлен для {msg.Actor}");
         var ckey = actorComp.PlayerSession.Name;
         var (success, message, _) = await _purchaseService.SendPurchaseRequest(ckey, (int)price);
 
         if (!success)
         {
-            Log.Warning($"[StoreSystem] Ошибка покупки для {msg.Actor}: {message}");
+            // Log.Warning($"[StoreSystem] Ошибка покупки для {msg.Actor}: {message}");
             return;
         }
 

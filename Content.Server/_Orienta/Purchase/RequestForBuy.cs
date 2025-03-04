@@ -9,6 +9,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.IoC;
 using Robust.Shared.Log;
 
+// PR 63 Покупка за ориентики. Класс для работы запросов и ответов бота
 namespace Content.Server._Orienta.Purchase
 {
     public sealed class RequestForBuy : EntitySystem
@@ -47,21 +48,24 @@ namespace Content.Server._Orienta.Purchase
             try
             {
                 var response = await HttpClient.SendAsync(request);
-                response.EnsureSuccessStatusCode();
-
                 var responseContent = await response.Content.ReadAsStringAsync();
                 var botResponse = JsonSerializer.Deserialize<ResponseFromBot>(responseContent);
 
-                if (botResponse != null && botResponse.success)
+                if (response.IsSuccessStatusCode) // Проверяем статус 200
                 {
-                    return (true, botResponse.message ?? "Покупка успешна", botResponse.newBalance);
+                    return (true, botResponse?.message ?? "Покупка успешна", botResponse?.newBalance ?? 0);
                 }
-                return (false, botResponse?.message ?? "Неизвестная ошибка", 0);
+                return (false, botResponse?.message ?? "Неизвестная ошибка", botResponse?.newBalance ?? 0);
             }
-            catch (Exception ex)
+            catch (HttpRequestException ex)
             {
                 _log.Error($"Ошибка при отправке запроса: {ex.Message}");
                 return (false, "Ошибка соединения с ботом", 0);
+            }
+            catch (Exception ex)
+            {
+                _log.Error($"Неизвестная ошибка: {ex.Message}");
+                return (false, "Неизвестная ошибка", 0);
             }
         }
 
@@ -79,27 +83,29 @@ namespace Content.Server._Orienta.Purchase
             try
             {
                 var response = await HttpClient.SendAsync(request);
-                response.EnsureSuccessStatusCode();
-
                 var responseContent = await response.Content.ReadAsStringAsync();
                 var botResponse = JsonSerializer.Deserialize<ResponseFromBot>(responseContent);
 
-                if (botResponse != null && botResponse.success)
+                if (response.IsSuccessStatusCode) // Проверяем статус 200
                 {
-                    return (true, "Баланс получен", botResponse.balance ?? botResponse.newBalance);
+                    return (true, "Баланс получен", botResponse?.balance ?? botResponse?.newBalance ?? 0);
                 }
                 return (false, botResponse?.message ?? "Неизвестная ошибка", 0);
             }
-            catch (Exception ex)
+            catch (HttpRequestException ex)
             {
                 _log.Error($"Ошибка при запросе баланса: {ex.Message}");
                 return (false, "Ошибка соединения с ботом", 0);
+            }
+            catch (Exception ex)
+            {
+                _log.Error($"Неизвестная ошибка: {ex.Message}");
+                return (false, "Неизвестная ошибка", 0);
             }
         }
 
         public sealed class ResponseFromBot
         {
-            public bool success { get; set; }
             public string? message { get; set; }
             public int newBalance { get; set; }
             public int? balance { get; set; }

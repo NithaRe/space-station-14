@@ -8,6 +8,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Server._Orienta.Purchase;
 
+// PR 63 Покупка за ориентики. Нужен пустой компонент для покупок, чтобы определять Ориенталинк. Не забывайте добавить в ориенталинк этот компонент
 [RegisterComponent]
 public sealed partial class OrientaLinkComponent : Component
 {

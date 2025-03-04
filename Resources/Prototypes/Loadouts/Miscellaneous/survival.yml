@@ -34,7 +34,7 @@
   - !type:GroupLoadoutEffect
     proto: OxygenBreather
   inhand:
-    - OrientaLink 
+    - OrientaLink # PR 63 Покупка за ориентики
   storage:
     back:
     - BoxSurvival
@@ -45,7 +45,7 @@
   - !type:GroupLoadoutEffect
     proto: NitrogenBreather
   inhand:
-    - OrientaLink
+    - OrientaLink # PR 63 Покупка за ориентики
   storage:
     back:
     - BoxSurvivalNitrogen
@@ -57,7 +57,7 @@
   - !type:GroupLoadoutEffect
     proto: OxygenBreather
   inhand:
-    - OrientaLink
+    - OrientaLink # PR 63 Покупка за ориентики
   storage:
     back:
     - BoxHug
@@ -68,7 +68,7 @@
   - !type:GroupLoadoutEffect
     proto: NitrogenBreather
   inhand:
-    - OrientaLink
+    - OrientaLink # PR 63 Покупка за ориентики
   storage:
     back:
     - BoxHugNitrogen
@@ -80,7 +80,7 @@
   - !type:GroupLoadoutEffect
     proto: OxygenBreather
   inhand:
-    - OrientaLink
+    - OrientaLink # PR 63 Покупка за ориентики
   storage:
     back:
     - BoxMime
@@ -91,7 +91,7 @@
   - !type:GroupLoadoutEffect
     proto: NitrogenBreather
   inhand:
-    - OrientaLink
+    - OrientaLink # PR 63 Покупка за ориентики
   storage:
     back:
     - BoxMimeNitrogen
@@ -104,7 +104,7 @@
   - !type:GroupLoadoutEffect
     proto: OxygenBreather
   inhand:
-    - OrientaLink
+    - OrientaLink # PR 63 Покупка за ориентики
   storage:
     back:
     - BoxSurvivalEngineering
@@ -115,7 +115,7 @@
   - !type:GroupLoadoutEffect
     proto: NitrogenBreather
   inhand:
-    - OrientaLink
+    - OrientaLink # PR 63 Покупка за ориентики
   storage:
     back:
     - BoxSurvivalEngineeringNitrogen
@@ -127,7 +127,7 @@
   - !type:GroupLoadoutEffect
     proto: OxygenBreather
   inhand:
-    - OrientaLink
+    - OrientaLink # PR 63 Покупка за ориентики
   storage:
     back:
     - BoxSurvivalMedical
@@ -138,7 +138,7 @@
   - !type:GroupLoadoutEffect
     proto: NitrogenBreather
   inhand:
-    - OrientaLink
+    - OrientaLink # PR 63 Покупка за ориентики
   storage:
     back:
     - BoxSurvivalMedicalNitrogen
@@ -150,7 +150,7 @@
   - !type:GroupLoadoutEffect
     proto: OxygenBreather
   inhand:
-    - OrientaLink
+    - OrientaLink # PR 63 Покупка за ориентики
   storage:
     back:
     - BoxSurvivalSecurity
@@ -161,7 +161,7 @@
   - !type:GroupLoadoutEffect
     proto: NitrogenBreather
   inhand:
-    - OrientaLink
+    - OrientaLink # PR 63 Покупка за ориентики
   storage:
     back:
     - BoxSurvivalSecurityNitrogen
@@ -173,7 +173,7 @@
   - !type:GroupLoadoutEffect
     proto: OxygenBreather
   inhand:
-    - OrientaLink
+    - OrientaLink # PR 63 Покупка за ориентики
   storage:
     back:
     - BoxSurvivalSyndicate
@@ -184,7 +184,7 @@
   - !type:GroupLoadoutEffect
     proto: NitrogenBreather
   inhand:
-    - OrientaLink
+    - OrientaLink # PR 63 Покупка за ориентики
   storage:
     back:
     - BoxSurvivalSyndicateNitrogen
