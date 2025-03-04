@@ -68,8 +68,6 @@ public sealed partial class StoreSystem
         if (!_ui.TryToggleUi(storeEnt, StoreUiKey.Key, actor.PlayerSession))
             return;
 
-        Log.Info($"[storeEnt] Энтити стора: {storeEnt}. UI ключ: {StoreUiKey.Key}");
-
         UpdateUserInterface(user, storeEnt, component);
     }
 

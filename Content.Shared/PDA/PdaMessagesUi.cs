@@ -1,5 +1,4 @@
 using Robust.Shared.Serialization;
-using Content.Shared._Orienta.Purchase;
 
 namespace Content.Shared.PDA;
 

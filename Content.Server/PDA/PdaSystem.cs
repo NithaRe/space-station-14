@@ -23,7 +23,6 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
-using Content.Shared._Orienta.Purchase;
 
 namespace Content.Server.PDA
 {
@@ -39,7 +38,6 @@ namespace Content.Server.PDA
         [Dependency] private readonly UnpoweredFlashlightSystem _unpoweredFlashlight = default!;
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly IdCardSystem _idCard = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
 
         public override void Initialize()
         {
@@ -264,13 +262,10 @@ namespace Content.Server.PDA
 
         private void OnUiMessageForOrientalink(EntityUid uid, PdaComponent pda, PdaShowOrientikMessage msg)
         {
-            if (msg.UiKey != OrientelinkUiKey.Key)
+            if (!PdaUiKey.Key.Equals(msg.UiKey))
                 return;
 
-            Log.Warning($"Ну чему же ты равен? {msg.UiKey}. А вот чему должен: {OrientelinkUiKey.Key}");
-
-
-            // Открываем интерфейс магазина
+            // Открываем интерфейс магазина ориенталинк
             _store.ToggleUi(msg.Actor, uid);
         }
 

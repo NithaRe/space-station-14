@@ -98,21 +98,3 @@
   id: DiscountedItems
   name: store-discounted-items
   priority: 200
-
-# OrientaLink
-- type: storeCategory
-  id: OrientaLinkClothing
-  name: Одежда
-  priority: 0
-- type: storeCategory
-  id: OrientaLinkFunnyThings
-  name: Веселые штуки
-  priority: 1
-- type: storeCategory
-  id: OrientaLinkPlushie
-  name: Плюшки
-  priority: 2
-- type: storeCategory
-  id: OrientaLinkBooks
-  name: Книжки
-  priority: 3

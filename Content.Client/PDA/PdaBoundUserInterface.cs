@@ -4,7 +4,6 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.PDA;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
-using Content.Shared._Orienta.Purchase;
 
 namespace Content.Client.PDA
 {
@@ -66,7 +65,7 @@ namespace Content.Client.PDA
 
             _menu.OrientikButton.OnPressed += _ =>
             {
-                SendMessage(new PdaShowOrientikMessage(OrientelinkUiKey.Key));
+                SendMessage(new PdaShowOrientikMessage());
             };
 
             _menu.ShowUplinkButton.OnPressed += _ =>
