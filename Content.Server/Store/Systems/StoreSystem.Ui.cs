@@ -88,34 +88,39 @@ public sealed partial class StoreSystem
     /// <param name="user">The person who if opening the store ui. Listings are filtered based on this.</param>
     /// <param name="store">The store entity itself</param>
     /// <param name="component">The store component being refreshed.</param>
-    public void UpdateUserInterface(EntityUid? user, EntityUid store, StoreComponent? component = null)
+    public async void UpdateUserInterface(EntityUid? user, EntityUid store, StoreComponent? component = null)
     {
         if (!Resolve(store, ref component))
             return;
 
-        //this is the person who will be passed into logic for all listing filtering.
-        if (user != null) //if we have no "buyer" for this update, then don't update the listings
+        if (user != null)
         {
             component.LastAvailableListings = GetAvailableListings(component.AccountOwner ?? user.Value, store, component)
                 .ToHashSet();
         }
 
-        //dictionary for all currencies, including 0 values for currencies on the whitelist
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> allCurrency = new();
         foreach (var supported in component.CurrencyWhitelist)
         {
             allCurrency.Add(supported, FixedPoint2.Zero);
 
-            if (component.Balance.TryGetValue(supported, out var value))
-                allCurrency[supported] = value;
+            // Для обычных магазинов или валют, кроме "Orientik", берем баланс из component.Balance
+            if (supported != "Orientik" || !HasComp<OrientaLinkComponent>(store))
+            {
+                if (component.Balance.TryGetValue(supported, out var value))
+                    allCurrency[supported] = value;
+            }
         }
 
-        // TODO: if multiple users are supposed to be able to interact with a single BUI & see different
-        // stores/listings, this needs to use session specific BUI states.
+        // Для Ориенталинка запрашиваем фиктивный баланс "Orientik" через API
+        if (HasComp<OrientaLinkComponent>(store) && user != null && component.CurrencyWhitelist.Contains("Orientik") && TryComp<ActorComponent>(user.Value, out var actor))
+        {
+            var ckey = actor.PlayerSession.Name;
+            var (success, _, balance) = await _purchaseService.GetBalance(ckey);
+            allCurrency["Orientik"] = success ? FixedPoint2.New(balance) : FixedPoint2.Zero;
+        }
 
-        // only tell operatives to lock their uplink if it can be locked
         var showFooter = HasComp<RingerUplinkComponent>(store);
-
         var state = new StoreUpdateState(component.LastAvailableListings, allCurrency, showFooter, component.RefundAllowed);
         _ui.SetUiState(store, StoreUiKey.Key, state);
     }
@@ -288,7 +293,7 @@ public sealed partial class StoreSystem
 
         Log.Info($"[StoreSystem] Запрос покупки за Orientik отправлен для {msg.Actor}");
         var ckey = actorComp.PlayerSession.Name;
-        var (success, message, new_balance) = await _purchaseService.SendPurchaseRequest(ckey, (int)price);
+        var (success, message, _) = await _purchaseService.SendPurchaseRequest(ckey, (int)price);
 
         if (!success)
         {
@@ -296,7 +301,6 @@ public sealed partial class StoreSystem
             return;
         }
 
-        component.Balance.TryAdd("Orientik", FixedPoint2.New((double)new_balance));
         if (listing.ProductEntity != null)
         {
             var product = Spawn(listing.ProductEntity, Transform(msg.Actor).Coordinates);
