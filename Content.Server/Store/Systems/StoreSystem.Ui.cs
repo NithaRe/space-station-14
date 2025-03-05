@@ -89,7 +89,7 @@ public sealed partial class StoreSystem
     /// <param name="store">The store entity itself</param>
     /// <param name="component">The store component being refreshed.</param>
     /// 
-    /// PR 63 Покупка за ориентики. Модификация офовского метода
+    /// PR 64 Покупка за ориентики. Модификация офовского метода
     public async void UpdateUserInterface(EntityUid? user, EntityUid store, StoreComponent? component = null)
     {
         if (!Resolve(store, ref component))
@@ -140,13 +140,13 @@ public sealed partial class StoreSystem
     /// <summary>
     /// Handles whenever a purchase was made.
     /// </summary>
-    /// PR 63 Покупка за ориентики. Модификация офовского метода
+    /// PR 64 Покупка за ориентики. Модификация офовского метода
     private void OnBuyRequest(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
     {
         _ = ProcessPurchaseAsync(uid, component, msg);
     }
 
-    // PR 63 Покупка за ориентики. Таск для покупок
+    // PR 64 Покупка за ориентики. Таск для покупок
     private async Task ProcessPurchaseAsync(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
     {
         var listing = component.FullListingsCatalog.FirstOrDefault(x => x.ID.Equals(msg.Listing.Id));
@@ -283,7 +283,7 @@ public sealed partial class StoreSystem
         UpdateUserInterface(buyer, uid, component);
     }
 
-    // PR 63 Покупка за ориентики. Таск для покупок
+    // PR 64 Покупка за ориентики. Таск для покупок
     private async Task HandleOrientikPurchaseAsync(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
     {
         var listing = component.FullListingsCatalog.FirstOrDefault(x => x.ID.Equals(msg.Listing.Id));

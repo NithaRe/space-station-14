@@ -9,7 +9,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.IoC;
 using Robust.Shared.Log;
 
-// PR 63 Покупка за ориентики. Класс для работы запросов и ответов бота
+// PR 64 Покупка за ориентики. Класс для работы запросов и ответов бота
 namespace Content.Server._Orienta.Purchase
 {
     public sealed class RequestForBuy : EntitySystem

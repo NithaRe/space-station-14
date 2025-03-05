@@ -15,7 +15,7 @@
     back:
     - BoxSurvivalSyndicate
   inhand:
-    - OrientaLink # PR 63 Покупка за ориентики
+    - OrientaLink # PR 64 Покупка за ориентики
 
 - type: startingGear
   id: SyndicateSmugglerGear
