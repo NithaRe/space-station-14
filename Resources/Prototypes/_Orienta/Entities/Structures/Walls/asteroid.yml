@@ -1,0 +1,46 @@
+# Rocks and ore veins
+- type: entity
+  id: WallRock
+  parent: BaseWall
+  name: rock
+  suffix: planetmap
+  components:
+    - type: Transform
+      noRot: true
+    - type: SoundOnGather
+    - type: Gatherable
+      toolWhitelist:
+        tags:
+          - LegendaryPickaxe
+          - Pickaxe
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: Metallic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 150
+          behaviors:
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+    - type: IconSmooth
+      key: walls
+      mode: NoSprite
+    - type: Icon
+      sprite: Structures/Walls/rock.rsi
+      state: rock
+    - type: MiningScannerViewable
+    - type: SmoothEdge
+    - type: Sprite
+      sprite: Structures/Walls/rock.rsi
+      layers:
+        - state: rock
+        - map: [ "enum.EdgeLayer.South" ]
+          state: rock_south
+        - map: [ "enum.EdgeLayer.East" ]
+          state: rock_east
+        - map: [ "enum.EdgeLayer.North" ]
+          state: rock_north
+        - map: [ "enum.EdgeLayer.West" ]
+          state: rock_west

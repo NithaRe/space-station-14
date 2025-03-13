@@ -125,9 +125,6 @@
     - id: Sledgehammer
       prob: 0.001
       orGroup: Weapons
-    - id: WeaponMeleeToolboxRobust
-      prob: 0.01
-      orGroup: Weapons
     - id: ThrowingStar
       prob: 0.01
       orGroup: Weapons
