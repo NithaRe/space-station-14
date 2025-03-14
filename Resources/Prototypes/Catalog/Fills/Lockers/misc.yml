@@ -151,14 +151,6 @@
       prob: 0.10
       rolls: !type:RangeNumberSelector
         range: 1, 2
-    # Weapons
-    - !type:NestedSelector
-      tableId: MaintWeaponTable
-      prob: 0.075
-    # Syndie Loot
-    - !type:NestedSelector
-      tableId: SyndieMaintLoot
-      prob: 0.05
     # Recursive
     - id: ClosetMaintenanceFilledRandom
       prob: 0.01
