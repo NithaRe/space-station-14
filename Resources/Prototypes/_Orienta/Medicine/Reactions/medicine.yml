@@ -42,7 +42,7 @@
   id: SoretizoneRecipe
   minTemp: 340
   reactants:
-    Bicaridine:
+    Haloperidol:
       amount: 1
     Phenol:
       amount: 1
