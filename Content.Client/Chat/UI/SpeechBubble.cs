@@ -22,6 +22,7 @@ namespace Content.Client.Chat.UI
         public enum SpeechType : byte
         {
             Emote,
+            Do,
             Say,
             Whisper,
             Looc
@@ -65,6 +66,9 @@ namespace Content.Client.Chat.UI
             switch (type)
             {
                 case SpeechType.Emote:
+                    return new TextSpeechBubble(message, senderEntity, "emoteBox");
+
+                case SpeechType.Do:
                     return new TextSpeechBubble(message, senderEntity, "emoteBox");
 
                 case SpeechType.Say:

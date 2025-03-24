@@ -41,6 +41,18 @@ public sealed class EmoteCreatedEvent(EntityUid sender, string message, float ra
 }
 
 /// <summary>
+/// Raised locally when a character Do.
+/// </summary>
+public sealed class DoCreatedEvent(EntityUid sender, string message, float range) : IChatEvent
+{
+    public uint Id { get; set; }
+    public EntityUid Sender { get; set; } = sender;
+    public string Message { get; set; } = message;
+    public MessageType Type => MessageType.Do;
+    public float Range = range;
+}
+
+/// <summary>
 /// Raised locally when a character talks in local.
 /// </summary>
 public sealed class LocalChatCreatedEvent(EntityUid speaker, string message, float range) : IChatEvent

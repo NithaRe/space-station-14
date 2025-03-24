@@ -15,6 +15,7 @@ public sealed partial class ChannelFilterPopup : Popup
         ChatChannel.Local,
         ChatChannel.Whisper,
         ChatChannel.Emotes,
+        ChatChannel.Emotes,
         ChatChannel.Radio,
         ChatChannel.Notifications,
         ChatChannel.LOOC,

@@ -57,6 +57,10 @@ internal sealed class ChatManager : IChatManager
                 _consoleHost.ExecuteCommand($"me \"{CommandParsing.Escape(str)}\"");
                 break;
 
+            case ChatSelectChannel.Do:
+                _consoleHost.ExecuteCommand($"do \"{CommandParsing.Escape(str)}\"");
+                break;
+
             case ChatSelectChannel.Dead:
                 if (_systems.GetEntitySystemOrNull<GhostSystem>() is {IsGhost: true})
                     goto case ChatSelectChannel.Local;

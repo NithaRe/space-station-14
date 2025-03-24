@@ -61,34 +61,39 @@ namespace Content.Shared.Chat
         Emotes = 1 << 9,
 
         /// <summary>
+        ///     Do command Orienta
+        /// </summary>
+        Do = 1 << 10,
+
+        /// <summary>
         ///     Deadchat
         /// </summary>
-        Dead = 1 << 10,
+        Dead = 1 << 11,
 
         /// <summary>
         ///     Misc admin messages
         /// </summary>
-        Admin = 1 << 11,
+        Admin = 1 << 12,
 
         /// <summary>
         ///     Admin alerts, messages likely of elevated importance to admins
         /// </summary>
-        AdminAlert = 1 << 12,
+        AdminAlert = 1 << 13,
 
         /// <summary>
         ///     Admin chat
         /// </summary>
-        AdminChat = 1 << 13,
+        AdminChat = 1 << 14,
 
         /// <summary>
         ///     Unspecified.
         /// </summary>
-        Unspecified = 1 << 14,
+        Unspecified = 1 << 15,
 
         /// <summary>
         ///     Channels considered to be IC.
         /// </summary>
-        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Notifications,
+        IC = Local | Whisper | Radio | Dead | Emotes | Do | Damage | Visual | Notifications,
 
         AdminRelated = Admin | AdminAlert | AdminChat,
     }

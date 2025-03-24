@@ -37,6 +37,8 @@ public enum MessageType : byte
     /// </summary>
     Whisper,
 
+    Do,
+
     #endregion
 
     #region Non-player-sendable types

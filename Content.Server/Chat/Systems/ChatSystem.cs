@@ -1,3 +1,5 @@
+using System;
+using System.Data.SqlTypes;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -34,6 +36,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using YamlDotNet.Core.Tokens;
 
 namespace Content.Server.Chat.Systems;
 
@@ -257,6 +260,9 @@ public sealed partial class ChatSystem : SharedChatSystem
                 break;
             case InGameICChatType.Emote:
                 SendEntityEmote(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);
+                break;
+            case InGameICChatType.Do:
+                SendEntityDo(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);
                 break;
         }
     }
@@ -571,6 +577,55 @@ public sealed partial class ChatSystem : SharedChatSystem
                     _adminLogger.Add(LogType.Chat, LogImpact.Low,
                     $"Whisper from {ToPrettyString(source):user}, original: {originalMessage}, transformed: {message}.");
             }
+    }
+
+    private void SendEntityDo(
+        EntityUid source,
+        string originalMessage,
+        ChatTransmitRange range,
+        string? nameOverride,
+        bool hideLog = false,
+        bool ignoreActionBlocker = false,
+        NetUserId? author = null
+        )
+    {
+        if (!_actionBlocker.CanEmote(source) && !ignoreActionBlocker)
+            return;
+
+        var message = TransformSpeech(source, originalMessage);
+
+        if (message.Length == 0)
+            return;
+
+        var speech = GetSpeechVerb(source, message);
+
+        // get the entity's apparent name (if no override provided).
+        var ent = Identity.Entity(source, EntityManager);
+        string name = FormattedMessage.EscapeText(nameOverride ?? Name(ent));
+
+        name = FormattedMessage.EscapeText(name);
+
+        var wrappedMessage = Loc.GetString("chat-manager-entity-do-wrap-message",
+            ("entityName", name),
+            ("fontType", speech.FontId),
+            ("fontSize", speech.FontSize),
+            ("message", FormattedMessage.EscapeText(message)));
+
+        SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, source, range);
+
+        var ev = new EntitySpokeEvent(source, message, originalMessage, null, null);
+        RaiseLocalEvent(source, ev, true);
+
+        // To avoid logging any messages sent by entities that are not players, like vendors, cloning, etc.
+        // Also doesn't log if hideLog is true.
+        if (!HasComp<ActorComponent>(source) || hideLog)
+            return;
+
+        if (!hideLog)
+            if (name != Name(source))
+                _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Do from {ToPrettyString(source):user} as {name}: {message}");
+            else
+                _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Do from {ToPrettyString(source):user}: {message}");
     }
 
     private void SendEntityEmote(
@@ -975,6 +1030,7 @@ public enum InGameICChatType : byte
 {
     Speak,
     Emote,
+    Do,
     Whisper
 }
 
