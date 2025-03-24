@@ -182,11 +182,7 @@
     - state: icon-tools
   - type: ItemBorgModule
     items:
-    - Crowbar
-    - Wrench
-    - Screwdriver
-    - Wirecutter
-    - Multitool
+    - Omnitool # PR 55 Добавление руки боргам и фикс медицинского борга
     - WelderIndustrial
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: tool-module }
@@ -219,7 +215,7 @@
   - type: ItemBorgModule
     items:
     - MiningDrill
-    - Shovel
+    # - Shovel # PR 55 Добавление руки боргам и фикс медицинского борга
     - MineralScannerUnpowered
     - OreBag
     - Crowbar
@@ -384,7 +380,7 @@
     - Brutepack10Lingering
     - Ointment10Lingering
     - Gauze10Lingering
-    - Bloodpack10Lingering
+    #- Bloodpack10Lingering # PR 55 Добавление руки боргам и фикс медицинского борга
     - Syringe
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: treatment-module }
@@ -471,7 +467,7 @@
     - state: icon-pen
   - type: ItemBorgModule
     items:
-    - Pen
+    # - Pen # PR 55 Добавление руки боргам и фикс медицинского борга
     - BooksBag
     - HandLabeler
     - Lighter

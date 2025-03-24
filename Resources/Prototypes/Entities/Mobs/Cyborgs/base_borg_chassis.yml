@@ -53,6 +53,8 @@
       Dead: BorgDead
     showOverlays: false
     allowRevives: true
+  - type: Body # PR 55 Добавление руки боргам и фикс медицинского борга
+    prototype: Cyborg # PR 55 Добавление руки боргам и фикс медицинского борга
   - type: HealthExaminable
     examinableTypes:
       - Blunt
@@ -140,7 +142,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-  - type: Body
+  # - type: Body # PR 55 Добавление руки боргам и фикс медицинского борга
   - type: StatusEffects
     allowed:
     - Stun

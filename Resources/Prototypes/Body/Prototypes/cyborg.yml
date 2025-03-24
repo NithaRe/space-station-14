@@ -1,0 +1,11 @@
+- type: body # PR 55 Добавление руки боргам и фикс медицинского борга
+  id: Cyborg
+  name: "borg"
+  root: torso
+  slots:
+    torso:
+      part: TorsoBorg
+      connections:
+      - hand 1
+    hand 1:
+      part: RightArmBorg

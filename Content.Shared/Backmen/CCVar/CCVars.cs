@@ -1,4 +1,4 @@
-﻿using Robust.Shared;
+using Robust.Shared;
 using Robust.Shared.Configuration;
 
 namespace Content.Shared.Backmen.CCVar;
@@ -62,6 +62,29 @@ public sealed class CCVars
     /// </summary>
     public static readonly CVarDef<string> DiscordAuthApiKey =
         CVarDef.Create("discord_auth.api_key", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
+    /*
+    * Purchases API
+    */
+
+    /// <summary>
+    ///     Включение/выключение возможности покупать в игре за ориентики
+    /// </summary>
+    public static readonly CVarDef<bool> OrientikApiEnabled =
+            CVarDef.Create("orientik.api_enabled", false, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     URL для purchases API
+    /// </summary>
+    public static readonly CVarDef<string> OrientikApiUrl =
+            CVarDef.Create("orientik.api_url", "", CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Секретный ключ API для покупок
+    /// </summary>
+    public static readonly CVarDef<string> OrientikApiKey =
+            CVarDef.Create("orientik.api_key", "", CVar.SERVERONLY);
+
 
     /**
      * Sponsors

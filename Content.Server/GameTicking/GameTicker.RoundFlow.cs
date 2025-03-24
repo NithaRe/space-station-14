@@ -5,17 +5,20 @@ using Content.Server.GameTicking.Events;
 using Content.Server.Ghost;
 using Content.Server.Maps;
 using Content.Server.Roles;
+using Content.Server.Voting.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
+using Content.Shared.Voting;
 using JetBrains.Annotations;
 using Prometheus;
 using Robust.Server.Maps;
 using Robust.Shared.Asynchronous;
 using Robust.Shared.Audio;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -29,6 +32,8 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly DiscordWebhook _discord = default!;
         [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
+        [Dependency] private readonly IVoteManager _voteManager = default!; // PR 61 Голосование в конце раунда + маппул Ориенты
+        [Dependency] private readonly IConfigurationManager _configurationManager = default!; // PR 62 Фикс проблемы forcemap
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -352,6 +357,9 @@ namespace Content.Server.GameTicking
             {
                 Log.Error($"Error while sending round end Discord message: {e}");
             }
+
+            _configurationManager.SetCVar(CCVars.GameMap, String.Empty); // PR 62 Фикс проблемы forcemap
+            _voteManager.CreateStandardVote(null, StandardVoteType.Map); // PR 61 Голосование в конце раунда + маппул Ориенты
         }
 
         public void ShowRoundEndScoreboard(string text = "")
