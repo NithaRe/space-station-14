@@ -7297,7 +7297,7 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: IFF
-      flags: HideLabel
+      #flags: HideLabel
     - type: RadiationGridResistance
   - uid: 6384
     components:
@@ -53759,6 +53759,13 @@ entities:
     - type: Transform
       pos: 31.5,9.5
       parent: 2
+- proto: SpawnMobBear
+  entities:
+  - uid: 10062
+    components:
+    - type: Transform
+      pos: 7.5,-16.5
+      parent: 9261
 - proto: SpawnMobCatException
   entities:
   - uid: 6854

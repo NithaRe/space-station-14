@@ -2,7 +2,7 @@
   id: Bagel
   mapName: 'Bagel Station'
   mapPath: /Maps/bagel.yml
-  minPlayers: 55 # Corvax-Mapping
+  minPlayers: 0 # PR 61 Голосование в конце раунда + маппул Ориенты
   stations:
     Bagel:
       stationProto: StandardNanotrasenStation

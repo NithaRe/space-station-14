@@ -636,4 +636,18 @@ entities:
     - type: Transform
       pos: 1.3692007,-0.23244199
       parent: 1
+- proto: GasMinerNitrogen #PR 53 Фикс кластера. Добавление консоли шаттла + добавление газодобытчиков на шаттл утилей
+  entities:
+  - uid: 85
+    components:
+    - type: Transform
+      pos: -0.5,1.5
+      parent: 1
+- proto: GasMinerOxygen
+  entities:
+  - uid: 86
+    components:
+    - type: Transform
+      pos: -0.5,-0.5
+      parent: 1
 ...
