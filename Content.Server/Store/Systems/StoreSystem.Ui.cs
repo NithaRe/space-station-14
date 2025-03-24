@@ -1,6 +1,11 @@
+using System;
 using System.Linq;
+using System.Reflection;
+using System.Threading.Tasks;
+using Content.Server._Orienta.Purchase;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
+using Content.Server.Chat.Systems;
 using Content.Server.PDA.Ringer;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
@@ -30,6 +35,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly RequestForBuy _purchaseService = default!;
 
     private void InitializeUi()
     {
@@ -82,34 +88,41 @@ public sealed partial class StoreSystem
     /// <param name="user">The person who if opening the store ui. Listings are filtered based on this.</param>
     /// <param name="store">The store entity itself</param>
     /// <param name="component">The store component being refreshed.</param>
-    public void UpdateUserInterface(EntityUid? user, EntityUid store, StoreComponent? component = null)
+    /// 
+    /// PR 64 Покупка за ориентики. Модификация офовского метода
+    public async void UpdateUserInterface(EntityUid? user, EntityUid store, StoreComponent? component = null)
     {
         if (!Resolve(store, ref component))
             return;
 
-        //this is the person who will be passed into logic for all listing filtering.
-        if (user != null) //if we have no "buyer" for this update, then don't update the listings
+        if (user != null)
         {
             component.LastAvailableListings = GetAvailableListings(component.AccountOwner ?? user.Value, store, component)
                 .ToHashSet();
         }
 
-        //dictionary for all currencies, including 0 values for currencies on the whitelist
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> allCurrency = new();
         foreach (var supported in component.CurrencyWhitelist)
         {
             allCurrency.Add(supported, FixedPoint2.Zero);
 
-            if (component.Balance.TryGetValue(supported, out var value))
-                allCurrency[supported] = value;
+            // Для обычных магазинов или валют, кроме "Orientik", берем баланс из component.Balance
+            if (supported != "Orientik" || !HasComp<OrientaLinkComponent>(store))
+            {
+                if (component.Balance.TryGetValue(supported, out var value))
+                    allCurrency[supported] = value;
+            }
         }
 
-        // TODO: if multiple users are supposed to be able to interact with a single BUI & see different
-        // stores/listings, this needs to use session specific BUI states.
+        // Для Ориенталинка запрашиваем фиктивный баланс "Orientik" через API
+        if (HasComp<OrientaLinkComponent>(store) && user != null && component.CurrencyWhitelist.Contains("Orientik") && TryComp<ActorComponent>(user.Value, out var actor))
+        {
+            var ckey = actor.PlayerSession.Name;
+            var (success, _, balance) = await _purchaseService.GetBalance(ckey);
+            allCurrency["Orientik"] = success ? FixedPoint2.New(balance) : FixedPoint2.Zero;
+        }
 
-        // only tell operatives to lock their uplink if it can be locked
         var showFooter = HasComp<RingerUplinkComponent>(store);
-
         var state = new StoreUpdateState(component.LastAvailableListings, allCurrency, showFooter, component.RefundAllowed);
         _ui.SetUiState(store, StoreUiKey.Key, state);
     }
@@ -127,33 +140,42 @@ public sealed partial class StoreSystem
     /// <summary>
     /// Handles whenever a purchase was made.
     /// </summary>
+    /// PR 64 Покупка за ориентики. Модификация офовского метода
     private void OnBuyRequest(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
     {
-        var listing = component.FullListingsCatalog.FirstOrDefault(x => x.ID.Equals(msg.Listing.Id));
+        _ = ProcessPurchaseAsync(uid, component, msg);
+    }
 
-        if (listing == null) //make sure this listing actually exists
+    // PR 64 Покупка за ориентики. Таск для покупок
+    private async Task ProcessPurchaseAsync(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
+    {
+        var listing = component.FullListingsCatalog.FirstOrDefault(x => x.ID.Equals(msg.Listing.Id));
+        if (listing == null)
         {
             Log.Debug("listing does not exist");
             return;
         }
 
+        if (listing.Cost.ContainsKey("Orientik"))
+        {
+            await HandleOrientikPurchaseAsync(uid, component, msg);
+            return;
+        }
+
+        // Оригинальная синхронная логика для стандартных валют
         var buyer = msg.Actor;
 
-        //verify that we can actually buy this listing and it wasn't added
         if (!ListingHasCategory(listing, component.Categories))
             return;
 
-        //condition checking because why not
         if (listing.Conditions != null)
         {
             var args = new ListingConditionArgs(component.AccountOwner ?? buyer, uid, listing, EntityManager);
             var conditionsMet = listing.Conditions.All(condition => condition.Condition(args));
-
             if (!conditionsMet)
                 return;
         }
 
-        //check that we have enough money
         var cost = listing.Cost;
         foreach (var (currency, amount) in cost)
         {
@@ -164,28 +186,22 @@ public sealed partial class StoreSystem
         }
 
         if (!IsOnStartingMap(uid, component))
-            component.RefundAllowed = false;
+            DisableRefund(uid, component);
 
-        //subtract the cash
         foreach (var (currency, amount) in cost)
         {
             component.Balance[currency] -= amount;
-
             component.BalanceSpent.TryAdd(currency, FixedPoint2.Zero);
-
             component.BalanceSpent[currency] += amount;
         }
 
-        //spawn entity
         if (listing.ProductEntity != null)
         {
             var product = Spawn(listing.ProductEntity, Transform(buyer).Coordinates);
             _hands.PickupOrDrop(buyer, product);
-
             HandleRefundComp(uid, component, product);
 
             var xForm = Transform(product);
-
             if (xForm.ChildCount > 0)
             {
                 var childEnumerator = xForm.ChildEnumerator;
@@ -196,23 +212,17 @@ public sealed partial class StoreSystem
             }
         }
 
-        //give action
         if (!string.IsNullOrWhiteSpace(listing.ProductAction))
         {
             EntityUid? actionId;
-            // I guess we just allow duplicate actions?
-            // Allow duplicate actions and just have a single list buy for the buy-once ones.
             if (!_mind.TryGetMind(buyer, out var mind, out _))
                 actionId = _actions.AddAction(buyer, listing.ProductAction);
             else
                 actionId = _actionContainer.AddAction(mind, listing.ProductAction);
 
-            // Add the newly bought action entity to the list of bought entities
-            // And then add that action entity to the relevant product upgrade listing, if applicable
             if (actionId != null)
             {
                 HandleRefundComp(uid, component, actionId.Value);
-
                 if (listing.ProductUpgradeId != null)
                 {
                     foreach (var upgradeListing in component.FullListingsCatalog)
@@ -233,17 +243,13 @@ public sealed partial class StoreSystem
             {
                 component.BoughtEntities.Remove(listing.ProductActionEntity.Value);
             }
-
             if (!_actionUpgrade.TryUpgradeAction(listing.ProductActionEntity, out var upgradeActionId))
             {
                 if (listing.ProductActionEntity != null)
                     HandleRefundComp(uid, component, listing.ProductActionEntity.Value);
-
                 return;
             }
-
             listing.ProductActionEntity = upgradeActionId;
-
             if (upgradeActionId != null)
                 HandleRefundComp(uid, component, upgradeActionId.Value);
         }
@@ -261,13 +267,11 @@ public sealed partial class StoreSystem
             component.RefundAllowed = false;
         }
 
-        //log dat shit.
-        _admin.Add(LogType.StorePurchase,
-            LogImpact.Low,
+        _admin.Add(LogType.StorePurchase, LogImpact.Low,
             $"{ToPrettyString(buyer):player} purchased listing \"{ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listing, _proto)}\" from {ToPrettyString(uid)}");
 
-        listing.PurchaseAmount++; //track how many times something has been purchased
-        _audio.PlayEntity(component.BuySuccessSound, msg.Actor, uid); //cha-ching!
+        listing.PurchaseAmount++;
+        _audio.PlayEntity(component.BuySuccessSound, msg.Actor, uid);
 
         var buyFinished = new StoreBuyFinishedEvent
         {
@@ -277,6 +281,38 @@ public sealed partial class StoreSystem
         RaiseLocalEvent(ref buyFinished);
 
         UpdateUserInterface(buyer, uid, component);
+    }
+
+    // PR 64 Покупка за ориентики. Таск для покупок
+    private async Task HandleOrientikPurchaseAsync(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
+    {
+        var listing = component.FullListingsCatalog.FirstOrDefault(x => x.ID.Equals(msg.Listing.Id));
+        if (listing == null || !listing.Cost.TryGetValue("Orientik", out var price))
+            return;
+
+        if (!TryComp<ActorComponent>(msg.Actor, out var actorComp))
+        {
+            // Log.Info($"[StoreSystem] Не удалось определить игрока {msg.Actor}");
+            return;
+        }
+
+        var ckey = actorComp.PlayerSession.Name;
+        var (success, message, _) = await _purchaseService.SendPurchaseRequest(ckey, (int)price);
+
+        if (!success)
+        {
+            // Log.Warning($"[StoreSystem] Ошибка покупки для {msg.Actor}: {message}");
+            return;
+        }
+
+        if (listing.ProductEntity != null)
+        {
+            var product = Spawn(listing.ProductEntity, Transform(msg.Actor).Coordinates);
+            _hands.PickupOrDrop(msg.Actor, product);
+        }
+
+        _audio.PlayEntity(component.BuySuccessSound, msg.Actor, uid);
+        UpdateUserInterface(msg.Actor, uid, component);
     }
 
     /// <summary>

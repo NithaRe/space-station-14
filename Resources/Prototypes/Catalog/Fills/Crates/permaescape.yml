@@ -26,9 +26,9 @@
       - ClosetMaintenanceFilledRandom # x3
       - ClosetMaintenanceFilledRandom
       - ClosetMaintenanceFilledRandom
-    rarePrototypes:
-      - MobTick # These need to be killable by one dude with a shovel.
-    rareChance: .30
+    # rarePrototypes: # PR 56 Удаление вероятности появления клеща из набора для побега
+    #   - MobTick # These need to be killable by one dude with a shovel.
+    # rareChance: .30
     chance: 1
     offset: 0.0
 
@@ -82,7 +82,7 @@
         prob: 0.25
       - id: OxygenTankFilled
         prob: 0.05
-        
+
 - type: entity
   id: CratePermaEscapeGun
   parent: CrateGenericSteel

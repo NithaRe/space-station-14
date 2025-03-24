@@ -24,11 +24,12 @@
 
 - type: entity
   parent: [ BaseItem, StorePresetOrientaLink ]
-  id: OrientaLink10
+  id: OrientaLink
   name: ориенталинк
   description: Радио для самых-самых модных!
-  suffix: 10ORNT
+  suffix: ORNT
   components:
+  - type: OrientaLink # Покупка за ориентики
   - type: Sprite
     sprite: _Orienta/Sponsors/Orientalink/radio.rsi
     layers:
@@ -45,82 +46,82 @@
   - type: Store
     preset: StorePresetOrientaLink
     balance:
-      Orientik: 10
+      Orientik: 0
 
-- type: entity
-  parent: [ BaseItem, StorePresetOrientaLink ]
-  id: OrientaLink20
-  name: ориенталинк
-  description: Радио для самых-самых модных!
-  suffix: 20ORNT
-  components:
-  - type: Sprite
-    sprite: _Orienta/Sponsors/Orientalink/radio.rsi
-    layers:
-    - state: old-radio
-  - type: Item
-    sprite: _Orienta/Sponsors/Orientalink/radio.rsi
-    heldPrefix: old-radio
-  - type: UserInterface
-    interfaces:
-      enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
-  - type: ActivatableUI
-    key: enum.StoreUiKey.Key
-  - type: Store
-    preset: StorePresetOrientaLink
-    balance:
-      Orientik: 20
+# - type: entity
+#   parent: [ BaseItem, StorePresetOrientaLink ]
+#   id: OrientaLink20
+#   name: ориенталинк
+#   description: Радио для самых-самых модных!
+#   suffix: 20ORNT
+#   components:
+#   - type: Sprite
+#     sprite: _Orienta/Sponsors/Orientalink/radio.rsi
+#     layers:
+#     - state: old-radio
+#   - type: Item
+#     sprite: _Orienta/Sponsors/Orientalink/radio.rsi
+#     heldPrefix: old-radio
+#   - type: UserInterface
+#     interfaces:
+#       enum.StoreUiKey.Key:
+#         type: StoreBoundUserInterface
+#   - type: ActivatableUI
+#     key: enum.StoreUiKey.Key
+#   - type: Store
+#     preset: StorePresetOrientaLink
+#     balance:
+#       Orientik: 20
 
-- type: entity
-  parent: [ BaseItem, StorePresetOrientaLink ]
-  id: OrientaLink40
-  name: ориенталинк
-  description: Радио для самых-самых модных!
-  suffix: 40ORNT
-  components:
-  - type: Sprite
-    sprite: _Orienta/Sponsors/Orientalink/radio.rsi
-    layers:
-    - state: old-radio
-  - type: Item
-    sprite: _Orienta/Sponsors/Orientalink/radio.rsi
-    heldPrefix: old-radio
-  - type: UserInterface
-    interfaces:
-      enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
-  - type: ActivatableUI
-    key: enum.StoreUiKey.Key
-  - type: Store
-    preset: StorePresetOrientaLink
-    balance:
-      Orientik: 40
+# - type: entity
+#   parent: [ BaseItem, StorePresetOrientaLink ]
+#   id: OrientaLink40
+#   name: ориенталинк
+#   description: Радио для самых-самых модных!
+#   suffix: 40ORNT
+#   components:
+#   - type: Sprite
+#     sprite: _Orienta/Sponsors/Orientalink/radio.rsi
+#     layers:
+#     - state: old-radio
+#   - type: Item
+#     sprite: _Orienta/Sponsors/Orientalink/radio.rsi
+#     heldPrefix: old-radio
+#   - type: UserInterface
+#     interfaces:
+#       enum.StoreUiKey.Key:
+#         type: StoreBoundUserInterface
+#   - type: ActivatableUI
+#     key: enum.StoreUiKey.Key
+#   - type: Store
+#     preset: StorePresetOrientaLink
+#     balance:
+#       Orientik: 40
 
-- type: entity
-  parent: [ BaseItem, StorePresetOrientaLink ]
-  id: OrientaLink80
-  name: ориенталинк
-  description: Радио для самых-самых модных!
-  suffix: 80ORNT
-  components:
-  - type: Sprite
-    sprite: _Orienta/Sponsors/Orientalink/radio.rsi
-    layers:
-    - state: old-radio
-  - type: Item
-    sprite: _Orienta/Sponsors/Orientalink/radio.rsi
-    heldPrefix: old-radio
-  - type: UserInterface
-    interfaces:
-      enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
-  - type: ActivatableUI
-    key: enum.StoreUiKey.Key
-  - type: Store
-    preset: StorePresetOrientaLink
-    balance:
-      Orientik: 80
+# - type: entity
+#   parent: [ BaseItem, StorePresetOrientaLink ]
+#   id: OrientaLink80
+#   name: ориенталинк
+#   description: Радио для самых-самых модных!
+#   suffix: 80ORNT
+#   components:
+#   - type: Sprite
+#     sprite: _Orienta/Sponsors/Orientalink/radio.rsi
+#     layers:
+#     - state: old-radio
+#   - type: Item
+#     sprite: _Orienta/Sponsors/Orientalink/radio.rsi
+#     heldPrefix: old-radio
+#   - type: UserInterface
+#     interfaces:
+#       enum.StoreUiKey.Key:
+#         type: StoreBoundUserInterface
+#   - type: ActivatableUI
+#     key: enum.StoreUiKey.Key
+#   - type: Store
+#     preset: StorePresetOrientaLink
+#     balance:
+#       Orientik: 80
 
 - type: entity
   id: StorePresetOrientaLink

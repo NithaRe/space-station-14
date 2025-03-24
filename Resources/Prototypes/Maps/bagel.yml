@@ -2,7 +2,7 @@
   id: Bagel
   mapName: 'Bagel Station'
   mapPath: /Maps/bagel.yml
-  minPlayers: 55 # Corvax-Mapping
+  minPlayers: 0 # PR 61 Голосование в конце раунда + маппул Ориенты
   stations:
     Bagel:
       stationProto: StandardNanotrasenStation
@@ -18,7 +18,7 @@
           availableJobs:
             #command
             Captain: [ 1, 1 ]
-            # IAA: [ 1, 1 ] # Corvax-IAA # PR 48 Добавление голопадов и фикс роли ИИ
+            IAA: [ 1, 1 ] # Corvax-IAA # PR 52 Возвращение АВД
             #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 2 ]
