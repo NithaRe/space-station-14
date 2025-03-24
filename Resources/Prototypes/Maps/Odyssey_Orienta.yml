@@ -3,7 +3,7 @@
   mapName: 'Odyssey'
   mapPath: /Maps/Odyssey_Orienta.yml
   minPlayers: 0
-  # maxPlayers: 60 # PR 61 Голосование в конце раунда + маппул Ориенты
+  maxPlayers: 60
   stations:
     Odyssey:
       stationProto: StandardNanotrasenStation
@@ -39,13 +39,10 @@
             Chemist: [ 1, 1 ]
             MedicalDoctor: [ 2, 2 ]
             MedicalIntern: [ 2, 2 ]
-            Psychiatrist: [ 2, 2 ]
-            MedBrother: [ 2, 2 ]
             #science
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 3, 3 ]
             ResearchAssistant: [ 2, 2 ]
-            StationAi: [ 1, 1 ]
             Borg: [ 1, 1 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
@@ -62,3 +59,4 @@
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
+
