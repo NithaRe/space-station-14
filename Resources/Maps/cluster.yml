@@ -34538,13 +34538,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 33.5,-9.5
       parent: 1
-- proto: FireAxeFlaming
-  entities:
-  - uid: 12607
-    components:
-    - type: Transform
-      pos: -18.368916,-30.771246
-      parent: 1
 - proto: FireExtinguisher
   entities:
   - uid: 6334
@@ -67807,18 +67800,6 @@ entities:
     - type: Transform
       pos: 24.5,32.5
       parent: 1
-- proto: SpeedLoaderMagnum
-  entities:
-  - uid: 5666
-    components:
-    - type: Transform
-      pos: -21.464558,-29.217312
-      parent: 1
-  - uid: 9518
-    components:
-    - type: Transform
-      pos: -23.26796,-29.328484
-      parent: 1
 - proto: Spoon
   entities:
   - uid: 5986
@@ -80492,12 +80473,12 @@ entities:
     - type: Transform
       pos: 29.446836,16.541578
       parent: 1
-- proto: WeaponRevolverPython
+- proto: WeaponRifleFoam
   entities:
   - uid: 7289
     components:
     - type: Transform
-      pos: -21.482328,-29.482763
+      pos: -18.489136,-30.503914
       parent: 1
 - proto: WeaponRifleLecter
   entities:
