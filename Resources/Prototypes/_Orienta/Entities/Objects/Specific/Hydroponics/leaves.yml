@@ -1,0 +1,79 @@
+- type: entity
+  name: Сушёные листья улун
+  parent: ProduceBase
+  id: LeavesTeaUlunDried
+  description: "Высушенные чайные листья улун, готовые к измельчению."
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: TeaPowderUlun
+          Quantity: 5
+  - type: Sprite
+    sprite: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_ulun.rsi
+    state: dried
+
+- type: entity
+  name: Сушёные листья чёрного чая
+  parent: ProduceBase
+  id: LeavesTeaBlackDried
+  description: "Высушенные чайные листья чёрного чая, готовые к измельчению."
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: TeaPowderBlack
+          Quantity: 5
+  - type: Sprite
+    sprite: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_black.rsi
+    state: dried
+
+- type: entity
+  name: Сушёные листья белого чая
+  parent: ProduceBase
+  id: LeavesTeaWhiteDried
+  description: "Высушенные чайные листья белого чая, готовые к измельчению."
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: TeaPowderWhite
+          Quantity: 5
+  - type: Sprite
+    sprite: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_white.rsi
+    state: dried
+
+- type: entity
+  name: Сушёные листья травяного чая
+  parent: ProduceBase
+  id: LeavesTeaHerbalDried
+  description: "Высушенные листья травяного чая, готовые к измельчению."
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: TeaPowderHerbal
+          Quantity: 5
+  - type: Sprite
+    sprite: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_herbal.rsi
+    state: dried
+
+- type: entity
+  name: Сушёные листья пуэра
+  parent: ProduceBase
+  id: LeavesTeaPuErhDried
+  description: "Высушенные чайные листья пуэра, готовые к измельчению."
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: TeaPowderPuErh
+          Quantity: 5
+  - type: Sprite
+    sprite: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_puerh.rsi
+    state: dried

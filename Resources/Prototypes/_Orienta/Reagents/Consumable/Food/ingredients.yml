@@ -1,0 +1,84 @@
+- type: reagent
+  id: TeaPowderUlun
+  name: Высушенные чайные листья улун
+  desc: reagent-desc-tea-powder-ulun
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: tea
+  color: "#8B5A2B"  # Коричневатый оттенок улуна
+  group: Foods
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateThirst
+        factor: -0.2
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.1
+
+- type: reagent
+  id: TeaPowderBlack
+  name: Высушенные чайные листья (чёрный)
+  desc: reagent-desc-tea-powder-black
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: tea
+  color: "#3B2F2F"  # Тёмно-коричневый оттенок чёрного чая
+  group: Foods
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateThirst
+        factor: -0.3
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.15
+
+- type: reagent
+  id: TeaPowderWhite
+  name: Высушенные чайные листья (белый)
+  desc: reagent-desc-tea-powder-white
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: tea
+  color: "#DCDCDC"  # Светлый оттенок белого чая
+  group: Foods
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateThirst
+        factor: -0.1
+      - !type:AdjustReagent
+        reagent: Vitamin
+        amount: 0.2
+
+- type: reagent
+  id: TeaPowderHerbal
+  name: Высушенные травяные листья (травяной)
+  desc: reagent-desc-tea-powder-herbal
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: tea
+  color: "#6B8E23"  # Зеленовато-жёлтый оттенок травяного чая
+  group: Foods
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateThirst
+        factor: -0.15
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.05
+
+- type: reagent
+  id: TeaPowderPuErh
+  name: Высушенные чайные листья (пуэр)
+  desc: reagent-desc-tea-powder-puerh
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: tea
+  color: "#5C4033"  # Тёмно-коричневый оттенок пуэра
+  group: Foods
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateThirst
+        factor: -0.25
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.2

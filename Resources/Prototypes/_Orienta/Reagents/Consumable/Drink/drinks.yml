@@ -1,0 +1,316 @@
+- type: reagent
+  id: TeaUlun
+  name: чай улун
+  parent: BaseDrink
+  desc: чай улун
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: tea
+  color: "#a97c50"  # Цвет чая улун
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Vitamin
+        amount: 0.4  # Лечит немного.
+      - !type:SatiateHunger
+        factor: 0.2  # Допустим, улун слегка насыщает
+#Должен быть код который будет немного убирать радиацию
+        
+
+- type: reagent
+  id: TeaBlack
+  name: чёрный чай
+  parent: BaseDrink
+  desc: Крепкий чёрный чай, бодрящий и насыщенный.
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: tea
+  color: "#6f4e37"  # Тёмный цвет чёрного чая
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.3  # Чёрный чай даёт больше бодрости
+      - !type:SatiateHunger
+        factor: 0.7  # Чуть насыщает
+
+- type: reagent
+  id: TeaWhite
+  name: белый чай
+  parent: BaseDrink
+  desc: Лёгкий и изысканный белый чай.
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: tea
+  color: "#ede6cf"  # Светлый цвет белого чая
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2.5  # Хорошо утоляет жажду
+      - !type:AdjustReagent
+        reagent: Iron
+        amount: 0.1  # Восстанавливает кровь в теле
+      - !type:SatiateHunger
+        factor: 0.1
+      - !type:ModifyBleedAmount # Убирает кровотечение
+        amount: -0.2
+
+- type: reagent
+  id: TeaHerbal
+  name: травяной чай
+  parent: BaseDrink
+  desc: Чай на основе трав, без кофеина.
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: herbal
+  color: "#d4a373"  # Золотистый оттенок
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3  # Лучшая утоление жажды
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -0.3 # Выводит чуток ядов
+
+- type: reagent
+  id: TeaPuErh
+  name: чай пуэр
+  parent: BaseDrink
+  desc: Мощный, выдержанный чай с землистым вкусом.
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: tea
+  color: "#3f2a14"  # Тёмный оттенок пуэра
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.08
+      - !type:SatiateHunger
+        factor: 0.4  # Пуэр питательнее обычного чая
+      - !type:MovespeedModifier
+      walkSpeedModifier: 1.5 # Увеличивает скорость на 10%
+      sprintSpeedModifier: 1.5 # Увеличивает скорость на 10%
+      duration: 10  # Длится 10 секунд
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkTeaUlunGlass
+  suffix: tea ulun
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TeaUlun
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/teaglass.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkTeapotUlun
+  name: Чайник (чай улун)
+  description: A teapot filled with fine oolong tea.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: TeaUlun
+          Quantity: 100
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/teapot.rsi
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkTeaBlackGlass
+  suffix: tea black
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TeaBlack
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/teaglass.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkTeaWhiteGlass
+  suffix: tea white
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TeaWhite
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/teaglass.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkTeaHerbalGlass
+  suffix: tea herbal
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TeaHerbal
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/teaglass.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkTeaPuErhGlass
+  suffix: tea pu-erh
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TeaPuErh
+          Quantity: 30
+  - type: Icon
+    sprite: Objects/Consumable/Drinks/teaglass.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkTeapotBlack
+  name: Чайник (чёрный чай)
+  description: A teapot filled with fine black tea.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: TeaBlack
+          Quantity: 100
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/teapot.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkTeapotWhite
+  name: Чайник (белый чай)
+  description: A teapot filled with delicate white tea.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: TeaWhite
+          Quantity: 100
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/teapot.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkTeapotHerbal
+  name: Чайник (травяной чай)
+  description: A teapot filled with fragrant herbal tea.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: TeaHerbal
+          Quantity: 100
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/teapot.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkTeapotPuErh
+  name: Чайник (пуэр)
+  description: A teapot filled with aged pu-erh tea.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 100
+        reagents:
+        - ReagentId: TeaPuErh
+          Quantity: 100
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/teapot.rsi
+
+- type: reaction
+  id: TeaUlun
+  reactants:
+    TeaPowderUlun:
+      amount: 1
+    Water:
+      amount: 5
+  products:
+    TeaUlun: 6
+
+- type: reaction
+  id: TeaBlack
+  reactants:
+    TeaPowderBlack:
+      amount: 1
+    Water:
+      amount: 5
+  products:
+    TeaBlack: 6
+
+- type: reaction
+  id: TeaWhite
+  reactants:
+    TeaPowderWhite:
+      amount: 1
+    Water:
+      amount: 5
+  products:
+    TeaWhite: 6
+
+- type: reaction
+  id: TeaHerbal
+  reactants:
+    TeaPowderHerbal:
+      amount: 1
+    Water:
+      amount: 5
+  products:
+    TeaHerbal: 6
+
+- type: reaction
+  id: TeaPuErh
+  reactants:
+    TeaPowderPuErh:
+      amount: 1
+    Water:
+      amount: 5
+  products:
+    TeaPuErh: 6

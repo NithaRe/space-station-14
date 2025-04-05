@@ -1,0 +1,182 @@
+- type: entity
+  parent: SeedBase
+  name: пакет семян (чайный куст улун)
+  id: TeaPlantUlunSeeds
+  components:
+    - type: Seed
+      seedId: teaPlantUlun
+    - type: Sprite
+      sprite: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_ulun.rsi
+
+- type: seed
+  id: teaPlantUlun
+  name: чайный куст улун
+  noun: seeds-noun-seeds
+  displayName: чайный куст улун
+  plantRsi: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_ulun.rsi
+  packetPrototype: TeaPlantUlunSeeds
+  productPrototypes:
+    - LeavesTeaUlun
+  harvestRepeat: Repeat
+  lifespan: 75
+  maturation: 5
+  production: 3
+  yield: 3
+  potency: 30
+  growthStages: 5
+  waterConsumption: 0.6
+  idealLight: 9
+  idealHeat: 298
+  chemicals:
+    Vitamin:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20
+
+- type: entity
+  parent: SeedBase
+  name: пакет семян (чайный куст чёрного чая)
+  id: TeaPlantBlackSeeds
+  components:
+    - type: Seed
+      seedId: teaPlantBlack
+    - type: Sprite
+      sprite: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_black.rsi
+
+- type: seed
+  id: teaPlantBlack
+  name: чайный куст чёрного чая
+  noun: seeds-noun-seeds
+  displayName: чайный куст чёрного чая
+  plantRsi: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_black.rsi
+  packetPrototype: TeaPlantBlackSeeds
+  productPrototypes:
+    - LeavesTeaBlack
+  harvestRepeat: Repeat
+  lifespan: 80
+  maturation: 6
+  production: 3
+  yield: 3
+  potency: 30
+  growthStages: 5
+  waterConsumption: 0.7
+  idealLight: 10
+  idealHeat: 298
+  chemicals:
+    Caffeine:
+      Min: 1
+      Max: 6
+      PotencyDivisor: 20
+
+- type: entity
+  parent: SeedBase
+  name: пакет семян (чайный куст белого чая)
+  id: TeaPlantWhiteSeeds
+  components:
+    - type: Seed
+      seedId: teaPlantWhite
+    - type: Sprite
+      sprite: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_white.rsi
+
+- type: seed
+  id: teaPlantWhite
+  name: чайный куст белого чая
+  noun: seeds-noun-seeds
+  displayName: чайный куст белого чая
+  plantRsi: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_white.rsi
+  packetPrototype: TeaPlantWhiteSeeds
+  productPrototypes:
+    - LeavesTeaWhite
+  harvestRepeat: Repeat
+  lifespan: 85
+  maturation: 5
+  production: 3
+  yield: 3
+  potency: 30
+  growthStages: 5
+  waterConsumption: 0.5
+  idealLight: 9
+  idealHeat: 297
+  chemicals:
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 20
+    Caffeine:
+      Min: 1
+      Max: 3
+      PotencyDivisor: 20
+
+- type: entity
+  parent: SeedBase
+  name: пакет семян (чайный куст травяного чая)
+  id: TeaPlantHerbalSeeds
+  components:
+    - type: Seed
+      seedId: teaPlantHerbal
+    - type: Sprite
+      sprite: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_herbal.rsi
+
+- type: seed
+  id: teaPlantHerbal
+  name: чайный куст травяного чая
+  noun: seeds-noun-seeds
+  displayName: чайный куст травяного чая
+  plantRsi: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_herbal.rsi
+  packetPrototype: TeaPlantHerbalSeeds
+  productPrototypes:
+    - LeavesTeaHerbal
+  harvestRepeat: Repeat
+  lifespan: 70
+  maturation: 4
+  production: 3
+  yield: 4
+  potency: 35
+  growthStages: 5
+  waterConsumption: 0.6
+  idealLight: 8
+  idealHeat: 295
+  chemicals:
+    Vitamin:
+      Min: 2
+      Max: 5
+      PotencyDivisor: 18
+
+- type: entity
+  parent: SeedBase
+  name: пакет семян (чайный куст пуэра)
+  id: TeaPlantPuErhSeeds
+  components:
+    - type: Seed
+      seedId: teaPlantPuErh
+    - type: Sprite
+      sprite: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_puerh.rsi
+
+- type: seed
+  id: teaPlantPuErh
+  name: чайный куст пуэра
+  noun: seeds-noun-seeds
+  displayName: чайный куст пуэра
+  plantRsi: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_puerh.rsi
+  packetPrototype: TeaPlantPuErhSeeds
+  productPrototypes:
+    - LeavesTeaPuErh
+  harvestRepeat: Repeat
+  lifespan: 90
+  maturation: 7
+  production: 3
+  yield: 3
+  potency: 25
+  growthStages: 5
+  waterConsumption: 0.8
+  idealLight: 10
+  idealHeat: 299
+  chemicals:
+    Caffeine:
+      Min: 2
+      Max: 7
+      PotencyDivisor: 18
+    Tannin:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 22
