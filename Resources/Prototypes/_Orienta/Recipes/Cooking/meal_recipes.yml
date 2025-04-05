@@ -1,0 +1,39 @@
+- type: microwaveMealRecipe
+  id: RecipeLeavesTeaUlunDried
+  name: dried tea ulun leaves recipe
+  result: LeavesTeaUlunDried
+  time: 20
+  solids:
+    LeavesTeaUlun: 1
+
+- type: microwaveMealRecipe
+  id: RecipeLeavesTeaBlackDried
+  name: dried black tea leaves recipe
+  result: LeavesTeaBlackDried
+  time: 25
+  solids:
+    LeavesTeaBlack: 1
+
+- type: microwaveMealRecipe
+  id: RecipeLeavesTeaWhiteDried
+  name: dried white tea leaves recipe
+  result: LeavesTeaWhiteDried
+  time: 15
+  solids:
+    LeavesTeaWhite: 1
+
+- type: microwaveMealRecipe
+  id: RecipeLeavesTeaHerbalDried
+  name: dried herbal tea leaves recipe
+  result: LeavesTeaHerbalDried
+  time: 10
+  solids:
+    LeavesTeaHerbal: 1
+
+- type: microwaveMealRecipe
+  id: RecipeLeavesTeaPuErhDried
+  name: dried pu-erh tea leaves recipe
+  result: LeavesTeaPuErhDried
+  time: 30
+  solids:
+    LeavesTeaPuErh: 1

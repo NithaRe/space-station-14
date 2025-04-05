@@ -1,0 +1,88 @@
+- type: entity
+  name: Листья чая Улун
+  parent: ProduceBase
+  id: LeavesTeaUlun
+  description: "Можно сушить и ферментировать для приготовления Чая Улун."
+  components:
+  - type: Sprite
+    sprite: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_ulun.rsi
+  - type: Produce
+    seedId: TeaPlantUlun
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Vitamin
+          Quantity: 2
+
+- type: entity
+  name: Листья чёрного чая
+  parent: ProduceBase
+  id: LeavesTeaBlack
+  description: "Можно сушить и ферментировать для приготовления Чёрного чая."
+  components:
+  - type: Sprite
+    sprite: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_black.rsi
+  - type: Produce
+    seedId: TeaPlantBlack
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Theobromine
+          Quantity: 2
+
+- type: entity
+  name: Листья белого чая
+  parent: ProduceBase
+  id: LeavesTeaWhite
+  description: "Можно сушить и ферментировать для приготовления Белого чая."
+  components:
+  - type: Sprite
+    sprite: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_white.rsi
+  - type: Produce
+    seedId: TeaPlantWhite
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: Theobromine
+          Quantity: 1
+
+- type: entity
+  name: Листья травяного чая
+  parent: ProduceBase
+  id: LeavesTeaHerbal
+  description: "Можно сушить и ферментировать для приготовления Травяного чая."
+  components:
+  - type: Sprite
+    sprite: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_herbal.rsi
+  - type: Produce
+    seedId: TeaPlantHerbal
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Vitamin
+          Quantity: 3
+
+- type: entity
+  name: Листья пуэра
+  parent: ProduceBase
+  id: LeavesTeaPuErh
+  description: "Можно сушить и ферментировать для приготовления Пуэра."
+  components:
+  - type: Sprite
+    sprite: _Orienta/Entities/Objects/Specific/Hydroponics/tea_plant_puerh.rsi
+  - type: Produce
+    seedId: TeaPlantPuErh
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Theobromine
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 2
